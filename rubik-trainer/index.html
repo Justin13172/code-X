@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>三阶魔方 · 1 小时入门（理解 + 动态演示）</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>三阶魔方 · 1 小时入门</h1>
+    <div class="route">
+      <span>学习路线</span>
+      <ol id="route">
+        <li data-k="0">认识魔方</li>
+        <li data-k="1">转动记号</li>
+        <li data-k="2">白十字 + 白角</li>
+        <li data-k="3">中层</li>
+        <li data-k="4">黄色顶层</li>
+        <li data-k="5">打乱实战</li>
+      </ol>
+    </div>
+  </header>
+
+  <main>
+    <section id="stage">
+      <div id="cube"></div>
+      <div id="subtitle" class="subtitle">选择左侧任意一节课，点「播放演示」开始。也可以直接拖动魔方换角度。</div>
+      <div id="manual">
+        <div class="manual-row" id="manual-faces"></div>
+        <div class="manual-row">
+          <button data-act="speed" class="ghost">速度：正常</button>
+          <button data-act="resetView" class="ghost">复位视角</button>
+          <button data-act="solved" class="ghost">恢复成已还原</button>
+        </div>
+      </div>
+    </section>
+
+    <aside id="panel">
+      <div class="tabs">
+        <button class="tab active" data-tab="learn">学习模式</button>
+        <button class="tab" data-tab="practice">练习模式</button>
+      </div>
+
+      <div id="learn" class="tabpane active">
+        <select id="lesson-select"></select>
+        <div id="principle"></div>
+        <div class="demo-bar">
+          <button id="play-demo" class="primary">▶ 播放本节演示</button>
+          <button id="next-beat" class="ghost">下一拍 ›</button>
+        </div>
+        <div class="nav">
+          <button id="prev-lesson" class="ghost">‹ 上一节</button>
+          <button id="next-lesson" class="ghost">下一节 ›</button>
+        </div>
+      </div>
+
+      <div id="practice" class="tabpane">
+        <p class="hint">点「打乱」生成一个随机打乱，然后让工具<b>自动演示</b>，或选「跟我练」一步步跟着转。</p>
+        <div class="demo-bar">
+          <button id="scramble" class="primary">🎲 打乱</button>
+          <button id="auto-solve" class="ghost">自动演示复原</button>
+        </div>
+        <div class="demo-bar">
+          <button id="follow" class="ghost">跟我练（逐步）</button>
+          <button id="next-step" class="ghost" disabled>下一步 ›</button>
+        </div>
+        <div id="practice-status" class="pstatus"></div>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
