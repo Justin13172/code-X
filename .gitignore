@@ -1,0 +1,2 @@
+# 仓库里已存在的 zip 包在容器启动时被解压出的目录，无需纳入版本管理
+/Claude-claude-check-webpage-readability-n4unB/
