@@ -49,6 +49,7 @@
 | 文件 | 内容 |
 |---|---|
 | [02-now-12-24m.md](02-now-12-24m.md) · **现在做什么** | 12–24 月龄行动清单：三个梯队 + 发育预警信号 + 明确的「别做」清单 |
+| [06-feeding-allergy.md](06-feeding-allergy.md) · **喂养、生长与过敏** | ⚠️ **小狮子专篇，基于实测数据。**体重下滑的归因与能量核算、过敏原报告怎么读、鸡蛋与海鲜的具体处置、门诊清单。**与 02 冲突时以本篇为准** |
 | [03-open-questions.md](03-open-questions.md) · **争议区** | 8 个科学界尚无定论的问题，以及不确定下如何决策 |
 | [04-grandparent-care.md](04-grandparent-care.md) · **隔代抚养** | 必须坚持 / 主动让步 / 如何纠正，以及沟通方式 |
 | [05-roadmap.md](05-roadmap.md) · **路线图** | 2 岁以后要重新求证的问题清单（**故意不写结论**） |
@@ -57,9 +58,10 @@
 
 | 文件 | 内容 |
 |---|---|
-| [live/profile.md](live/profile.md) | 小狮子的档案。**当前是待填问卷，请先填这个** |
+| [live/records.md](live/records.md) | ⚠️ **原始记录存档**：生长序列、化验数值、奶粉成分、辅食周表、用药与疫苗。**所有实测数据的唯一来源，正文各处引用一律链回这里** |
+| [live/profile.md](live/profile.md) | 小狮子的档案（主体已填，2026-08-03） |
 | [live/decisions.md](live/decisions.md) | 决策日志：做过什么判断、依据、当时的不确定性 |
-| [live/questions.md](live/questions.md) | 双向问题队列 |
+| [live/questions.md](live/questions.md) | 双向问题队列 + **2026-08-13 门诊清单** |
 
 ---
 

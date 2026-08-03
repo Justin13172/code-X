@@ -395,6 +395,34 @@ h2.sec{
   border-left:3px solid var(--accent); background:var(--accent-soft);
   padding:13px 15px; border-radius:0 8px 8px 0; font-size:14px; line-height:1.72;
 }
+.callout.warn{border-left-color:var(--critical); background:var(--critical-soft);}
+
+/* ============ data tables (他的数据) ============ */
+.tw{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0 -15px; padding:0 15px;}
+table.dt{border-collapse:collapse; width:100%; min-width:min-content; font-size:13px;}
+table.dt th,table.dt td{
+  padding:7px 10px; text-align:left; border-bottom:1px solid var(--rule-soft);
+  line-height:1.5; white-space:nowrap;
+}
+table.dt th{font-size:11.5px; font-weight:700; color:var(--ink-3); letter-spacing:.03em; text-transform:uppercase;}
+table.dt td.n{font-family:var(--font-mono); font-variant-numeric:tabular-nums;}
+table.dt td.wrap{white-space:normal; min-width:14ch;}
+table.dt tr:last-child td{border-bottom:0;}
+table.dt tr.hi td{background:var(--critical-soft); font-weight:650;}
+table.dt tr.ok td{background:var(--calm-soft);}
+.pill{
+  display:inline-block; padding:1px 7px; border-radius:99px;
+  font-size:11px; font-weight:700; font-family:var(--font-mono);
+}
+.pill.neg{background:var(--calm-soft); color:var(--calm);}
+.pill.pos{background:var(--critical-soft); color:var(--critical);}
+.pill.up {background:var(--caution-soft); color:var(--caution);}
+.kv{display:grid; grid-template-columns:1fr auto; gap:5px 12px; font-size:13.5px; line-height:1.6;}
+.kv .k{color:var(--ink-2);}
+.kv .v{font-family:var(--font-mono); font-variant-numeric:tabular-nums; font-weight:650; text-align:right; white-space:nowrap;}
+.kv .v.bad{color:var(--critical);}
+.kv .v.good{color:var(--calm);}
+.kv hr{grid-column:1/-1; border:0; border-top:1px solid var(--rule-soft); margin:3px 0;}
 .callout b{font-weight:700;}
 .big{
   font-size:19px; font-weight:700; line-height:1.5; letter-spacing:-.02em;
@@ -433,6 +461,7 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
     </div>
     <nav class="tabs" role="tablist" aria-label="视图">
       <button class="tab" role="tab" aria-selected="true"  data-view="do">现在做什么</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="lion">他的数据</button>
       <button class="tab" role="tab" aria-selected="false" data-view="judge">该不该信</button>
       <button class="tab" role="tab" aria-selected="false" data-view="lookup">速查</button>
       <button class="tab" role="tab" aria-selected="false" data-view="why">原理</button>
@@ -548,6 +577,185 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
 </section>
 
 <!-- ══════════════ 2 · 该不该信 ══════════════ -->
+<!-- ══════════════ 1.5 · 他的数据 ══════════════ -->
+<section class="view" id="v-lion" role="tabpanel" aria-label="他的数据">
+  <div class="stack">
+
+    <div>
+      <h2 class="sec">他的数据</h2>
+      <p class="sec-note">基于 2026-08-03 家长提供的化验单、三次儿保报告、完整生长记录、疫苗档案、辅食周表与奶粉成分表。原始数值存档在 <span style="font-family:var(--font-mono);font-size:12.5px;">live/records.md</span>。</p>
+    </div>
+
+    <div class="callout warn">
+      <b>一句话：发育正常、疫苗齐全、湿疹已控制。当前唯一真问题是体重——2.3 个月里百分位从 53.8% 掉到 28.8%。</b><br>
+      主因不是忌口、也不是药物，是<b>辅食能量密度太低</b>：稀到勺子舀起来会滴水、每天只有 2 顿、油只有几滴。
+    </div>
+
+    <!-- ── 体重 ── -->
+    <div class="card">
+      <h3>体重走势</h3>
+      <div class="kv" style="margin-bottom:11px;">
+        <span class="k">当前（2026-08-01，11 月 19 天）</span><span class="v">9.0 kg · 28.8%</span>
+        <span class="k">峰值（2026-05-24，9 月 11 天）</span><span class="v">9.1 kg · 53.8%</span>
+        <hr>
+        <span class="k">百分位跌幅</span><span class="v bad">−25 点 ≈ 0.66 z</span>
+        <span class="k">4/17 → 8/1（3.5 个月）实际增重</span><span class="v bad">+0.2 kg</span>
+        <span class="k">同期应增重</span><span class="v">约 +1.0 kg</span>
+      </div>
+      <div class="tw">
+        <table class="dt">
+          <tr><th>日期</th><th>月龄</th><th>体重</th><th>百分位</th><th>来源</th></tr>
+          <tr><td class="n">03-13</td><td class="n">7.0 月</td><td class="n">8.2</td><td class="n">45.9%</td><td>医院</td></tr>
+          <tr><td class="n">04-17</td><td class="n">8.1 月</td><td class="n">8.8</td><td class="n">55.7%</td><td>医院</td></tr>
+          <tr class="ok"><td class="n">05-24</td><td class="n">9.4 月</td><td class="n">9.1</td><td class="n">53.8%</td><td>家</td></tr>
+          <tr><td class="n">06-13</td><td class="n">10.0 月</td><td class="n">8.8</td><td class="n">35.8%</td><td>医院</td></tr>
+          <tr class="hi"><td class="n">08-01</td><td class="n">11.6 月</td><td class="n">9.0</td><td class="n">28.8%</td><td>家</td></tr>
+        </table>
+      </div>
+      <p style="margin-top:11px;font-size:13px;color:var(--ink-2);line-height:1.7;"><b>缓和信息：</b>身高 z 稳定在 0 附近、头围正常、出生 3.68 kg / 52 cm（中上）。慢性营养不良会先压住身高——<b>身高头围都正常而只有体重掉，说明这是近期的、孤立的能量缺口，纠正后追赶通常较快。</b></p>
+    </div>
+
+    <!-- ── 为什么 ── -->
+    <div class="card">
+      <h3>为什么会掉：三层</h3>
+      <div class="seg"><span class="lab">第一层 · 触发</span><p style="font-size:13.5px;">4/13 麻腮风后约一周食欲差 → 4 月底感冒 → <b>5 月中下旬特应性皮炎重度加重</b>（这是主要打击）。重度湿疹拖住生长的机制是实在的：大面积炎症提高静息消耗、经皮蛋白丢失、瘙痒导致睡眠碎片化压制生长激素。</p></div>
+      <div class="seg"><span class="lab">第二层 · 没有追赶能力 —— 要害</span><p style="font-size:13.5px;">急性打击是一次性的，<b>恢复需要盈余</b>。而辅食始终只有 2 顿、稀到滴水、油只有几滴，同时砍掉了鸡蛋和全部海鲜。<b>于是每次打击之后都追不回来。</b></p></div>
+      <div class="seg"><span class="lab">第三层 · 忌口的真实角色</span><p style="font-size:13.5px;">3/13 停鸡蛋海鲜后，3/13 → 5/24 体重 8.2 → 9.1 kg，<b>百分位反而从 45.9% 爬到 53.8%</b>。<b>忌口不是导火索</b>，它是「为什么追不回来」的一部分。</p></div>
+      <div class="seg dec"><span class="lab">❌ 已排除 · 药物</span><p style="font-size:13.5px;">复方甘草酸苷与卤米松<b>实际都只用了 2 周</b>。甘草酸的假性醛固酮增多症主要见于长期大剂量使用；急性期短程用强效外用激素是规范做法。<b>不足以解释生长停滞，血钾也无需检查。不要因此自行减药。</b></p></div>
+    </div>
+
+    <!-- ── 能量账 ── -->
+    <div class="card">
+      <h3>能量账</h3>
+      <div class="kv">
+        <span class="k">配方奶 103.2 g 粉（3×240 ml）</span><span class="v">487 kcal</span>
+        <span class="k">2 顿辅食（稀，约 0.45 kcal/g）</span><span class="v">110–190</span>
+        <span class="k">水果</span><span class="v">~30</span>
+        <hr>
+        <span class="k"><b>合计</b></span><span class="v bad">630–710 kcal</span>
+        <span class="k">需求（且被湿疹与大运动推高）</span><span class="v">750–850</span>
+        <span class="k"><b>追赶目标（110–120%）</b></span><span class="v">约 900</span>
+      </div>
+      <h4>为什么现在这个结构补不上</h4>
+      <p style="font-size:13.5px;">9 kg 孩子一餐胃容量约 <b>250–270 ml</b>。同样吃满一碗（约 200 g）：</p>
+      <div class="tw">
+        <table class="dt">
+          <tr><th>稠度</th><th>能量密度</th><th>一碗</th></tr>
+          <tr class="hi"><td class="wrap">现在 · 勺子舀起来滴水</td><td class="n">~0.45 kcal/g</td><td class="n">90 kcal</td></tr>
+          <tr class="ok"><td class="wrap">目标 · 勺子能立住 / 软饭</td><td class="n">~0.9 kcal/g</td><td class="n">180 kcal</td></tr>
+        </table>
+      </div>
+      <p style="margin-top:11px;font-size:13.5px;"><b>同一个碗、同样的进食量——稠度翻倍，热量翻倍。他不是不肯吃，是物理上装不下。</b>这就是为什么「多喂点」没用。</p>
+    </div>
+
+    <!-- ── 过敏原 ── -->
+    <div class="card">
+      <h3>过敏原 sIgE（2026-03-13）</h3>
+      <p style="font-size:13px;color:var(--ink-2);">分级：阴性 &lt;0.35 ／ 1+ 0.35–0.7 ／ <b>2+ 0.7–3.5</b> ／ 3+ 3.5–17.5</p>
+      <div class="tw">
+        <table class="dt">
+          <tr><th>项目</th><th>结果</th><th>判定</th><th>处置</th></tr>
+          <tr class="hi"><td>蛋清/蛋黄</td><td class="n">1.01</td><td><span class="pill pos">2+</span></td><td class="wrap">⚠️ 等 8/13 门诊</td></tr>
+          <tr class="ok"><td>鳕鱼</td><td class="n">0.07</td><td><span class="pill neg">阴性</span></td><td class="wrap">✅ 现在就恢复</td></tr>
+          <tr class="ok"><td>虾</td><td class="n">0.07</td><td><span class="pill neg">阴性</span></td><td class="wrap">✅ 正常引入</td></tr>
+          <tr class="ok"><td>蟹</td><td class="n">0.08</td><td><span class="pill neg">阴性</span></td><td class="wrap">✅ 正常引入</td></tr>
+          <tr class="ok"><td>花生</td><td class="n">0.05</td><td><span class="pill neg">阴性</span></td><td class="wrap">✅ 应主动引入（酱状）</td></tr>
+          <tr><td>牛奶</td><td class="n">0.06</td><td><span class="pill neg">阴性</span></td><td class="wrap">酸奶奶酪可用</td></tr>
+          <tr><td>小麦</td><td class="n">0.08</td><td><span class="pill neg">阴性</span></td><td class="wrap">在吃</td></tr>
+          <tr><td>大豆</td><td class="n">0.07</td><td><span class="pill neg">阴性</span></td><td class="wrap">豆腐可用</td></tr>
+          <tr><td>牛肉</td><td class="n">0.09</td><td><span class="pill neg">阴性</span></td><td class="wrap">✅ 应增加（最好的铁源）</td></tr>
+          <tr><td>羊肉</td><td class="n">0.07</td><td><span class="pill neg">阴性</span></td><td class="wrap">可用</td></tr>
+        </table>
+      </div>
+      <div class="callout" style="margin-top:13px;">
+        <b>十项里只有鸡蛋阳性，而 1.01 落在 2+ 档（0.7–3.5）最底部。</b><br>
+        <b>蟹虾鳕鱼三项贴着检测下限——海鲜回避在报告出具当天就已被同一张单子否定。</b>
+        家长的理由是「祖父海鲜过敏，保险起见」，但<b>特应性体质会遗传，「对什么过敏」不遗传</b>。
+      </div>
+    </div>
+
+    <!-- ── 其他化验 ── -->
+    <div class="card">
+      <h3>其他化验与营养核算</h3>
+      <div class="kv">
+        <span class="k">总 IgE</span><span class="v bad">25.20 ↑（&lt;15）</span>
+        <span class="k">嗜酸性粒细胞绝对值</span><span class="v bad">1.20 ↑（0.07–1.02）</span>
+        <span class="k">血红蛋白 @7 月龄</span><span class="v good">117（不贫血）</span>
+        <span class="k">血清铁蛋白</span><span class="v bad">从未查过</span>
+        <span class="k">25(OH)D</span><span class="v good">46.38 ng/ml 充足</span>
+        <hr>
+        <span class="k">配方奶提供铁</span><span class="v">6.19 mg（需 9–10）</span>
+        <span class="k">配方奶提供维生素 A</span><span class="v bad">464 μg RE（RNI ~340）</span>
+        <span class="k">＋ AD 制剂后合计</span><span class="v bad">约 1000（UL ~700）</span>
+        <span class="k">配方奶提供 DHA / 碘 / 锌</span><span class="v good">均已达标</span>
+      </div>
+      <div class="callout warn" style="margin-top:13px;">
+        <b>维生素 A 已经超量 → 周五的猪肝换成牛肉。</b>猪肝约 4972 μg RAE/100 g，不必再叠加；牛肉血红素铁约 3.3 mg/100 g，吸收率远高于植物铁，<b>换掉反而把铁的结构改好了</b>。
+      </div>
+    </div>
+
+    <!-- ── 今天就能做 ── -->
+    <div class="card">
+      <h3>今天就能做的 7 件事</h3>
+      <p style="font-size:13px;color:var(--ink-2);">不用等门诊。前两条做到，缺口就基本补上了。</p>
+      <div class="stack" style="gap:0;margin-top:6px;">
+        <label class="item" style="border-top:1px solid var(--rule-soft);"><input type="checkbox" class="ckx" data-k="f1"><div class="item-body"><div class="item-t">稠度：稀粥 → 稠粥或软饭 <span class="tag t-crit" style="margin-left:4px;">性价比最高</span></div><div class="item-s">米水比从约 1:10 改到 1:4~1:5；面条煮好别留太多汤。碗和量都不用变，热量直接翻倍</div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="f2"><div class="item-body"><div class="item-t">油：几滴 → 每天 10 g（约 2 茶匙） <span class="tag t-crit" style="margin-left:4px;">最省事</span></div><div class="item-s">+85 kcal。奶粉给了 22.2 g 脂肪，全天需 31–36 g，食物必须补 9–14 g</div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="f3"><div class="item-body"><div class="item-t">2 顿 → 3 顿正餐 + 1 次加餐</div><div class="item-s">加餐用全脂酸奶、奶酪、花生酱、牛油果、香蕉</div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="f4"><div class="item-body"><div class="item-t">鱼加回来</div><div class="item-s">三项阴性 + 儿保医嘱本来就写着「肉禽鱼 40–70 g」。单一食物、白天、小量起、观察 2 小时</div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="f5"><div class="item-body"><div class="item-t">周五的猪肝换成牛肉</div><div class="item-s">避开维生素 A 叠加，同时补上整周缺失的牛肉</div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="f6"><div class="item-body"><div class="item-t">奶挪开时间，<b>但暂时不要减量</b></div><div class="item-s">餐前 1 小时内不给奶，改到餐后或睡前。⚠️ 先减奶会让缺口更大</div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="f7"><div class="item-body"><div class="item-t">周表里的「蔬菜」保留一半，另一半换绿叶菜</div><div class="item-s">南瓜、山药、土豆是淀粉类，本来就在替代主食而不是蔬菜</div></div></label>
+      </div>
+      <div class="callout warn" style="margin-top:13px;">
+        <b>顺序很重要：先加辅食，2–3 周后看到体重开始涨，再逐步减奶。</b>720 → 500 ml 等于砍掉 149 kcal，现在先做会加大缺口。而且<b>减奶等于同时减铁</b>（6.19 → 4.3 mg），所以红肉必须先吃上。
+      </div>
+    </div>
+
+    <!-- ── 门诊清单 ── -->
+    <div class="vac">
+      <div class="vac-hd">
+        <h3>🗓 8 月 13 日门诊（12 月龄复诊）</h3>
+        <p>带：全部化验单 ｜ 三次儿保报告 ｜ 生长记录 ｜ <b>奶粉罐</b> ｜ <b>辅食周表</b> ｜ <b>皮肤科处方</b></p>
+      </div>
+      <div style="padding:4px 0;">
+        <label class="item"><input type="checkbox" class="ckx" data-k="c1"><div class="item-body"><div class="item-t">说：「5/24 到过 9.1 kg，现在 9.0。<b>百分位从 53.8% 掉到 28.8%</b>」</div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="c2"><div class="item-body"><div class="item-t">说：「4 月疫苗反应 + 感冒，<b>5 月中下旬湿疹重度加重之后开始掉</b>」</div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="c3"><div class="item-body"><div class="item-t">查：血常规 + <b>血清铁蛋白</b> + CRP</div><div class="item-s">3 月医嘱就写了「建议查血色素」，而铁蛋白从未查过</div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="c4"><div class="item-body"><div class="item-t">查：复查蛋 sIgE + <b>加做卵类粘蛋白 Ovomucoid（Gal d 1）组分</b></div><div class="item-s">预测能否耐受充分加热的蛋。原报告把蛋清/蛋黄合并成一项，这个信息缺失</div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="c5"><div class="item-body"><div class="item-t">查：复查总 IgE 与嗜酸 ／ 测身高</div><div class="item-s">湿疹控制后应已下降；身高最近一次医院测量还是 6/13</div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="c6"><div class="item-body"><div class="item-t">问：<b>鸡蛋怎么恢复？</b></div><div class="item-s">吃过 1/4 蛋黄无反应、停了近 5 个月、sIgE 1.01。⚠️ 在此之前不要在家自行开始</div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="c7"><div class="item-body"><div class="item-t">问：<b>5 月那次是疱疹性湿疹吗？以后怎么预防？</b></div><div class="item-s">处方里有伐昔洛韦，通常指向 Kaposi 水痘样疹——那是一次相当重的急性事件</div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="c8"><div class="item-body"><div class="item-t">问：<b>配方奶已提供 464 μg RE 维生素 A，AD 制剂还需要吗？</b></div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="c9"><div class="item-body"><div class="item-t">问：1 岁后要不要换纯牛奶？换的话铁怎么办？</div><div class="item-s">⚠️ 换纯牛奶会让配方奶那 6.19 mg 铁瞬间消失，且牛奶抑制铁吸收</div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="c10"><div class="item-body"><div class="item-t">挂<b>营养咨询</b>（3 月医嘱里本来就开了这一项）</div></div></label>
+        <label class="item"><input type="checkbox" class="ckx" data-k="c11"><div class="item-body"><div class="item-t">顺带：EV71 第 2 剂 ／ 13 价加强 ／ 水痘的时机</div><div class="item-s">EV71 第 2 剂约 8/18 到期；⚠️ 水痘是减毒活疫苗，结合湿疹用药请医生把关</div></div></label>
+      </div>
+    </div>
+
+    <!-- ── 修订记录 ── -->
+    <details class="donebox">
+      <summary>判断改过哪些（7 条）</summary>
+      <div style="padding:0 15px 14px;">
+        <p style="font-size:12.5px;color:var(--ink-3);line-height:1.7;margin:0 0 11px;">这一节故意保留。<b>判断改过就写下来，比假装一开始就对更有价值。</b></p>
+        <div class="tw">
+          <table class="dt">
+            <tr><th>原判断</th><th>改为</th><th>触发</th></tr>
+            <tr><td class="wrap">「你描述的吃法不属于粥的失败模式」</td><td class="wrap"><b>正好就是那个失败模式</b></td><td class="wrap">家长说明实际稠度会滴水</td></tr>
+            <tr><td class="wrap">「可能是 IgG 不耐受检测」</td><td class="wrap">是正规 sIgE，该分支作废</td><td class="wrap">化验单原件</td></tr>
+            <tr><td class="wrap">「不吃鱼会缺 DHA 和碘」</td><td class="wrap">奶粉已补足，理由要换成蛋白质与防致敏</td><td class="wrap">奶粉成分表</td></tr>
+            <tr><td class="wrap">「每周 1–2 次猪肝补铁」</td><td class="wrap"><b>撤回</b>，维 A 已超量，改牛肉</td><td class="wrap">奶粉成分表 + 辅食周表</td></tr>
+            <tr><td class="wrap">「奶从 720 减到 500」</td><td class="wrap"><b>顺序反了</b>，先加辅食再减奶</td><td class="wrap">精确能量核算</td></tr>
+            <tr><td class="wrap">「忌口是体重停滞的重要原因」</td><td class="wrap"><b>不是导火索</b>，触发是 5 月湿疹加重</td><td class="wrap">完整生长序列</td></tr>
+            <tr><td class="wrap">「药物可能抑制生长，需查血钾」</td><td class="wrap"><b>撤回</b>，两者均只用 2 周</td><td class="wrap">家长说明实际用药时长</td></tr>
+          </table>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</section>
+
 <section class="view" id="v-judge" role="tabpanel" aria-label="该不该信">
   <div class="stack">
     <div>
@@ -1150,11 +1358,14 @@ document.addEventListener("click",function(e){
 
 /* ═══════════ tabs ═══════════ */
 var tabs=[].slice.call(document.querySelectorAll(".tab"));
+/* 视图名从标签栏推导，新增页签时不必再改这里 */
+var views=tabs.map(function(tb){ return tb.getAttribute("data-view"); });
 tabs.forEach(function(tb){
   tb.addEventListener("click",function(){
     tabs.forEach(function(x){ x.setAttribute("aria-selected", x===tb?"true":"false"); });
-    ["do","judge","lookup","why","open"].forEach(function(v){
-      document.getElementById("v-"+v).classList.toggle("on", v===tb.getAttribute("data-view"));
+    views.forEach(function(v){
+      var el=document.getElementById("v-"+v);
+      if(el) el.classList.toggle("on", v===tb.getAttribute("data-view"));
     });
     window.scrollTo({top:0,behavior:"instant"});
   });
@@ -1333,6 +1544,18 @@ function fallback(t,cb){
   try{ document.execCommand("copy"); cb(); }catch(e){}
   document.body.removeChild(ta);
 }
+
+/* ── 「他的数据」页的独立勾选项（执行清单 + 门诊清单），复用同一份 localStorage ── */
+[].slice.call(document.querySelectorAll(".ckx")).forEach(function(cb){
+  var k="x."+cb.getAttribute("data-k");
+  cb.checked=!!state[k];
+  cb.closest(".item").classList.toggle("done", cb.checked);
+  cb.addEventListener("change", function(){
+    if(cb.checked){ state[k]=1; } else { delete state[k]; }
+    cb.closest(".item").classList.toggle("done", cb.checked);
+    save();
+  });
+});
 
 render();
 renderWiz();
