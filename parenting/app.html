@@ -460,11 +460,11 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
       <span class="sub">12–24 月龄</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="视图">
-      <button class="tab" role="tab" aria-selected="true"  data-view="do">现在做什么</button>
+      <button class="tab" role="tab" aria-selected="true" data-view="why">原理</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="do">现在做什么</button>
       <button class="tab" role="tab" aria-selected="false" data-view="lion">他的数据</button>
       <button class="tab" role="tab" aria-selected="false" data-view="judge">该不该信</button>
       <button class="tab" role="tab" aria-selected="false" data-view="lookup">速查</button>
-      <button class="tab" role="tab" aria-selected="false" data-view="why">原理</button>
       <button class="tab" role="tab" aria-selected="false" data-view="open">争议区</button>
     </nav>
   </div>
@@ -472,8 +472,158 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
 
 <main>
 
-<!-- ══════════════ 1 · 现在做什么 ══════════════ -->
-<section class="view on" id="v-do" role="tabpanel" aria-label="现在做什么">
+<!-- ══════════════ 1 · 原理 ══════════════ -->
+<section class="view on" id="v-why" role="tabpanel" aria-label="原理">
+  <div class="stack">
+
+    <div class="card flat">
+      <p class="eyebrow">第一性原理</p>
+      <p class="big">你的工作不是「制造一个优秀的孩子」——那件事你基本做不到。你的工作是：让他安全地长大、有一个值得回忆的童年、见识过一些好东西、并且知道有人无条件地站在他这边。</p>
+      <p style="color:var(--ink-2); font-size:14px;">这不是降低标准。这是把有限的精力从「做不到的事」转移到「做得到的事」上——这本身就是最理性的资源配置。</p>
+    </div>
+
+    <div class="card flat">
+      <h3>那个不舒服的事实 <span class="tag t-calm">置信度 高</span></h3>
+      <p><b>共享环境对成年期人格和智力的个体差异，贡献趋近于零。</b></p>
+      <p style="color:var(--ink-2); font-size:13.5px;">「共享环境」指同一家庭里所有孩子共同经历的那部分——父母的教养风格、家里书多不多、你有没有耐心、你信奉哪套育儿理念。智力尤其戏剧化，这叫 <b>Wilson 效应</b>：智力遗传度随年龄<b>上升</b>（儿童期约 <span style="font-family:var(--font-mono)">0.4</span>，成年后可达 <span style="font-family:var(--font-mono)">0.6–0.8</span>），共享环境的贡献随年龄<b>下降</b>，到成年期接近 <span style="font-family:var(--font-mono)">0</span>。</p>
+      <details class="rep" style="margin-top:12px;">
+        <summary><div><div class="rep-claim">证据来源与四条边界条件</div><div class="rep-now">这不等于「做什么都没用」——只读前半句会滑向虚无，那同样是错的</div></div></summary>
+        <div class="rep-body">
+          <span class="lab">证据</span>
+          Turkheimer 2000 概括的「行为遗传学三定律」；Polderman 等 2015 的巨型 meta 分析汇总了近 50 年、涵盖约 <span class="num">1450 万对双生子</span>的几乎全部双生子研究。双生子与收养设计是仅有的能真正把基因和环境分开的方法。
+          <span class="lab">边界 1 · 另一些结果确实受影响</span>
+          即使在人格和 IQ 上趋近于零，共享环境对<b>受教育年限、价值观、宗教与政治倾向、烟酒起始年龄</b>仍有可观贡献。你改变不了他有多聪明，但能改变他读到什么程度、信什么、15 岁时会不会开始抽烟。
+          <span class="lab">边界 2 · 资源匮乏时环境作用更大</span>
+          Scarr-Rowe 交互：社会经济地位越低，智力遗传度越低。Tucker-Drob &amp; Bates 2016 的 meta 分析发现这个交互<b>在美国样本中稳健复制，在西欧和澳洲样本中没有</b>。推论：遗传度高是「环境已经足够好」的结果——<b>保证下限，比追求上限重要得多</b>。
+          <span class="lab">边界 3 · 只在正常范围内成立</span>
+          双生子研究的样本里没有虐待、严重忽视、饥饿、铅中毒、战争。跌出正常范围的伤害是巨大且不可逆的——这正是「防止不可逆伤害」排第一的原因。
+          <span class="lab">边界 4 · 方差解释 ≠ 个体命运</span>
+          「共享环境解释的方差接近零」是<b>群体层面</b>的统计结论，说的是「家庭之间的差异解释不了孩子之间的差异」，不是「你对你儿子做什么都无所谓」。这两句在逻辑上不等价。
+        </div>
+      </details>
+    </div>
+
+    <div class="card flat">
+      <h3>父母真正的四个杠杆</h3>
+      <p style="font-size:13.5px; color:var(--ink-3); margin-bottom:12px;">所有行动都必须能归到这四类之一。归不进去的，一律砍掉。</p>
+      <h4>A · 防止不可逆伤害</h4>
+      <p style="font-size:13.5px; color:var(--ink-2);">唯一投入产出比极高的领域。它不产生「更好的孩子」，它产生「还活着、没有残疾的孩子」。收益以极低概率但极端严重的事件形式存在，所以日常感觉不到回报——这正是它被系统性忽视、也正是它排第一的原因。<b>这是唯一一个「父母的努力程度」和「孩子的结果」之间存在强因果关系的领域。</b></p>
+      <h4>B · 亲子关系本身</h4>
+      <p style="font-size:13.5px; color:var(--ink-2);">它是<b>目的</b>，不只是手段。多数育儿讨论把它当工具（良好依恋 → 更自信 → 更成功），而那个链条的后半段证据比宣传弱得多。但不重要——你和儿子几十年的关系质量，是你人生体验的直接组成部分。而且这恰恰是<b>你唯一能确定影响的东西</b>：你改变不了他的智商，但你完全决定了他童年记忆里父亲是什么样子。<br><br>依恋敏感性干预确实有效，且 van IJzendoorn 与 Bakermans-Kranenburg 的系列 meta 分析发现，<b>短而聚焦的干预效果反而好于长而全面的</b>。翻译：不需要成为完美父母，需要的是在孩子发出信号时能接住；也不需要每次都接住——「足够好」是有实证支持的标准。</p>
+      <h4>C · 环境与同伴的选择</h4>
+      <p style="font-size:13.5px; color:var(--ink-2);">城市、社区、学校、玩伴、家里有没有人吸烟、空气质量、房子有没有铅。被严重低估的杠杆。<b>「大决策」比「日常操作」重要得多</b>——选哪个城市、住哪个小区、上哪所学校，这几个决策的影响超过你一万次「今天要不要读绘本」的总和。</p>
+      <h4>D · 具体技能与知识的直接传授</h4>
+      <p style="font-size:13.5px; color:var(--ink-2);">效果真实，但<b>严格领域特定，不会泛化</b>。你教他游泳，他学会游泳；不会因此变得更聪明或更有毅力。接受这一点其实是解放：教他认识路边的树，理由可以就是「认识树本身很好」，以及「我们一起干了这件事」。</p>
+    </div>
+
+    <div class="card flat">
+      <h3>效应量：唯一重要的数字</h3>
+      <p style="font-size:13.5px; color:var(--ink-2);">不要问「有没有影响」——样本够大时，一切都有影响。要问<b>多大、能持续多久</b>。下表的 d 表示干预让一个原本处在第 50 百分位的孩子移动到第几百分位。</p>
+      <div class="dscale">
+        <div class="drow hi"><span class="dd">d = 0.1</span><span class="dp">→ 54</span><span class="dn">两组分布几乎完全重叠 · <b>噪音级，忽略</b></span></div>
+        <div class="drow"><span class="dd">d = 0.2</span><span class="dp">→ 58</span><span class="dn">肉眼不可见 · 只有代价接近零时才值得做</span></div>
+        <div class="drow"><span class="dd">d = 0.5</span><span class="dp">→ 69</span><span class="dn">有经验的人能察觉 · 值得认真对待</span></div>
+        <div class="drow"><span class="dd">d = 0.8</span><span class="dp">→ 79</span><span class="dn">明显 · 育儿干预里罕见</span></div>
+      </div>
+      <p style="font-size:13.5px; color:var(--ink-2); margin-top:12px;">还要问第二个问题：<b>能持续多久？</b>教育与早教干预有个反复出现的规律——<b>消退效应</b>：干预结束时显著，几年后归零。美国 Head Start 影响研究显示认知优势到小学三年级基本消失；田纳西州学前教育 RCT（Durkin 等 2022）甚至发现到六年级时<b>转为负效应</b>。</p>
+      <div class="callout" style="margin-top:12px;">看到「显著提升」四个字，<b>先找效应量，再找随访年限。两个都没有的，当没看见。</b></div>
+    </div>
+
+    <div class="card flat">
+      <h3>三个致命混杂</h3>
+      <p style="font-size:13.5px; color:var(--ink-2);">育儿研究里绝大多数「A 导致 B」的说法，死在这三个地方。</p>
+      <h4>1 · 遗传混杂（最致命，也最少被提及）</h4>
+      <p style="font-size:13.5px; color:var(--ink-2);">父母给了孩子环境，也给了孩子基因。「爱读书的父母，孩子成绩好」——可能是读书有用，也可能只是把智力和性格遗传了下去。</p>
+      <h4>2 · 选择性混杂</h4>
+      <p style="font-size:13.5px; color:var(--ink-2);">会做某件事的家庭，本来就和不做的不同。坚持亲子共读的家庭通常也更富裕、更稳定、父母教育程度更高。</p>
+      <h4>3 · 反向因果</h4>
+      <p style="font-size:13.5px; color:var(--ink-2);"><b>孩子的气质在塑造父母的行为</b>：容易带的孩子让父母更耐心，难带的孩子把父母逼成严厉的样子。然后研究者观察到「严厉的父母，孩子问题行为多」，并宣布是父母的错。</p>
+      <div class="callout" style="margin-top:12px;">对任何育儿结论只问一句：<b>「它控制遗传混杂了吗？」</b>老实的答案，绝大多数是没有。</div>
+    </div>
+
+    <div>
+      <p class="eyebrow">复制危机名册</p>
+      <h2 class="sec">这些你可以直接划掉</h2>
+      <p class="sec-note">下面每一条你可能都听过很多次，但它们要么复制失败，要么效应量缩水到接近于零。展开看原始研究与后续检验。</p>
+    </div>
+
+    <div class="stack" style="gap:9px;">
+      <details class="rep">
+        <summary><div><div class="rep-claim">棉花糖实验预测人生成就</div><div class="rep-now">→ 自控力主要是家庭环境的代理指标，「训练延迟满足」没有依据</div></div></summary>
+        <div class="rep-body">
+          <span class="lab">原始</span>Mischel 等，1970s，斯坦福教工子女，<span class="num">n ≈ 90</span>
+          <span class="lab">后续</span>Watts, Duncan &amp; Quan 2018，<span class="num">n ≈ 900</span> 且样本更多样。控制家庭背景与早期认知能力后，效应大幅缩水。
+        </div>
+      </details>
+      <details class="rep">
+        <summary><div><div class="rep-claim">成长型思维改变学业</div><div class="rep-now">→ 真实，但极小且有条件。不值得作为育儿核心策略</div></div></summary>
+        <div class="rep-body">
+          <span class="lab">原始</span>Mueller &amp; Dweck 1998，小样本实验
+          <span class="lab">后续</span>Sisk 等 2018（Psychological Science）对 <span class="num">43 项干预研究、n &gt; 57,000</span> 的 meta 分析：<span class="num">d ≈ 0.08</span>。Yeager 等 2019 全美 RCT <span class="num">n ≈ 12,000</span>：仅在成绩较差学生中约 <span class="num">+0.1 GPA</span>。
+        </div>
+      </details>
+      <details class="rep">
+        <summary><div><div class="rep-claim">莫扎特效应让孩子聪明</div><div class="rep-now">→ 从来就与婴儿无关。纯粹的营销捏造</div></div></summary>
+        <div class="rep-body">
+          <span class="lab">原始</span>Rauscher 1993：<b>成人</b>、10 分钟、只测一项空间任务
+          <span class="lab">后续</span>Pietschnig 等 2010 meta 分析：近零
+        </div>
+      </details>
+      <details class="rep">
+        <summary><div><div class="rep-claim">学习风格（视觉型 / 听觉型）</div><div class="rep-now">→ 直接忽略</div></div></summary>
+        <div class="rep-body">
+          <span class="lab">原始</span>无像样的原始证据
+          <span class="lab">后续</span>Pashler 等 2008 综述：符合检验要求的研究极少，且结果为阴性
+        </div>
+      </details>
+      <details class="rep">
+        <summary><div><div class="rep-claim">3000 万词汇差距</div><div class="rep-now">→ 语言输入重要，但关键是对话轮次不是词数。不必数词</div></div></summary>
+        <div class="rep-body">
+          <span class="lab">原始</span>Hart &amp; Risley 1995，<span class="num">n = 42 个家庭</span>
+          <span class="lab">后续</span>Sperry 等 2019 复制失败；差距量级被大幅高估
+        </div>
+      </details>
+      <details class="rep">
+        <summary><div><div class="rep-claim">双语带来执行功能优势</div><div class="rep-now">→ 别指望「变聪明」。但「双语导致语言迟缓」同样是假的</div></div></summary>
+        <div class="rep-body">
+          <span class="lab">原始</span>多个小样本阳性研究
+          <span class="lab">后续</span>de Bruin 等 2015 揭示发表偏倚；Lehtonen 等 2018 meta 分析校正后近零
+        </div>
+      </details>
+      <details class="rep">
+        <summary><div><div class="rep-claim">大脑训练提升智力</div><div class="rep-now">→ 练什么就只提高什么，不外溢</div></div></summary>
+        <div class="rep-body">
+          <span class="lab">原始</span>Jaeggi 2008 等
+          <span class="lab">后续</span>Melby-Lervåg, Redick &amp; Hulme 2016：无远迁移
+        </div>
+      </details>
+      <details class="rep">
+        <summary><div><div class="rep-claim">早教能永久提高智商</div><div class="rep-now">→ 认知效应普遍消退；真正有价值的可能是非认知面与看护本身</div></div></summary>
+        <div class="rep-body">
+          <span class="lab">原始</span>Perry（<span class="num">n = 123</span>）、Abecedarian（<span class="num">n = 111</span>）——样本极小
+          <span class="lab">后续</span>Head Start 三年级消退；Tennessee VPK RCT 六年级<b>转为负效应</b>
+        </div>
+      </details>
+    </div>
+
+    <div class="callout">
+      这张名册的意义不在这 8 条，而在<b>模式</b>：一个惊艳的小样本发现 → 媒体放大 → 产业化 → 十年后大样本复制失败 → 但商业话术已经固化。<br><br>下次看到新的「某某研究发现」，默认它正处在这条曲线的第一步。
+    </div>
+
+    <div class="card flat">
+      <h3>这套规则本身的局限</h3>
+      <ul style="color:var(--ink-2); font-size:13.5px;">
+        <li><b>证据阶梯有阶级偏向。</b>能做 RCT 的问题往往是医学化、可标准化的；养育中最重要的东西（关系、意义、爱）恰恰最难测量。<b>「没有证据」不等于「没有作用」，只等于「我们不知道」</b>——不要把这套规则变成只相信可测量之物的偏执。</li>
+        <li><b>绝大多数研究来自 WEIRD 样本</b>（西方、受教育、工业化、富裕、民主国家），迁移到中国语境时有效性下降，尤其涉及家庭结构、隔代抚养、教育竞争的部分。</li>
+        <li><b>本页会过时。</b>任何一条结论都应该可以被新证据推翻。</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ 2 · 现在做什么 ══════════════ -->
+<section class="view" id="v-do" role="tabpanel" aria-label="现在做什么">
   <div class="stack">
 
     <div class="prog">
@@ -576,8 +726,7 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
   </div>
 </section>
 
-<!-- ══════════════ 2 · 该不该信 ══════════════ -->
-<!-- ══════════════ 1.5 · 他的数据 ══════════════ -->
+<!-- ══════════════ 3 · 他的数据 ══════════════ -->
 <section class="view" id="v-lion" role="tabpanel" aria-label="他的数据">
   <div class="stack">
 
@@ -756,6 +905,7 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
   </div>
 </section>
 
+<!-- ══════════════ 4 · 该不该信 ══════════════ -->
 <section class="view" id="v-judge" role="tabpanel" aria-label="该不该信">
   <div class="stack">
     <div>
@@ -816,7 +966,7 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
   </div>
 </section>
 
-<!-- ══════════════ 3 · 速查 ══════════════ -->
+<!-- ══════════════ 5 · 速查 ══════════════ -->
 <section class="view" id="v-lookup" role="tabpanel" aria-label="速查">
   <div class="stack">
     <div>
@@ -868,6 +1018,22 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
       <div class="lk" data-k="比较 里程碑 词汇量 生长曲线 别人家孩子 焦虑">
         <div class="lk-t"><span class="strike">数词汇量 / 比里程碑 / 对照生长曲线焦虑</span></div>
         <div class="lk-s">正常发育的时间窗很宽。除非触发发育预警信号，否则和别人家孩子比较是纯粹的自我消耗。</div>
+      </div>
+
+      <p class="eyebrow" data-grp>网络说法核查</p>
+      <div class="lk" data-k="粥 最差 辅食 淀粉 淀粉酶 消化 好消化 米粥 米糊 稀饭 胀气 便秘 屁多 酶">
+        <div class="lk-t">「粥永远都是最差的辅食」<b style="color:var(--caution)">结论对一半，机制错</b></div>
+        <div class="lk-s">
+          <b>实践建议</b>（减少稀淀粉占比、肉鱼蛋往前排）✅ 值得采纳。<b>机制解释</b>（淀粉酶不足→粥难消化）❌ 站不住。<br><br>
+          它说胰淀粉酶要 <span class="num">4–6</span> 月龄才出现——<b>这条是对的</b>。但它漏了淀粉消化的另外两条通路：<b>小肠刷状缘的葡糖淀粉酶</b>（出生早期即发育）和结肠菌群回收。文献的标准表述是：<b>「熟淀粉吸收不良在婴儿中是罕见的，因为刷状缘葡糖淀粉酶在生命早期就已发育」</b>。<br><br>
+          <b>「熟」字在做很重的活</b>——生淀粉难消化，糊化后极易被酶作用，而<b>粥是糊化最彻底的形态</b>。它攻击粥难消化，而粥恰恰是淀粉最好消化的样子。<br><br>
+          它还说「蛋白质和脂肪消化能力更早」来支撑先给肉——<b>脂肪这一半是反的</b>：新生儿胰脂肪酶和胆盐分泌都低，脂肪是消化链上最弱的一环。<b>按它自己的逻辑，脂肪该排最后。框架自己就不自洽。</b><br><br>
+          <b>⚠️ 为什么机制错很危险：</b>按它的机制，下一步动作自然是「煮更烂更稀，减轻负担」——<b>而这正好是反的。要煮更稠。</b>
+        </div>
+      </div>
+      <div class="lk" data-k="机制 推演 实测 证据阶梯 结论对 理由错 怎么判断">
+        <div class="lk-t">机制推演 vs 实测：打架时听谁的</div>
+        <div class="lk-s"><b>机制推演位于证据阶梯的最底层</b>——它能生成假设，不能得出结论。「A 酶不足 → 所以消化不了 B」这类推理读起来很有说服力，但只要有人真的去<b>测</b>过 B 的吸收率，实测就直接覆盖推演。<br><br><b>看到一条只有机制、没有实测的论证，先问一句：有人测过吗？</b></div>
       </div>
 
       <p class="eyebrow" data-grp>常见迷思 · 隔代抚养高频</p>
@@ -931,157 +1097,7 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
   </div>
 </section>
 
-<!-- ══════════════ 4 · 原理 ══════════════ -->
-<section class="view" id="v-why" role="tabpanel" aria-label="原理">
-  <div class="stack">
-
-    <div class="card flat">
-      <p class="eyebrow">第一性原理</p>
-      <p class="big">你的工作不是「制造一个优秀的孩子」——那件事你基本做不到。你的工作是：让他安全地长大、有一个值得回忆的童年、见识过一些好东西、并且知道有人无条件地站在他这边。</p>
-      <p style="color:var(--ink-2); font-size:14px;">这不是降低标准。这是把有限的精力从「做不到的事」转移到「做得到的事」上——这本身就是最理性的资源配置。</p>
-    </div>
-
-    <div class="card flat">
-      <h3>那个不舒服的事实 <span class="tag t-calm">置信度 高</span></h3>
-      <p><b>共享环境对成年期人格和智力的个体差异，贡献趋近于零。</b></p>
-      <p style="color:var(--ink-2); font-size:13.5px;">「共享环境」指同一家庭里所有孩子共同经历的那部分——父母的教养风格、家里书多不多、你有没有耐心、你信奉哪套育儿理念。智力尤其戏剧化，这叫 <b>Wilson 效应</b>：智力遗传度随年龄<b>上升</b>（儿童期约 <span style="font-family:var(--font-mono)">0.4</span>，成年后可达 <span style="font-family:var(--font-mono)">0.6–0.8</span>），共享环境的贡献随年龄<b>下降</b>，到成年期接近 <span style="font-family:var(--font-mono)">0</span>。</p>
-      <details class="rep" style="margin-top:12px;">
-        <summary><div><div class="rep-claim">证据来源与四条边界条件</div><div class="rep-now">这不等于「做什么都没用」——只读前半句会滑向虚无，那同样是错的</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">证据</span>
-          Turkheimer 2000 概括的「行为遗传学三定律」；Polderman 等 2015 的巨型 meta 分析汇总了近 50 年、涵盖约 <span class="num">1450 万对双生子</span>的几乎全部双生子研究。双生子与收养设计是仅有的能真正把基因和环境分开的方法。
-          <span class="lab">边界 1 · 另一些结果确实受影响</span>
-          即使在人格和 IQ 上趋近于零，共享环境对<b>受教育年限、价值观、宗教与政治倾向、烟酒起始年龄</b>仍有可观贡献。你改变不了他有多聪明，但能改变他读到什么程度、信什么、15 岁时会不会开始抽烟。
-          <span class="lab">边界 2 · 资源匮乏时环境作用更大</span>
-          Scarr-Rowe 交互：社会经济地位越低，智力遗传度越低。Tucker-Drob &amp; Bates 2016 的 meta 分析发现这个交互<b>在美国样本中稳健复制，在西欧和澳洲样本中没有</b>。推论：遗传度高是「环境已经足够好」的结果——<b>保证下限，比追求上限重要得多</b>。
-          <span class="lab">边界 3 · 只在正常范围内成立</span>
-          双生子研究的样本里没有虐待、严重忽视、饥饿、铅中毒、战争。跌出正常范围的伤害是巨大且不可逆的——这正是「防止不可逆伤害」排第一的原因。
-          <span class="lab">边界 4 · 方差解释 ≠ 个体命运</span>
-          「共享环境解释的方差接近零」是<b>群体层面</b>的统计结论，说的是「家庭之间的差异解释不了孩子之间的差异」，不是「你对你儿子做什么都无所谓」。这两句在逻辑上不等价。
-        </div>
-      </details>
-    </div>
-
-    <div class="card flat">
-      <h3>父母真正的四个杠杆</h3>
-      <p style="font-size:13.5px; color:var(--ink-3); margin-bottom:12px;">所有行动都必须能归到这四类之一。归不进去的，一律砍掉。</p>
-      <h4>A · 防止不可逆伤害</h4>
-      <p style="font-size:13.5px; color:var(--ink-2);">唯一投入产出比极高的领域。它不产生「更好的孩子」，它产生「还活着、没有残疾的孩子」。收益以极低概率但极端严重的事件形式存在，所以日常感觉不到回报——这正是它被系统性忽视、也正是它排第一的原因。<b>这是唯一一个「父母的努力程度」和「孩子的结果」之间存在强因果关系的领域。</b></p>
-      <h4>B · 亲子关系本身</h4>
-      <p style="font-size:13.5px; color:var(--ink-2);">它是<b>目的</b>，不只是手段。多数育儿讨论把它当工具（良好依恋 → 更自信 → 更成功），而那个链条的后半段证据比宣传弱得多。但不重要——你和儿子几十年的关系质量，是你人生体验的直接组成部分。而且这恰恰是<b>你唯一能确定影响的东西</b>：你改变不了他的智商，但你完全决定了他童年记忆里父亲是什么样子。<br><br>依恋敏感性干预确实有效，且 van IJzendoorn 与 Bakermans-Kranenburg 的系列 meta 分析发现，<b>短而聚焦的干预效果反而好于长而全面的</b>。翻译：不需要成为完美父母，需要的是在孩子发出信号时能接住；也不需要每次都接住——「足够好」是有实证支持的标准。</p>
-      <h4>C · 环境与同伴的选择</h4>
-      <p style="font-size:13.5px; color:var(--ink-2);">城市、社区、学校、玩伴、家里有没有人吸烟、空气质量、房子有没有铅。被严重低估的杠杆。<b>「大决策」比「日常操作」重要得多</b>——选哪个城市、住哪个小区、上哪所学校，这几个决策的影响超过你一万次「今天要不要读绘本」的总和。</p>
-      <h4>D · 具体技能与知识的直接传授</h4>
-      <p style="font-size:13.5px; color:var(--ink-2);">效果真实，但<b>严格领域特定，不会泛化</b>。你教他游泳，他学会游泳；不会因此变得更聪明或更有毅力。接受这一点其实是解放：教他认识路边的树，理由可以就是「认识树本身很好」，以及「我们一起干了这件事」。</p>
-    </div>
-
-    <div class="card flat">
-      <h3>效应量：唯一重要的数字</h3>
-      <p style="font-size:13.5px; color:var(--ink-2);">不要问「有没有影响」——样本够大时，一切都有影响。要问<b>多大、能持续多久</b>。下表的 d 表示干预让一个原本处在第 50 百分位的孩子移动到第几百分位。</p>
-      <div class="dscale">
-        <div class="drow hi"><span class="dd">d = 0.1</span><span class="dp">→ 54</span><span class="dn">两组分布几乎完全重叠 · <b>噪音级，忽略</b></span></div>
-        <div class="drow"><span class="dd">d = 0.2</span><span class="dp">→ 58</span><span class="dn">肉眼不可见 · 只有代价接近零时才值得做</span></div>
-        <div class="drow"><span class="dd">d = 0.5</span><span class="dp">→ 69</span><span class="dn">有经验的人能察觉 · 值得认真对待</span></div>
-        <div class="drow"><span class="dd">d = 0.8</span><span class="dp">→ 79</span><span class="dn">明显 · 育儿干预里罕见</span></div>
-      </div>
-      <p style="font-size:13.5px; color:var(--ink-2); margin-top:12px;">还要问第二个问题：<b>能持续多久？</b>教育与早教干预有个反复出现的规律——<b>消退效应</b>：干预结束时显著，几年后归零。美国 Head Start 影响研究显示认知优势到小学三年级基本消失；田纳西州学前教育 RCT（Durkin 等 2022）甚至发现到六年级时<b>转为负效应</b>。</p>
-      <div class="callout" style="margin-top:12px;">看到「显著提升」四个字，<b>先找效应量，再找随访年限。两个都没有的，当没看见。</b></div>
-    </div>
-
-    <div class="card flat">
-      <h3>三个致命混杂</h3>
-      <p style="font-size:13.5px; color:var(--ink-2);">育儿研究里绝大多数「A 导致 B」的说法，死在这三个地方。</p>
-      <h4>1 · 遗传混杂（最致命，也最少被提及）</h4>
-      <p style="font-size:13.5px; color:var(--ink-2);">父母给了孩子环境，也给了孩子基因。「爱读书的父母，孩子成绩好」——可能是读书有用，也可能只是把智力和性格遗传了下去。</p>
-      <h4>2 · 选择性混杂</h4>
-      <p style="font-size:13.5px; color:var(--ink-2);">会做某件事的家庭，本来就和不做的不同。坚持亲子共读的家庭通常也更富裕、更稳定、父母教育程度更高。</p>
-      <h4>3 · 反向因果</h4>
-      <p style="font-size:13.5px; color:var(--ink-2);"><b>孩子的气质在塑造父母的行为</b>：容易带的孩子让父母更耐心，难带的孩子把父母逼成严厉的样子。然后研究者观察到「严厉的父母，孩子问题行为多」，并宣布是父母的错。</p>
-      <div class="callout" style="margin-top:12px;">对任何育儿结论只问一句：<b>「它控制遗传混杂了吗？」</b>老实的答案，绝大多数是没有。</div>
-    </div>
-
-    <div>
-      <p class="eyebrow">复制危机名册</p>
-      <h2 class="sec">这些你可以直接划掉</h2>
-      <p class="sec-note">下面每一条你可能都听过很多次，但它们要么复制失败，要么效应量缩水到接近于零。展开看原始研究与后续检验。</p>
-    </div>
-
-    <div class="stack" style="gap:9px;">
-      <details class="rep">
-        <summary><div><div class="rep-claim">棉花糖实验预测人生成就</div><div class="rep-now">→ 自控力主要是家庭环境的代理指标，「训练延迟满足」没有依据</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>Mischel 等，1970s，斯坦福教工子女，<span class="num">n ≈ 90</span>
-          <span class="lab">后续</span>Watts, Duncan &amp; Quan 2018，<span class="num">n ≈ 900</span> 且样本更多样。控制家庭背景与早期认知能力后，效应大幅缩水。
-        </div>
-      </details>
-      <details class="rep">
-        <summary><div><div class="rep-claim">成长型思维改变学业</div><div class="rep-now">→ 真实，但极小且有条件。不值得作为育儿核心策略</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>Mueller &amp; Dweck 1998，小样本实验
-          <span class="lab">后续</span>Sisk 等 2018（Psychological Science）对 <span class="num">43 项干预研究、n &gt; 57,000</span> 的 meta 分析：<span class="num">d ≈ 0.08</span>。Yeager 等 2019 全美 RCT <span class="num">n ≈ 12,000</span>：仅在成绩较差学生中约 <span class="num">+0.1 GPA</span>。
-        </div>
-      </details>
-      <details class="rep">
-        <summary><div><div class="rep-claim">莫扎特效应让孩子聪明</div><div class="rep-now">→ 从来就与婴儿无关。纯粹的营销捏造</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>Rauscher 1993：<b>成人</b>、10 分钟、只测一项空间任务
-          <span class="lab">后续</span>Pietschnig 等 2010 meta 分析：近零
-        </div>
-      </details>
-      <details class="rep">
-        <summary><div><div class="rep-claim">学习风格（视觉型 / 听觉型）</div><div class="rep-now">→ 直接忽略</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>无像样的原始证据
-          <span class="lab">后续</span>Pashler 等 2008 综述：符合检验要求的研究极少，且结果为阴性
-        </div>
-      </details>
-      <details class="rep">
-        <summary><div><div class="rep-claim">3000 万词汇差距</div><div class="rep-now">→ 语言输入重要，但关键是对话轮次不是词数。不必数词</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>Hart &amp; Risley 1995，<span class="num">n = 42 个家庭</span>
-          <span class="lab">后续</span>Sperry 等 2019 复制失败；差距量级被大幅高估
-        </div>
-      </details>
-      <details class="rep">
-        <summary><div><div class="rep-claim">双语带来执行功能优势</div><div class="rep-now">→ 别指望「变聪明」。但「双语导致语言迟缓」同样是假的</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>多个小样本阳性研究
-          <span class="lab">后续</span>de Bruin 等 2015 揭示发表偏倚；Lehtonen 等 2018 meta 分析校正后近零
-        </div>
-      </details>
-      <details class="rep">
-        <summary><div><div class="rep-claim">大脑训练提升智力</div><div class="rep-now">→ 练什么就只提高什么，不外溢</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>Jaeggi 2008 等
-          <span class="lab">后续</span>Melby-Lervåg, Redick &amp; Hulme 2016：无远迁移
-        </div>
-      </details>
-      <details class="rep">
-        <summary><div><div class="rep-claim">早教能永久提高智商</div><div class="rep-now">→ 认知效应普遍消退；真正有价值的可能是非认知面与看护本身</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>Perry（<span class="num">n = 123</span>）、Abecedarian（<span class="num">n = 111</span>）——样本极小
-          <span class="lab">后续</span>Head Start 三年级消退；Tennessee VPK RCT 六年级<b>转为负效应</b>
-        </div>
-      </details>
-    </div>
-
-    <div class="callout">
-      这张名册的意义不在这 8 条，而在<b>模式</b>：一个惊艳的小样本发现 → 媒体放大 → 产业化 → 十年后大样本复制失败 → 但商业话术已经固化。<br><br>下次看到新的「某某研究发现」，默认它正处在这条曲线的第一步。
-    </div>
-
-    <div class="card flat">
-      <h3>这套规则本身的局限</h3>
-      <ul style="color:var(--ink-2); font-size:13.5px;">
-        <li><b>证据阶梯有阶级偏向。</b>能做 RCT 的问题往往是医学化、可标准化的；养育中最重要的东西（关系、意义、爱）恰恰最难测量。<b>「没有证据」不等于「没有作用」，只等于「我们不知道」</b>——不要把这套规则变成只相信可测量之物的偏执。</li>
-        <li><b>绝大多数研究来自 WEIRD 样本</b>（西方、受教育、工业化、富裕、民主国家），迁移到中国语境时有效性下降，尤其涉及家庭结构、隔代抚养、教育竞争的部分。</li>
-        <li><b>本页会过时。</b>任何一条结论都应该可以被新证据推翻。</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══════════════ 5 · 争议区 ══════════════ -->
+<!-- ══════════════ 6 · 争议区 ══════════════ -->
 <section class="view" id="v-open" role="tabpanel" aria-label="争议区">
   <div class="stack">
     <div>
@@ -1259,7 +1275,7 @@ var TIERS = [
 ];
 
 /* ═══════════ checklist render + state ═══════════ */
-var KEY="lion-parenting-v1";
+var KEY="lion-parenting-v2";
 var state={};
 try{ state=JSON.parse(localStorage.getItem(KEY)||"{}")||{}; }catch(e){ state={}; }
 function save(){ try{ localStorage.setItem(KEY,JSON.stringify(state)); }catch(e){} }
