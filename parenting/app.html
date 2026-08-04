@@ -176,7 +176,7 @@ h2.sec{
 
 /* ============ checklist items ============ */
 .item{
-  display:grid; grid-template-columns:auto 1fr auto; align-items:start;
+  display:grid; grid-template-columns:auto 1fr; align-items:start;
   gap:11px; padding:12px 14px 12px 12px;
   border-top:1px solid var(--rule-soft); position:relative;
 }
@@ -451,6 +451,215 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.01ms !important; transition-duration:.01ms !important;}
 }
+
+/* ════════════ v3 · 全展开阅读版组件 ════════════ */
+
+/* 大部分分隔 */
+.part{
+  display:grid; grid-template-columns:auto 1fr; gap:13px; align-items:start;
+  padding:20px 0 6px; border-top:2px solid var(--ink); margin-top:8px;
+}
+.part:first-child{border-top:0; padding-top:0; margin-top:0;}
+.part-n{
+  font-family:var(--font-mono); font-size:26px; font-weight:800; line-height:1;
+  color:var(--accent); letter-spacing:-.04em; font-variant-numeric:tabular-nums;
+}
+.part-t{margin:0; font-size:21px; font-weight:800; letter-spacing:-.025em; line-height:1.3; text-wrap:balance;}
+.part-s{margin:5px 0 0; font-size:13.5px; color:var(--ink-3); line-height:1.65;}
+
+/* 章 */
+.ch{border:1px solid var(--rule); border-radius:var(--radius); background:var(--surface); padding:16px;}
+.ch > h3{
+  margin:0 0 3px; font-size:16.5px; font-weight:750; letter-spacing:-.015em;
+  line-height:1.4; text-wrap:balance;
+}
+.ch > .ch-k{
+  display:block; font-family:var(--font-mono); font-size:10.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-3); margin-bottom:5px;
+}
+.ch p{margin:0 0 .8em; font-size:14.5px; line-height:1.78;}
+.ch p:last-child{margin-bottom:0;}
+.ch ul,.ch ol{margin:0 0 .8em; padding-left:1.25em; font-size:14.5px; line-height:1.78;}
+.ch li{margin-bottom:.38em;}
+.ch li:last-child{margin-bottom:0;}
+.ch h4{
+  margin:17px 0 6px; font-size:14px; font-weight:750; color:var(--ink);
+  padding-left:9px; border-left:3px solid var(--accent);
+}
+.ch .num{font-family:var(--font-mono); font-variant-numeric:tabular-nums; font-size:13.5px;}
+.ch > *:first-child{margin-top:0;}
+
+/* 要点条（代替折叠） */
+.pt{
+  display:grid; grid-template-columns:auto 1fr; gap:11px; align-items:start;
+  padding:11px 13px; border-radius:8px; background:var(--surface-2); margin-bottom:8px;
+}
+.pt:last-child{margin-bottom:0;}
+.pt-n{
+  font-family:var(--font-mono); font-size:12px; font-weight:800; color:var(--surface);
+  background:var(--ink-3); width:20px; height:20px; border-radius:50%;
+  display:grid; place-content:center; margin-top:2px; flex:none;
+}
+.pt-b{min-width:0;}
+.pt-t{font-size:14px; font-weight:700; line-height:1.55; margin-bottom:2px;}
+.pt-s{font-size:13.5px; color:var(--ink-2); line-height:1.72;}
+.pt.go .pt-n{background:var(--calm);}
+.pt.no .pt-n{background:var(--critical);}
+.pt.warn .pt-n{background:var(--caution);}
+
+/* 概念解释块 */
+.def{
+  border:1px solid var(--accent); border-radius:var(--radius);
+  background:var(--accent-soft); padding:14px 15px;
+}
+.def-k{
+  font-family:var(--font-mono); font-size:10.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--accent-text); display:block; margin-bottom:4px;
+}
+.def h4{margin:0 0 6px; font-size:15px; font-weight:750; color:var(--ink); border:0; padding:0;}
+.def p{margin:0 0 .7em; font-size:14px; line-height:1.75;}
+.def p:last-child{margin-bottom:0;}
+.def .eg{
+  margin-top:9px; padding:10px 12px; background:var(--surface); border-radius:7px;
+  font-size:13.5px; line-height:1.7; color:var(--ink-2);
+}
+.def .eg b{color:var(--ink);}
+
+/* 四象限坐标图 */
+.quad{display:grid; grid-template-columns:52px 1fr; grid-template-rows:1fr auto; gap:0 8px; margin-top:4px;}
+.q-y{
+  grid-column:1; grid-row:1; display:flex; flex-direction:column; justify-content:space-between;
+  align-items:flex-end; text-align:right; padding:2px 8px 2px 0;
+  border-right:2px solid var(--ink-3); position:relative;
+}
+.q-y::before{content:""; position:absolute; top:-1px; right:-6px; border:5px solid transparent; border-bottom-color:var(--ink-3); border-top:0;}
+.q-y span{font-size:11px; font-weight:700; color:var(--ink-2); letter-spacing:.02em; white-space:nowrap; line-height:1.3;}
+.q-cells{grid-column:2; grid-row:1; display:grid; grid-template-columns:1fr 1fr; gap:7px;}
+.q-x{
+  grid-column:2; grid-row:2; display:flex; align-items:center; justify-content:space-between;
+  border-top:2px solid var(--ink-3); padding-top:5px; margin-top:8px; position:relative;
+}
+.q-x::after{content:""; position:absolute; top:2px; right:-1px; border:5px solid transparent; border-left-color:var(--ink-3); border-right:0;}
+.q-x span{font-size:11px; font-weight:700; color:var(--ink-2); letter-spacing:.02em;}
+.q-cell{border:1px solid var(--rule); border-radius:9px; padding:11px 12px; display:flex; flex-direction:column;}
+.q-v{font-size:15px; font-weight:800; line-height:1.3; letter-spacing:-.015em; margin-bottom:4px;}
+.q-why{font-size:12px; line-height:1.6; color:var(--ink-2); margin-bottom:8px;}
+.q-eg{margin-top:auto; display:flex; flex-direction:column; gap:5px;}
+.q-eg div{font-size:11.5px; line-height:1.5; color:var(--ink-2); padding-left:9px; position:relative;}
+.q-eg div::before{content:"·"; position:absolute; left:2px; font-weight:800;}
+.q-eg b{color:var(--ink); font-weight:650;}
+.q-cell.go  {background:var(--calm-soft);     border-color:var(--calm);}
+.q-cell.go   .q-v{color:var(--calm);}          .q-cell.go   .q-eg div::before{color:var(--calm);}
+.q-cell.warn{background:var(--caution-soft);  border-color:var(--caution);}
+.q-cell.warn .q-v{color:var(--caution);}       .q-cell.warn .q-eg div::before{color:var(--caution);}
+.q-cell.no  {background:var(--critical-soft); border-color:var(--critical);}
+.q-cell.no   .q-v{color:var(--critical);}      .q-cell.no   .q-eg div::before{color:var(--critical);}
+.q-cell.free{background:var(--mute-soft);     border-color:var(--rule);}
+.q-cell.free .q-v{color:var(--mute);}          .q-cell.free .q-eg div::before{color:var(--mute);}
+
+/* 五问 */
+.qa{border:1px solid var(--rule); border-radius:var(--radius); background:var(--surface); overflow:hidden;}
+.qa-hd{display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; padding:14px 15px; background:var(--surface-2);}
+.qa-n{
+  font-family:var(--font-mono); font-size:15px; font-weight:800; color:var(--surface);
+  background:var(--accent); width:27px; height:27px; border-radius:50%;
+  display:grid; place-content:center; flex:none;
+}
+.qa-q{margin:0; font-size:16px; font-weight:750; line-height:1.5; letter-spacing:-.01em; text-wrap:balance;}
+.qa-w{margin:4px 0 0; font-size:13px; color:var(--ink-3); line-height:1.65;}
+.qa-b{padding:13px 15px;}
+.qa-o{display:grid; grid-template-columns:auto 1fr; gap:10px; padding:9px 0; border-top:1px solid var(--rule-soft); align-items:start;}
+.qa-b > .qa-o:first-child{border-top:0; padding-top:0;}
+.qa-tag{
+  font-family:var(--font-mono); font-size:10px; font-weight:800; letter-spacing:.06em;
+  padding:3px 7px; border-radius:4px; white-space:nowrap; margin-top:1px;
+}
+.qa-tag.a{background:var(--critical-soft); color:var(--critical);}
+.qa-tag.b{background:var(--caution-soft);  color:var(--caution);}
+.qa-tag.c{background:var(--calm-soft);     color:var(--calm);}
+.qa-tag.d{background:var(--mute-soft);     color:var(--mute);}
+.qa-o p{margin:0; font-size:13.5px; line-height:1.7; color:var(--ink-2);}
+.qa-o b{color:var(--ink);}
+
+/* 三分类（隔代抚养） */
+.tri{border:1px solid var(--rule); border-radius:var(--radius); background:var(--surface); overflow:hidden;}
+.tri-hd{padding:13px 15px; border-bottom:1px solid var(--rule);}
+.tri-hd h3{margin:0 0 3px; font-size:16px; font-weight:750;}
+.tri-hd p{margin:0; font-size:13px; line-height:1.65;}
+.tri.keep  .tri-hd{background:var(--critical-soft);} .tri.keep  .tri-hd h3{color:var(--critical);}
+.tri.yield .tri-hd{background:var(--calm-soft);}     .tri.yield .tri-hd h3{color:var(--calm);}
+.tri.fix   .tri-hd{background:var(--caution-soft);}  .tri.fix   .tri-hd h3{color:var(--caution);}
+.trow{display:grid; grid-template-columns:1fr; gap:3px; padding:11px 15px; border-top:1px solid var(--rule-soft);}
+.trow:first-of-type{border-top:0;}
+.trow-t{font-size:14px; font-weight:700; line-height:1.5;}
+.trow-s{font-size:13px; color:var(--ink-2); line-height:1.7;}
+.trow-s .said{color:var(--ink-3); font-style:italic;}
+.chips{display:flex; flex-wrap:wrap; gap:6px; padding:12px 15px;}
+.chip{
+  font-size:13px; padding:5px 11px; border-radius:99px;
+  background:var(--calm-soft); color:var(--calm); font-weight:600;
+}
+
+/* 争议区（展开版） */
+.oq2{border:1px solid var(--rule); border-radius:var(--radius); background:var(--surface); overflow:hidden;}
+.oq2-hd{padding:13px 15px; background:var(--surface-2); border-bottom:1px solid var(--rule-soft);}
+.oq2-hd h3{margin:0; font-size:15.5px; font-weight:750; line-height:1.5;}
+.oq2-b{padding:13px 15px;}
+.oq2-b .seg{margin-top:13px;}
+.oq2-b .seg:first-child{margin-top:0;}
+.oq2-b .lab{
+  font-family:var(--font-mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink-3); display:block; margin-bottom:3px;
+}
+.oq2-b .seg p{margin:0; font-size:13.5px; line-height:1.72; color:var(--ink-2);}
+.oq2-b .seg.dec{background:var(--accent-soft); border-radius:8px; padding:11px 13px; border-left:3px solid var(--accent);}
+.oq2-b .seg.dec p{color:var(--ink);}
+.oq2-b .num{font-family:var(--font-mono); font-variant-numeric:tabular-nums; font-size:12.5px; color:var(--ink);}
+
+/* 复制危机（展开版） */
+.rc{border:1px solid var(--rule); border-radius:var(--radius); background:var(--surface); padding:13px 15px;}
+.rc-t{font-size:14.5px; font-weight:700; line-height:1.5; margin-bottom:2px;}
+.rc-now{font-size:12.5px; color:var(--calm); font-weight:650; line-height:1.55; margin-bottom:8px;}
+.rc-g{display:grid; grid-template-columns:auto 1fr; gap:4px 10px; font-size:12.5px; line-height:1.65;}
+.rc-g dt{font-family:var(--font-mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); padding-top:2px; white-space:nowrap;}
+.rc-g dd{margin:0; color:var(--ink-2);}
+.rc-g .num{font-family:var(--font-mono); font-variant-numeric:tabular-nums; color:var(--ink);}
+
+/* 大字结论 */
+.thesis{
+  border-left:4px solid var(--accent); background:var(--accent-soft);
+  padding:15px 17px; border-radius:0 10px 10px 0;
+}
+.thesis p{margin:0 0 .6em; font-size:17px; font-weight:700; line-height:1.6; letter-spacing:-.015em; text-wrap:balance;}
+.thesis p:last-child{margin-bottom:0;}
+.thesis .sub{font-size:13.5px; font-weight:400; color:var(--ink-2); line-height:1.75; letter-spacing:0;}
+
+/* 对照两栏 */
+.vs{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+.vs-c{border:1px solid var(--rule); border-radius:9px; padding:12px 13px;}
+.vs-c h5{margin:0 0 6px; font-size:13px; font-weight:750;}
+.vs-c p{margin:0; font-size:13px; line-height:1.7; color:var(--ink-2);}
+.vs-c.bad{background:var(--critical-soft); border-color:var(--critical);}
+.vs-c.bad h5{color:var(--critical);}
+.vs-c.good{background:var(--calm-soft); border-color:var(--calm);}
+.vs-c.good h5{color:var(--calm);}
+
+@media (max-width:520px){
+  .vs{grid-template-columns:1fr;}
+  /* 四象限在手机上仍保持 2×2——塌成一列就不再是象限图了 */
+  .quad{grid-template-columns:40px 1fr; gap:0 5px;}
+  .q-y{padding-right:6px;} .q-y span{font-size:10px;}
+  .q-cells{gap:5px;}
+  .q-cell{padding:9px 9px;}
+  .q-v{font-size:13.5px;}
+  .q-why{font-size:11px; margin-bottom:7px;}
+  .q-eg div{font-size:10.5px; line-height:1.45;}
+  .q-y span{font-size:10px; letter-spacing:.08em;}
+  .q-x span{font-size:9.5px;}
+  .part-n{font-size:22px;}
+  .part-t{font-size:18.5px;}
+}
+
 </style>
 
 <header class="hd">
@@ -461,11 +670,12 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
     </div>
     <nav class="tabs" role="tablist" aria-label="视图">
       <button class="tab" role="tab" aria-selected="true" data-view="why">原理</button>
-      <button class="tab" role="tab" aria-selected="false" data-view="do">现在做什么</button>
-      <button class="tab" role="tab" aria-selected="false" data-view="lion">他的数据</button>
       <button class="tab" role="tab" aria-selected="false" data-view="judge">该不该信</button>
-      <button class="tab" role="tab" aria-selected="false" data-view="lookup">速查</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="do">现在做什么</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="family">隔代抚养</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="lion">他的数据</button>
       <button class="tab" role="tab" aria-selected="false" data-view="open">争议区</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="lookup">速查</button>
     </nav>
   </div>
 </header>
@@ -476,153 +686,790 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
 <section class="view on" id="v-why" role="tabpanel" aria-label="原理">
   <div class="stack">
 
-    <div class="card flat">
-      <p class="eyebrow">第一性原理</p>
-      <p class="big">你的工作不是「制造一个优秀的孩子」——那件事你基本做不到。你的工作是：让他安全地长大、有一个值得回忆的童年、见识过一些好东西、并且知道有人无条件地站在他这边。</p>
-      <p style="color:var(--ink-2); font-size:14px;">这不是降低标准。这是把有限的精力从「做不到的事」转移到「做得到的事」上——这本身就是最理性的资源配置。</p>
+    <div>
+      <p class="eyebrow">这一页是整套东西的地基</p>
+      <h2 class="sec">原理</h2>
+      <p class="sec-note">其他每一页都是这一页的应用。如果只读一页，读这页；如果只记一件事，记第 9 章的不对称决策法则。全文约 20 分钟。</p>
     </div>
 
-    <div class="card flat">
-      <h3>那个不舒服的事实 <span class="tag t-calm">置信度 高</span></h3>
-      <p><b>共享环境对成年期人格和智力的个体差异，贡献趋近于零。</b></p>
-      <p style="color:var(--ink-2); font-size:13.5px;">「共享环境」指同一家庭里所有孩子共同经历的那部分——父母的教养风格、家里书多不多、你有没有耐心、你信奉哪套育儿理念。智力尤其戏剧化，这叫 <b>Wilson 效应</b>：智力遗传度随年龄<b>上升</b>（儿童期约 <span style="font-family:var(--font-mono)">0.4</span>，成年后可达 <span style="font-family:var(--font-mono)">0.6–0.8</span>），共享环境的贡献随年龄<b>下降</b>，到成年期接近 <span style="font-family:var(--font-mono)">0</span>。</p>
-      <details class="rep" style="margin-top:12px;">
-        <summary><div><div class="rep-claim">证据来源与四条边界条件</div><div class="rep-now">这不等于「做什么都没用」——只读前半句会滑向虚无，那同样是错的</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">证据</span>
-          Turkheimer 2000 概括的「行为遗传学三定律」；Polderman 等 2015 的巨型 meta 分析汇总了近 50 年、涵盖约 <span class="num">1450 万对双生子</span>的几乎全部双生子研究。双生子与收养设计是仅有的能真正把基因和环境分开的方法。
-          <span class="lab">边界 1 · 另一些结果确实受影响</span>
-          即使在人格和 IQ 上趋近于零，共享环境对<b>受教育年限、价值观、宗教与政治倾向、烟酒起始年龄</b>仍有可观贡献。你改变不了他有多聪明，但能改变他读到什么程度、信什么、15 岁时会不会开始抽烟。
-          <span class="lab">边界 2 · 资源匮乏时环境作用更大</span>
-          Scarr-Rowe 交互：社会经济地位越低，智力遗传度越低。Tucker-Drob &amp; Bates 2016 的 meta 分析发现这个交互<b>在美国样本中稳健复制，在西欧和澳洲样本中没有</b>。推论：遗传度高是「环境已经足够好」的结果——<b>保证下限，比追求上限重要得多</b>。
-          <span class="lab">边界 3 · 只在正常范围内成立</span>
-          双生子研究的样本里没有虐待、严重忽视、饥饿、铅中毒、战争。跌出正常范围的伤害是巨大且不可逆的——这正是「防止不可逆伤害」排第一的原因。
-          <span class="lab">边界 4 · 方差解释 ≠ 个体命运</span>
-          「共享环境解释的方差接近零」是<b>群体层面</b>的统计结论，说的是「家庭之间的差异解释不了孩子之间的差异」，不是「你对你儿子做什么都无所谓」。这两句在逻辑上不等价。
+    <div class="thesis">
+      <p>育儿信息的问题不是太少，是太多、且无法分辨真假。</p>
+      <p class="sub">解决办法不是读更多，是<b>装一个过滤器</b>。但过滤器不能凭空装——它必须建立在一个正确的因果模型上。这一页先修模型，再装过滤器。</p>
+    </div>
+
+    <!-- ─────────── 第一部分 ─────────── -->
+    <div class="part">
+      <div class="part-n">一</div>
+      <div>
+        <h3 class="part-t">焦虑从哪来</h3>
+        <p class="part-s">在讲怎么筛选信息之前，得先搞清楚：为什么信息会多到无法筛选。</p>
+      </div>
+    </div>
+
+    <div class="ch">
+      <span class="ch-k">第 1 章</span>
+      <h3>三个症状，一个根</h3>
+      <p>大多数父母对育儿信息的抱怨，可以归成三条：<b>太多看不完</b>（信息过载）、<b>说法互相打架</b>（良莠不齐）、<b>看完更焦虑</b>（底层焦虑）。</p>
+      <p>这三条通常被当作三个独立问题分别处理——用「信息管理」对付第一条，用「找权威来源」对付第二条，用「放平心态」对付第三条。<b>这三种处理方式全都无效，因为它们对付的是症状。</b></p>
+      <p>三个症状长在同一个根上，那个根是一个几乎从不被明说出来的假设：</p>
+      <div class="thesis" style="margin:12px 0;">
+        <p>「父母的努力程度，决定孩子将来会成为什么样的人。」</p>
+      </div>
+      <p>只要你信这句话，后面三件事就是<b>逻辑上的必然</b>，不是你心态不好：</p>
+      <div class="pt no">
+        <div class="pt-n">1</div>
+        <div class="pt-b">
+          <div class="pt-t">每一条信息都变得重要 → 过载</div>
+          <div class="pt-s">如果每个动作都在雕刻孩子的未来，那么任何一条关于"怎么做更好"的信息都<b>不能被忽略</b>。你不是不会筛选，是这个前提下<b>不存在可以安全丢掉的信息</b>。</div>
         </div>
-      </details>
+      </div>
+      <div class="pt no">
+        <div class="pt-n">2</div>
+        <div class="pt-b">
+          <div class="pt-t">每一个选择都可能出错 → 焦虑</div>
+          <div class="pt-s">责任无限大，而反馈几乎为零——孩子二十年后才"出结果"，你今天做的事对不对，<b>永远得不到验证</b>。责任大 + 无反馈，这是焦虑的标准配方。</div>
+        </div>
+      </div>
+      <div class="pt no">
+        <div class="pt-n">3</div>
+        <div class="pt-b">
+          <div class="pt-t">「万一有用呢」变成不可反驳 → 良莠不齐得以存活</div>
+          <div class="pt-s">在这个前提下，任何低质量建议都有一个终极辩护：万一有用呢？<b>于是筛选的成本变得无限高</b>，垃圾信息不会被淘汰，只会不断累积。</div>
+        </div>
+      </div>
+      <h4>所以顺序必须是这样的</h4>
+      <p>先修因果模型，再装过滤器。<b>反过来做没用</b>——如果你仍然相信「我做的每件事都在决定他的未来」，那么任何过滤规则你都会在心里加一句"但万一呢"，然后把它绕过去。</p>
+      <p>接下来两部分就干这件事：<b>第二部分</b>拿现有最硬的证据修这个模型，<b>第三部分</b>解释为什么育儿信息的质量必然这么差，<b>第四部分</b>给出修好之后该怎么决策。</p>
     </div>
 
-    <div class="card flat">
-      <h3>父母真正的四个杠杆</h3>
-      <p style="font-size:13.5px; color:var(--ink-3); margin-bottom:12px;">所有行动都必须能归到这四类之一。归不进去的，一律砍掉。</p>
-      <h4>A · 防止不可逆伤害</h4>
-      <p style="font-size:13.5px; color:var(--ink-2);">唯一投入产出比极高的领域。它不产生「更好的孩子」，它产生「还活着、没有残疾的孩子」。收益以极低概率但极端严重的事件形式存在，所以日常感觉不到回报——这正是它被系统性忽视、也正是它排第一的原因。<b>这是唯一一个「父母的努力程度」和「孩子的结果」之间存在强因果关系的领域。</b></p>
-      <h4>B · 亲子关系本身</h4>
-      <p style="font-size:13.5px; color:var(--ink-2);">它是<b>目的</b>，不只是手段。多数育儿讨论把它当工具（良好依恋 → 更自信 → 更成功），而那个链条的后半段证据比宣传弱得多。但不重要——你和儿子几十年的关系质量，是你人生体验的直接组成部分。而且这恰恰是<b>你唯一能确定影响的东西</b>：你改变不了他的智商，但你完全决定了他童年记忆里父亲是什么样子。<br><br>依恋敏感性干预确实有效，且 van IJzendoorn 与 Bakermans-Kranenburg 的系列 meta 分析发现，<b>短而聚焦的干预效果反而好于长而全面的</b>。翻译：不需要成为完美父母，需要的是在孩子发出信号时能接住；也不需要每次都接住——「足够好」是有实证支持的标准。</p>
-      <h4>C · 环境与同伴的选择</h4>
-      <p style="font-size:13.5px; color:var(--ink-2);">城市、社区、学校、玩伴、家里有没有人吸烟、空气质量、房子有没有铅。被严重低估的杠杆。<b>「大决策」比「日常操作」重要得多</b>——选哪个城市、住哪个小区、上哪所学校，这几个决策的影响超过你一万次「今天要不要读绘本」的总和。</p>
-      <h4>D · 具体技能与知识的直接传授</h4>
-      <p style="font-size:13.5px; color:var(--ink-2);">效果真实，但<b>严格领域特定，不会泛化</b>。你教他游泳，他学会游泳；不会因此变得更聪明或更有毅力。接受这一点其实是解放：教他认识路边的树，理由可以就是「认识树本身很好」，以及「我们一起干了这件事」。</p>
+    <!-- ─────────── 第二部分 ─────────── -->
+    <div class="part">
+      <div class="part-n">二</div>
+      <div>
+        <h3 class="part-t">父母到底能改变什么</h3>
+        <p class="part-s">这一部分给的是<b>边界</b>：哪些事你使劲也没用，哪些事你不使劲就真的会毁掉。读起来可能不舒服，但它是最能消解焦虑的事实。</p>
+      </div>
     </div>
 
-    <div class="card flat">
-      <h3>效应量：唯一重要的数字</h3>
-      <p style="font-size:13.5px; color:var(--ink-2);">不要问「有没有影响」——样本够大时，一切都有影响。要问<b>多大、能持续多久</b>。下表的 d 表示干预让一个原本处在第 50 百分位的孩子移动到第几百分位。</p>
+    <div class="ch">
+      <span class="ch-k">第 2 章 · 置信度：高</span>
+      <h3>那个不舒服的事实</h3>
+      <p>行为遗传学是育儿领域<b>证据最硬</b>的分支，因为它有双生子和收养这两种能真正把基因和环境分开的设计——这是别的方法做不到的。</p>
+      <p>三条核心结论（Turkheimer 2000 概括为「行为遗传学三定律」；Polderman 等 2015 的巨型 meta 分析进一步确认，该分析汇总了近 50 年、涵盖约 <span class="num">1450 万对双生子</span>的几乎全部双生子研究）：</p>
+      <div class="pt">
+        <div class="pt-n">1</div>
+        <div class="pt-b"><div class="pt-t">所有行为性状都有显著遗传成分</div><div class="pt-s">智力、性格、气质、精神疾病风险，无一例外。</div></div>
+      </div>
+      <div class="pt">
+        <div class="pt-n">2</div>
+        <div class="pt-b"><div class="pt-t">在同一个家庭长大所带来的影响，小于基因的影响</div><div class="pt-s">这条最反直觉，下面单独展开。</div></div>
+      </div>
+      <div class="pt">
+        <div class="pt-n">3</div>
+        <div class="pt-b"><div class="pt-t">剩下的大部分变异，既不来自基因，也不来自家庭</div><div class="pt-s">来自<b>非共享环境</b>——同伴、偶然事件、运气，以及大量我们至今没能识别的东西。</div></div>
+      </div>
+
+      <h4>第二条到底在说什么</h4>
+      <p><b>「共享环境」指同一个家庭里所有孩子共同经历的那部分</b>——父母的教养风格、家里书多不多、你有没有耐心、你信奉哪套育儿理念。研究反复发现：<b>共享环境对成年期人格和智力的个体差异，贡献趋近于零。</b></p>
+      <p>智力尤其戏剧化，这个现象叫 <b>Wilson 效应</b>：智力的遗传度随年龄<b>上升</b>（儿童期约 <span class="num">0.4</span>，成年后可达 <span class="num">0.6–0.8</span>），而共享环境的贡献随年龄<b>下降</b>，到成年期接近 <span class="num">0</span>。</p>
+      <div class="def">
+        <span class="def-k">翻译成人话</span>
+        <p>把两个没有血缘关系的孩子放在同一个家庭养大，他们成年后在智力和性格上的相似度，<b>接近于随机的两个陌生人</b>。</p>
+        <p>你的教养风格，在「成年后的性格」和「智力」这两件事上，留下的可测量痕迹接近于零。</p>
+      </div>
+      <p style="margin-top:13px;"><b>⚠️ 这句话极易被误读成「做什么都没用」。那是错的，而且比原来的错误更危险。</b>下一章给出四条边界条件。</p>
+    </div>
+
+    <div class="ch">
+      <span class="ch-k">第 3 章</span>
+      <h3>四条边界条件：为什么这不等于虚无主义</h3>
+      <p>上一章的结论如果只读前半句，会滑向「反正没用，躺平算了」。这四条边界必须同时给出。</p>
+      <div class="pt go">
+        <div class="pt-n">1</div>
+        <div class="pt-b">
+          <div class="pt-t">共享环境对另一些结果确实有真实贡献</div>
+          <div class="pt-s">即使在人格和 IQ 上趋近于零，共享环境对<b>受教育年限、价值观、宗教与政治倾向、烟酒起始年龄、职业选择</b>仍有可观贡献。<br><b>你改变不了他有多聪明，但你能改变他读到什么程度、信什么、以及他 15 岁时会不会开始抽烟。</b></div>
+        </div>
+      </div>
+      <div class="pt go">
+        <div class="pt-n">2</div>
+        <div class="pt-b">
+          <div class="pt-t">在资源匮乏的环境中，环境的作用更大</div>
+          <div class="pt-s"><b>Scarr-Rowe 交互效应</b>：社会经济地位越低，智力的遗传度越低——因为环境成了限制因素。Tucker-Drob &amp; Bates 2016 的 meta 分析发现这个交互<b>在美国样本中稳健复制，但在西欧和澳洲没有</b>，推测与社会保障和医疗覆盖的差异有关。<br><b>推论：遗传度高，是「环境已经足够好」的结果，不是「环境不重要」的证明。保证下限，比追求上限重要得多。</b>这条推论直接决定了本体系的整个优先级排序。</div>
+        </div>
+      </div>
+      <div class="pt go">
+        <div class="pt-n">3</div>
+        <div class="pt-b">
+          <div class="pt-t">这些研究测的只是「常规范围内的变异」</div>
+          <div class="pt-s">双生子研究的样本里<b>没有</b>虐待、严重忽视、饥饿、铅中毒、战争。「教养风格影响不大」这个结论<b>只在正常范围内成立</b>。跌出正常范围的伤害是巨大且往往不可逆的——这正是「防止不可逆伤害」被排在第一位的原因。</div>
+        </div>
+      </div>
+      <div class="pt go">
+        <div class="pt-n">4</div>
+        <div class="pt-b">
+          <div class="pt-t">方差解释 ≠ 个体命运</div>
+          <div class="pt-s">「共享环境解释的方差接近零」是一个<b>群体层面</b>的统计结论。它说的是「<b>家庭之间的差异</b>，解释不了<b>孩子之间的差异</b>」，不是「你对你儿子做什么都无所谓」。<b>这两句话在逻辑上不等价。</b></div>
+        </div>
+      </div>
+
+      <h4>由此可以明确划掉的东西</h4>
+      <div class="tw">
+        <table class="dt">
+          <tr><th>流行观念</th><th>为什么划掉</th></tr>
+          <tr><td class="wrap"><b>三岁定终身</b></td><td class="wrap">与 Wilson 效应<b>直接矛盾</b>——遗传度随年龄上升、共享环境影响随年龄下降。三岁时的差异恰恰是最不稳定的</td></tr>
+          <tr><td class="wrap"><b>早教改变智商</b></td><td class="wrap">认知效应普遍消退（见第 7 章消退效应）</td></tr>
+          <tr><td class="wrap"><b>关键期／敏感期迷信</b></td><td class="wrap">除极端剥夺（如罗马尼亚孤儿院研究）外，多数「窗口」是软的、可补偿的。语言是相对较硬的一个，但也远没有营销话术说的那么硬</td></tr>
+          <tr><td class="wrap"><b>教养风格塑造性格</b></td><td class="wrap">气质高度遗传且早期即可观察（Kagan 的行为抑制研究）。孩子内向或外向，主要不是你造成的</td></tr>
+          <tr><td class="wrap"><b>「都是父母的错」</b></td><td class="wrap">忽略<b>反向因果</b>——难带的孩子会把耐心的父母逼成暴躁的样子，然后这被记录为「父母暴躁导致孩子难带」</td></tr>
+          <tr class="hi"><td class="wrap"><b>完美主义育儿</b></td><td class="wrap">没有证据支持「更努力 = 更好结果」在正常范围内成立；<b>有</b>证据支持父母的精神健康会影响孩子。<b>把自己耗尽是净负收益</b></td></tr>
+        </table>
+      </div>
+      <p style="margin-top:12px;">最后一条值得展开：<b>在做取舍时，「父母的精神状态」是一个真实的、需要计入的变量，不是自私。</b>一个睡够觉、没有耗竭的父亲，比一个严格执行了全部育儿攻略但濒临崩溃的父亲，对孩子更有价值。这不是安慰话——它是从下一章「杠杆 B 远比杠杆 D 重要」直接推出来的。</p>
+    </div>
+
+    <div class="ch">
+      <span class="ch-k">第 4 章</span>
+      <h3>四个杠杆：把「能改变什么」变成可操作的分类</h3>
+      <p>知道了边界，还需要一个分类法，否则没法落到行动上。<b>本体系的所有行动，都必须能归到下面四类之一。归不进去的，一律砍掉。</b></p>
+
+      <h4>杠杆 A · 防止不可逆伤害 —— 唯一投入产出比极高的领域</h4>
+      <p>意外伤害、疫苗可预防疾病、营养缺乏、毒物暴露。</p>
+      <p>它的特殊性在于<b>收益的分布形态</b>：它不产生「更好的孩子」，它产生「<b>还活着、没有残疾的孩子</b>」。收益以极低概率但极端严重的事件形式存在，所以<b>日常完全感觉不到回报</b>——这正是它被系统性忽视的原因，也正是它该排第一的原因。</p>
+      <p><b>这是唯一一个「父母的努力程度」和「孩子的结果」之间存在强因果关系的领域。</b></p>
+
+      <h4>杠杆 B · 亲子关系本身 —— 它是目的，不只是手段</h4>
+      <p>多数育儿讨论把亲子关系当<b>工具</b>：良好依恋 → 孩子更自信 → 更成功。这个链条的后半段，证据比宣传弱得多。</p>
+      <p>但这不重要，<b>因为亲子关系是目的本身</b>。你和孩子之间几十年的关系质量，是你人生体验的直接组成部分，也是他的。它不需要通过「能提高什么」来证明自己值得。</p>
+      <p>而且这里有个反讽：<b>这恰恰是你唯一能确定影响的东西。</b>你改变不了他的智商，但你完全决定了他童年记忆里父母是什么样子。这是所有育儿投入中<b>确定性最高</b>的一项。</p>
+      <div class="def">
+        <span class="def-k">一个让人松口气的实证发现</span>
+        <p>依恋敏感性干预确实有效。而 van IJzendoorn 与 Bakermans-Kranenburg 的系列 meta 分析发现：<b>短而聚焦的干预，效果反而好于长而全面的。</b></p>
+        <p>翻译：<b>不需要成为完美父母，需要的是在孩子发出信号时能接住。而且不需要每次都接住——「足够好」是有实证支持的标准。</b></p>
+      </div>
+
+      <h4>杠杆 C · 环境与同伴的选择 —— 最被低估的一个</h4>
+      <p>城市、社区、学校、玩伴、家里有没有人吸烟、空气质量、住的房子有没有铅。</p>
+      <p>有意思的是，《教养的迷思》那一派主张「同伴比父母重要」——<b>但同伴群体是父母选的</b>。你不能决定他成为什么样的人，但你在很大程度上决定了他<b>和谁一起长大</b>。</p>
+      <p><b>这也是为什么「大决策」比「日常操作」重要得多</b>：选哪个城市、住哪个小区、上哪所学校，这几个决策的影响超过你一万次「今天要不要读绘本」的总和。<b>把纠结日常细节的精力，挪一部分到这几个决策上。</b></p>
+
+      <h4>杠杆 D · 具体技能与知识的直接传授</h4>
+      <p>语言、阅读、运动、生活习惯、安全常识、你的手艺和爱好。</p>
+      <p><b>效果真实，但严格领域特定——不会泛化。</b>你教他游泳，他学会游泳；不会因此变得更聪明或更有毅力。远迁移在认知训练研究里一次又一次失败（见第 8 章）。</p>
+      <p>接受这一点其实是<b>解放</b>：你不必把每件事都赋予「培养某种品质」的重大意义。教他认识路边的树，理由可以就是「认识树本身很好」，以及「我们一起干了这件事」。</p>
+
+      <div class="thesis" style="margin-top:16px;">
+        <p>你的工作不是「制造一个优秀的孩子」——那件事你基本做不到。</p>
+        <p>你的工作是：让他安全地长大、有一个值得回忆的童年、见识过一些好东西、并且知道有人无条件地站在他这边。</p>
+        <p class="sub">这几件事你完全做得到，而且只有你做得到。<b>这不是降低标准，是把有限的精力从「做不到的事」转移到「做得到的事」上——这本身就是最理性的资源配置。</b></p>
+      </div>
+    </div>
+<!-- ─────────── 第三部分 ─────────── -->
+    <div class="part">
+      <div class="part-n">三</div>
+      <div>
+        <h3 class="part-t">为什么育儿信息这么不可信</h3>
+        <p class="part-s">上一部分修好了模型。这一部分解释：为什么市面上的信息质量必然这么差——这不是运气不好，是结构决定的。</p>
+      </div>
+    </div>
+
+    <div class="ch">
+      <span class="ch-k">第 5 章</span>
+      <h3>供给侧：垃圾信息为什么能持续生产</h3>
+      <p>大多数人把「育儿信息良莠不齐」理解成运气问题——碰到了不靠谱的博主。<b>不是。这是一个由三个结构性原因共同保证的稳定输出。</b></p>
+
+      <h4>原因一：好研究在这个领域本来就极少</h4>
+      <p>医学能做随机对照试验，因为你可以随机分配药物。<b>但你不能把孩子随机分配给不同的父母。</b>所以育儿领域绝大多数问题<b>在原理上就做不了最强的研究设计</b>。</p>
+      <p>剩下能做的多是观察性研究——而观察性研究天生带着下一章要讲的三个致命混杂。<b>所以「证据不足」在这个领域是常态，不是例外。</b>而真空需要被填满，填进去的就是意见、传统和商业话术。</p>
+
+      <h4>原因二：焦虑是转化率最高的情绪</h4>
+      <p>育儿内容的商业模式是：<b>制造焦虑 → 获得注意力 → 转化为课程、补剂、检测、器械的销售。</b>在这个模式下，各类说法的商业价值是这样排的：</p>
+      <div class="vs">
+        <div class="vs-c bad">
+          <h5>❌ 卖得动的说法</h5>
+          <p>「<b>99% 的家长都做错了</b>」<br>「<b>关键期错过就补不回来</b>」<br>「<b>这个动作决定孩子一生</b>」<br><br>共同点：<b>暗示你正在犯错，而且代价不可逆</b>——你必须立刻做点什么。而"做点什么"通常需要付费。</p>
+        </div>
+        <div class="vs-c good">
+          <h5>✅ 卖不动的说法</h5>
+          <p>「<b>这件事影响很小，不用管</b>」<br>「<b>你已经做得够好了</b>」<br>「<b>大部分育儿产品没有证据</b>」<br><br>共同点：<b>正确，但没有任何商业价值</b>——它不需要你买任何东西，也不需要你继续关注这个账号。</p>
+        </div>
+      </div>
+      <p style="margin-top:12px;"><b>所以正确的建议在传播上处于系统性劣势。</b>不是没人说，是说了传不开。你刷到的东西，是被这套筛选机制过滤过一遍的结果——<b>它偏向焦虑，不偏向真实。</b></p>
+
+      <h4>原因三：科学传播链条上的固定曲线</h4>
+      <p>几乎每一条最终被证伪的育儿"科学结论"，都走过同一条路：</p>
+      <div class="pt"><div class="pt-n">1</div><div class="pt-b"><div class="pt-t">一个小样本研究出现惊艳结果</div><div class="pt-s"><b>样本越小，越容易出现夸张的效应量</b>——这是统计上的必然，不是造假。小样本的估计波动大，而波动大的那一端才会被发表。</div></div></div>
+      <div class="pt"><div class="pt-n">2</div><div class="pt-b"><div class="pt-t">媒体放大</div><div class="pt-s">「研究发现，做 X 能让孩子 Y」。所有的样本量、限定条件、效应量在这一步被丢掉。</div></div></div>
+      <div class="pt"><div class="pt-n">3</div><div class="pt-b"><div class="pt-t">产业化</div><div class="pt-s">课程、书籍、玩具、培训体系围绕它建立起来。<b>此时它已经有了自己的经济利益。</b></div></div></div>
+      <div class="pt"><div class="pt-n">4</div><div class="pt-b"><div class="pt-t">十年后大样本复制失败</div><div class="pt-s">效应量缩水到接近零，或方向都反了。</div></div></div>
+      <div class="pt no"><div class="pt-n">5</div><div class="pt-b"><div class="pt-t">但商业话术已经固化，继续流通</div><div class="pt-s"><b>第 4 步几乎不会被报道</b>——「某研究复制失败」没有传播价值。所以你今天仍然会在朋友圈刷到莫扎特效应。</div></div></div>
+      <div class="def">
+        <span class="def-k">可以直接用的推论</span>
+        <p>下次看到「<b>某某研究发现</b>」这类新说法，<b>默认它正处在这条曲线的第 1 步</b>。</p>
+        <p>这不是愤世嫉俗，是<b>基础概率</b>（见第 8 章）：处在第 1 步的说法，数量远多于最终被证实的说法。</p>
+      </div>
+    </div>
+
+    <div class="ch">
+      <span class="ch-k">第 6 章</span>
+      <h3>证据阶梯（育儿适配版）</h3>
+      <p>因为不能把孩子随机分配给父母，所以不能照搬医学的证据分级，需要一套适配版本。</p>
+      <div class="tw">
+        <table class="dt">
+          <tr><th>等级</th><th>什么设计</th><th>为什么可信</th><th>典型例子</th></tr>
+          <tr class="ok"><td><b>强</b></td><td class="wrap">大样本 RCT、系统综述／meta 分析</td><td class="wrap">随机化切断了混杂</td><td class="wrap">LEAP 花生过敏试验</td></tr>
+          <tr class="ok"><td><b>强</b></td><td class="wrap">自然实验（政策突变、断点回归）</td><td class="wrap">分组接近随机，且是真实世界规模</td><td class="wrap">魁北克全民托育改革</td></tr>
+          <tr class="ok"><td><b>强</b></td><td class="wrap">收养研究、双生子研究</td><td class="wrap"><b>能把基因和环境分开</b></td><td class="wrap">行为遗传学全部核心结论</td></tr>
+          <tr><td><b>中</b></td><td class="wrap">兄弟姐妹固定效应</td><td class="wrap">同一家庭内比较，控掉了家庭层面混杂</td><td class="wrap">母乳与长期认知的重新估计</td></tr>
+          <tr><td><b>中</b></td><td class="wrap">大样本纵向队列，且明确处理了遗传混杂</td><td class="wrap">有时间顺序，但残余混杂仍在</td><td class="wrap">铅暴露与认知</td></tr>
+          <tr class="hi"><td><b>弱</b></td><td class="wrap">横断面相关、家长自评量表、小样本单一实验室</td><td class="wrap">混杂和反向因果都无法排除</td><td class="wrap">绝大多数「屏幕时间与××」研究</td></tr>
+          <tr class="hi"><td><b>无</b></td><td class="wrap">专家意见、无出处的「研究表明」、个案、名人育儿法、商业宣传</td><td class="wrap"><b>不是证据</b></td><td class="wrap">育儿博主的九成内容</td></tr>
+        </table>
+      </div>
+      <div class="def" style="margin-top:13px;">
+        <span class="def-k">用法</span>
+        <p>看到任何结论，<b>先问它站在第几级</b>。站在「弱」和「无」上的结论，<b>不配让你改变行为</b>——除非它同时满足第 10 章的「代价小 × 下行不可逆」。</p>
+      </div>
+    </div>
+
+    <div class="ch">
+      <span class="ch-k">第 7 章</span>
+      <h3>三个致命混杂</h3>
+      <p>育儿研究里绝大多数「A 导致 B」的说法，死在这三个地方。<b>认识它们，是判断力的核心。</b></p>
+      <div class="pt no">
+        <div class="pt-n">1</div>
+        <div class="pt-b">
+          <div class="pt-t">遗传混杂 —— 最致命，也最少被提及</div>
+          <div class="pt-s">父母给了孩子环境，<b>也给了孩子基因</b>。<br><br>「爱读书的父母，孩子成绩好」——可能是读书这个行为有用，<b>也可能只是把智力和性格遗传了下去</b>。<br><br>任何不做收养／双生子／兄弟姐妹设计的育儿研究，<b>都无法区分这两者</b>。</div>
+        </div>
+      </div>
+      <div class="pt no">
+        <div class="pt-n">2</div>
+        <div class="pt-b">
+          <div class="pt-t">选择性混杂</div>
+          <div class="pt-s">会做某件事的家庭，<b>本来就和不做的家庭不同</b>。<br><br>坚持亲子共读的家庭，通常也更富裕、更稳定、父母教育程度更高。被观察到的效果里，有多少是共读本身，<b>有多少是「会共读的那种家庭」</b>？</div>
+        </div>
+      </div>
+      <div class="pt no">
+        <div class="pt-n">3</div>
+        <div class="pt-b">
+          <div class="pt-t">反向因果</div>
+          <div class="pt-s">默认叙事是父母塑造孩子，<b>但因果常常反着来</b>。<br><br><b>孩子的气质在塑造父母的行为</b>：容易带的孩子让父母更耐心，难带的孩子把父母逼成严厉的样子。<br><br>然后研究者观察到「严厉的父母，孩子问题行为多」，并宣布<b>是父母的错</b>。</div>
+        </div>
+      </div>
+      <div class="thesis" style="margin-top:14px;">
+        <p>一句话检验法：对任何育儿结论只问一句——</p>
+        <p>「它控制遗传混杂了吗？」</p>
+        <p class="sub">老实的答案，绝大多数是<b>没有</b>。</p>
+      </div>
+    </div>
+
+    <div class="ch">
+      <span class="ch-k">第 8 章</span>
+      <h3>三个统计陷阱</h3>
+      <p>就算一项研究没死在混杂上，还有三个地方会让你把结论读错。</p>
+
+      <h4>陷阱一 · 效应量：唯一重要的数字</h4>
+      <p><b>不要问「有没有影响」——样本够大时，一切都有影响。</b>要问<b>多大</b>、以及<b>能持续多久</b>。</p>
+      <p>标准化效应量 <b>Cohen's d</b> 的直觉换算（d 表示：干预让一个原本处在第 50 百分位的孩子，移动到第几百分位）：</p>
       <div class="dscale">
         <div class="drow hi"><span class="dd">d = 0.1</span><span class="dp">→ 54</span><span class="dn">两组分布几乎完全重叠 · <b>噪音级，忽略</b></span></div>
         <div class="drow"><span class="dd">d = 0.2</span><span class="dp">→ 58</span><span class="dn">肉眼不可见 · 只有代价接近零时才值得做</span></div>
         <div class="drow"><span class="dd">d = 0.5</span><span class="dp">→ 69</span><span class="dn">有经验的人能察觉 · 值得认真对待</span></div>
-        <div class="drow"><span class="dd">d = 0.8</span><span class="dp">→ 79</span><span class="dn">明显 · 育儿干预里罕见</span></div>
+        <div class="drow"><span class="dd">d = 0.8</span><span class="dp">→ 79</span><span class="dn">明显 · <b>育儿干预里罕见</b></span></div>
       </div>
-      <p style="font-size:13.5px; color:var(--ink-2); margin-top:12px;">还要问第二个问题：<b>能持续多久？</b>教育与早教干预有个反复出现的规律——<b>消退效应</b>：干预结束时显著，几年后归零。美国 Head Start 影响研究显示认知优势到小学三年级基本消失；田纳西州学前教育 RCT（Durkin 等 2022）甚至发现到六年级时<b>转为负效应</b>。</p>
-      <div class="callout" style="margin-top:12px;">看到「显著提升」四个字，<b>先找效应量，再找随访年限。两个都没有的，当没看见。</b></div>
+      <p style="margin-top:12px;">还要问第二个问题：<b>能持续多久？</b>教育与早教干预有个反复出现的规律——<b>消退效应（fadeout）</b>：干预结束时效果显著，几年后归零。</p>
+      <p>美国 Head Start 影响研究显示认知优势到<b>小学三年级基本消失</b>；田纳西州学前教育 RCT（Durkin 等 2022）甚至发现到<b>六年级时转为负效应</b>。</p>
+      <div class="def">
+        <span class="def-k">可以直接用</span>
+        <p>看到「<b>显著提升</b>」四个字，<b>先找效应量，再找随访年限。两个都没有的，当没看见。</b></p>
+      </div>
+
+      <h4>陷阱二 · 回归均值：为什么偏方看起来总是有效</h4>
+      <p>这一条解释了大量民间做法、补剂、推拿、"神奇方法"的<b>主观有效感</b>，而且几乎从不被提及。</p>
+      <p>机制很简单：<b>你在孩子状态最差的时候才会去干预。</b>而极端状态本身就会自然回落到平均水平——不管你做没做什么。</p>
+      <div class="def">
+        <span class="def-k">例子</span>
+        <p>孩子咳嗽最厉害的那天晚上，你给他吃了某个止咳偏方。第二天好转了。</p>
+        <p><b>但咳嗽本来就是在最厉害的那天之后开始好转的</b>——这是病程的正常形状，你只是恰好在峰值那天出手。</p>
+        <div class="eg"><b>怎么识别：</b>凡是「在最难受时使用、之后感觉变好」的做法，<b>都自带一个虚假的有效性证明</b>。要判断它真的有效，必须有对照组——也就是「同样难受但什么都不做」的一批人。这正是随机对照试验存在的理由。</div>
+      </div>
+
+      <h4>陷阱三 · 基础概率：「风险翻倍」翻的是什么</h4>
+      <p>「做 X 会让某某风险增加 <span class="num">50%</span>」——这句话本身<b>不包含任何可用信息</b>，因为它是相对风险，而你需要知道的是绝对风险。</p>
+      <div class="vs">
+        <div class="vs-c bad">
+          <h5>相对风险（新闻爱用）</h5>
+          <p>「风险<b>增加 50%</b>」<br><br>听起来很吓人，但如果基础概率是<b>十万分之二</b>，增加 50% 之后是<b>十万分之三</b>。<br><br>绝对增加：<b>十万分之一</b>。</p>
+        </div>
+        <div class="vs-c good">
+          <h5>绝对风险（你真正需要的）</h5>
+          <p>「<b>每十万人多 1 例</b>」<br><br>同一个事实，换个说法，决策含义完全不同。<br><br><b>只有绝对风险能拿来和代价比较。</b></p>
+        </div>
+      </div>
+      <p style="margin-top:12px;"><b>反过来同样成立</b>：如果基础概率很高，那么"只增加 20%"也可能是巨大的绝对数字。<b>所以看到任何百分比，先问：基数是多少？</b></p>
+      <p>这条也解释了第 5 章那个推论：<b>「新研究最终被证实」的基础概率本来就低</b>，所以对新说法保持默认怀疑，在数学上是对的。</p>
     </div>
 
-    <div class="card flat">
-      <h3>三个致命混杂</h3>
-      <p style="font-size:13.5px; color:var(--ink-2);">育儿研究里绝大多数「A 导致 B」的说法，死在这三个地方。</p>
-      <h4>1 · 遗传混杂（最致命，也最少被提及）</h4>
-      <p style="font-size:13.5px; color:var(--ink-2);">父母给了孩子环境，也给了孩子基因。「爱读书的父母，孩子成绩好」——可能是读书有用，也可能只是把智力和性格遗传了下去。</p>
-      <h4>2 · 选择性混杂</h4>
-      <p style="font-size:13.5px; color:var(--ink-2);">会做某件事的家庭，本来就和不做的不同。坚持亲子共读的家庭通常也更富裕、更稳定、父母教育程度更高。</p>
-      <h4>3 · 反向因果</h4>
-      <p style="font-size:13.5px; color:var(--ink-2);"><b>孩子的气质在塑造父母的行为</b>：容易带的孩子让父母更耐心，难带的孩子把父母逼成严厉的样子。然后研究者观察到「严厉的父母，孩子问题行为多」，并宣布是父母的错。</p>
-      <div class="callout" style="margin-top:12px;">对任何育儿结论只问一句：<b>「它控制遗传混杂了吗？」</b>老实的答案，绝大多数是没有。</div>
+    <div class="ch">
+      <span class="ch-k">第 9 章</span>
+      <h3>复制危机名册：可以直接划掉的八条</h3>
+      <p>下面这些结论你可能听过很多次，但它们<b>要么复制失败，要么效应量缩水到接近于零</b>。可以直接从焦虑清单里划掉。</p>
+      <div class="stack" style="gap:9px;">
+        <div class="rc">
+          <div class="rc-t">棉花糖实验预测人生成就</div>
+          <div class="rc-now">✅ 现在该怎么看：自控力有一定预测力，但很大程度是家庭环境的<b>代理指标</b>。「训练孩子延迟满足」没有依据</div>
+          <dl class="rc-g">
+            <dt>原始</dt><dd>Mischel 等，1970s，斯坦福教工子女，<span class="num">n≈90</span></dd>
+            <dt>后续</dt><dd>Watts, Duncan &amp; Quan 2018，<span class="num">n≈900</span> 且样本更多样；控制家庭背景与早期认知后，效应<b>大幅缩水</b></dd>
+          </dl>
+        </div>
+        <div class="rc">
+          <div class="rc-t">成长型思维改变学业</div>
+          <div class="rc-now">✅ 真实，但极小且有条件。<b>不值得作为育儿核心策略</b></div>
+          <dl class="rc-g">
+            <dt>原始</dt><dd>Mueller &amp; Dweck 1998，小样本实验</dd>
+            <dt>后续</dt><dd>Sisk 等 2018（Psychological Science）对 43 项干预、<span class="num">n&gt;57,000</span> 的 meta 分析：<b><span class="num">d≈0.08</span></b>；Yeager 等 2019 全美 RCT <span class="num">n≈12,000</span>：仅在成绩较差学生中约 <span class="num">+0.1 GPA</span></dd>
+          </dl>
+        </div>
+        <div class="rc">
+          <div class="rc-t">莫扎特效应让孩子聪明</div>
+          <div class="rc-now">✅ 从来就<b>与婴儿无关</b>。纯粹的营销捏造</div>
+          <dl class="rc-g">
+            <dt>原始</dt><dd>Rauscher 1993：<b>成人</b>、10 分钟、只测一项空间任务</dd>
+            <dt>后续</dt><dd>Pietschnig 等 2010 meta 分析：<b>近零</b></dd>
+          </dl>
+        </div>
+        <div class="rc">
+          <div class="rc-t">学习风格（视觉型／听觉型）</div>
+          <div class="rc-now">✅ 直接忽略</div>
+          <dl class="rc-g">
+            <dt>原始</dt><dd>无像样的原始证据</dd>
+            <dt>后续</dt><dd>Pashler 等 2008 综述：符合检验要求的研究极少，且<b>结果为阴性</b></dd>
+          </dl>
+        </div>
+        <div class="rc">
+          <div class="rc-t">3000 万词汇差距</div>
+          <div class="rc-now">✅ 语言输入确实重要，但关键是<b>对话轮次</b>不是词数。<b>不必数词</b></div>
+          <dl class="rc-g">
+            <dt>原始</dt><dd>Hart &amp; Risley 1995，<b><span class="num">n=42 个家庭</span></b></dd>
+            <dt>后续</dt><dd>Sperry 等 2019 <b>复制失败</b>；差距量级被大幅高估</dd>
+          </dl>
+        </div>
+        <div class="rc">
+          <div class="rc-t">双语带来执行功能优势</div>
+          <div class="rc-now">✅ 别指望「变聪明」。<b>但「双语导致语言迟缓」同样是假的</b>——这个迷思需要主动杀掉</div>
+          <dl class="rc-g">
+            <dt>原始</dt><dd>多个小样本阳性研究</dd>
+            <dt>后续</dt><dd>de Bruin 等 2015 揭示<b>发表偏倚</b>；Lehtonen 等 2018 meta 校正后<b>近零</b></dd>
+          </dl>
+        </div>
+        <div class="rc">
+          <div class="rc-t">大脑训练提升智力</div>
+          <div class="rc-now">✅ <b>练什么就只提高什么，不外溢</b></div>
+          <dl class="rc-g">
+            <dt>原始</dt><dd>Jaeggi 2008 等</dd>
+            <dt>后续</dt><dd>Melby-Lervåg, Redick &amp; Hulme 2016：<b>无远迁移</b></dd>
+          </dl>
+        </div>
+        <div class="rc">
+          <div class="rc-t">早教能永久提高智商</div>
+          <div class="rc-now">✅ 认知效应普遍消退。真正可能有价值的是<b>非认知面</b>与「有人好好看着孩子」本身</div>
+          <dl class="rc-g">
+            <dt>原始</dt><dd>Perry（<span class="num">n=123</span>）、Abecedarian（<span class="num">n=111</span>）——<b>样本极小</b></dd>
+            <dt>后续</dt><dd>Head Start 三年级消退；Tennessee VPK RCT 六年级<b>转负</b></dd>
+          </dl>
+        </div>
+      </div>
+      <div class="def" style="margin-top:13px;">
+        <span class="def-k">这张表的真正意义</span>
+        <p>不在于这八条，<b>而在于模式</b>——它就是第 5 章那条曲线的八个实例。</p>
+        <p>下次看到新的「某某研究发现」，<b>默认它正处在这条曲线的第一步。</b></p>
+      </div>
     </div>
 
-    <div>
-      <p class="eyebrow">复制危机名册</p>
-      <h2 class="sec">这些你可以直接划掉</h2>
-      <p class="sec-note">下面每一条你可能都听过很多次，但它们要么复制失败，要么效应量缩水到接近于零。展开看原始研究与后续检验。</p>
+    <!-- ─────────── 第四部分 ─────────── -->
+    <div class="part">
+      <div class="part-n">四</div>
+      <div>
+        <h3 class="part-t">修好模型之后，怎么决策</h3>
+        <p class="part-s">前面三部分都是「怎么看」。这一部分是「怎么办」——把认识转成一个能在 60 秒内跑完的动作。</p>
+      </div>
     </div>
 
-    <div class="stack" style="gap:9px;">
-      <details class="rep">
-        <summary><div><div class="rep-claim">棉花糖实验预测人生成就</div><div class="rep-now">→ 自控力主要是家庭环境的代理指标，「训练延迟满足」没有依据</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>Mischel 等，1970s，斯坦福教工子女，<span class="num">n ≈ 90</span>
-          <span class="lab">后续</span>Watts, Duncan &amp; Quan 2018，<span class="num">n ≈ 900</span> 且样本更多样。控制家庭背景与早期认知能力后，效应大幅缩水。
-        </div>
-      </details>
-      <details class="rep">
-        <summary><div><div class="rep-claim">成长型思维改变学业</div><div class="rep-now">→ 真实，但极小且有条件。不值得作为育儿核心策略</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>Mueller &amp; Dweck 1998，小样本实验
-          <span class="lab">后续</span>Sisk 等 2018（Psychological Science）对 <span class="num">43 项干预研究、n &gt; 57,000</span> 的 meta 分析：<span class="num">d ≈ 0.08</span>。Yeager 等 2019 全美 RCT <span class="num">n ≈ 12,000</span>：仅在成绩较差学生中约 <span class="num">+0.1 GPA</span>。
-        </div>
-      </details>
-      <details class="rep">
-        <summary><div><div class="rep-claim">莫扎特效应让孩子聪明</div><div class="rep-now">→ 从来就与婴儿无关。纯粹的营销捏造</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>Rauscher 1993：<b>成人</b>、10 分钟、只测一项空间任务
-          <span class="lab">后续</span>Pietschnig 等 2010 meta 分析：近零
-        </div>
-      </details>
-      <details class="rep">
-        <summary><div><div class="rep-claim">学习风格（视觉型 / 听觉型）</div><div class="rep-now">→ 直接忽略</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>无像样的原始证据
-          <span class="lab">后续</span>Pashler 等 2008 综述：符合检验要求的研究极少，且结果为阴性
-        </div>
-      </details>
-      <details class="rep">
-        <summary><div><div class="rep-claim">3000 万词汇差距</div><div class="rep-now">→ 语言输入重要，但关键是对话轮次不是词数。不必数词</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>Hart &amp; Risley 1995，<span class="num">n = 42 个家庭</span>
-          <span class="lab">后续</span>Sperry 等 2019 复制失败；差距量级被大幅高估
-        </div>
-      </details>
-      <details class="rep">
-        <summary><div><div class="rep-claim">双语带来执行功能优势</div><div class="rep-now">→ 别指望「变聪明」。但「双语导致语言迟缓」同样是假的</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>多个小样本阳性研究
-          <span class="lab">后续</span>de Bruin 等 2015 揭示发表偏倚；Lehtonen 等 2018 meta 分析校正后近零
-        </div>
-      </details>
-      <details class="rep">
-        <summary><div><div class="rep-claim">大脑训练提升智力</div><div class="rep-now">→ 练什么就只提高什么，不外溢</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>Jaeggi 2008 等
-          <span class="lab">后续</span>Melby-Lervåg, Redick &amp; Hulme 2016：无远迁移
-        </div>
-      </details>
-      <details class="rep">
-        <summary><div><div class="rep-claim">早教能永久提高智商</div><div class="rep-now">→ 认知效应普遍消退；真正有价值的可能是非认知面与看护本身</div></div></summary>
-        <div class="rep-body">
-          <span class="lab">原始</span>Perry（<span class="num">n = 123</span>）、Abecedarian（<span class="num">n = 111</span>）——样本极小
-          <span class="lab">后续</span>Head Start 三年级消退；Tennessee VPK RCT 六年级<b>转为负效应</b>
-        </div>
-      </details>
+    <div class="ch">
+      <span class="ch-k">第 10 章 · 全书最该记住的一条</span>
+      <h3>为什么排序标准是「代价 × 可逆性」，而不是「证据强度」</h3>
+      <p>看完前面三部分，一个自然的想法是：<b>按证据强度排序</b>，证据强的先做，证据弱的不做。</p>
+      <p><b>这是错的。</b>而且错得很关键。</p>
+      <h4>为什么按证据强度排序会失败</h4>
+      <p>考虑安全座椅。关于「儿童安全座椅降低死亡率」，你能找到的最强证据是观察性研究和碰撞力学——<b>没有人做过随机对照试验</b>，因为那意味着随机指定一半孩子不用安全座椅，这在伦理上不可能通过。</p>
+      <p>所以按证据强度排序，<b>安全座椅的排位会低于很多有 RCT 的琐事</b>。这个结论显然荒谬。</p>
+      <h4>正确的排序标准</h4>
+      <p>决策论给出的答案是：<b>当结果的严重程度差异巨大时，应该按「期望损失」排序，而不是按「证据置信度」排序。</b></p>
+      <p>拆成两个可操作的问题：</p>
+      <div class="pt"><div class="pt-n">1</div><div class="pt-b"><div class="pt-t">做这件事的<b>代价</b>有多大？</div><div class="pt-s">钱、时间、精力、亲子关系，<b>以及你自己的精神状态</b>——最后一项经常被漏掉，但它是真实成本。</div></div></div>
+      <div class="pt"><div class="pt-n">2</div><div class="pt-b"><div class="pt-t">如果判断错了，<b>下行可逆吗</b>？</div><div class="pt-s">「白花了两千块」和「孩子没了」不是同一类错误，不能用同一套标准衡量。</div></div></div>
+      <p>两个维度交叉，得到四个格子。<b>完整的四象限图、每格的判断依据和示例，在「该不该信」页。</b></p>
+      <div class="thesis" style="margin-top:14px;">
+        <p>三个推论</p>
+        <p class="sub">
+          <b>1 ·</b> 左上角（代价小 × 不可逆）的事，<b>不要因为「证据还不够强」而拖延</b>。你不需要一个关于安全座椅的完美 RCT 才去装它。<br><br>
+          <b>2 ·</b> 右下角（代价大 × 可逆）的事，<b>不要因为「万一有用呢」而去做</b>。「万一有用」的代价是你的时间、钱，以及孩子本可以拿去自由玩耍的那几个小时。<br><br>
+          <b>3 ·</b> <b>绝大多数让你焦虑的育儿信息，都落在右下角。</b>这就是为什么这套体系的正确产出是<b>清单变短</b>。
+        </p>
+      </div>
     </div>
 
-    <div class="callout">
-      这张名册的意义不在这 8 条，而在<b>模式</b>：一个惊艳的小样本发现 → 媒体放大 → 产业化 → 十年后大样本复制失败 → 但商业话术已经固化。<br><br>下次看到新的「某某研究发现」，默认它正处在这条曲线的第一步。
+    <div class="ch">
+      <span class="ch-k">第 11 章</span>
+      <h3>焦虑过滤器，以及「明确放弃」的价值</h3>
+      <h4>一个可以随身带的心理开关</h4>
+      <p>当某件事让你睡不着时，问：</p>
+      <div class="thesis" style="margin:12px 0;">
+        <p>「这件事，如果做一个 n=1000 的随机对照试验，测得出来吗？」</p>
+      </div>
+      <div class="tw">
+        <table class="dt">
+          <tr><th>让你自责的事</th><th>测得出来吗</th></tr>
+          <tr><td class="wrap">今天没给他读绘本</td><td class="wrap">测不出来</td></tr>
+          <tr><td class="wrap">他今天多看了 20 分钟动画片</td><td class="wrap">测不出来</td></tr>
+          <tr><td class="wrap">辅食今天做咸了一点</td><td class="wrap">测不出来</td></tr>
+          <tr><td class="wrap">我今天对他发火了</td><td class="wrap">单次<b>测不出来</b>；<b>长期模式</b>测得出来。区别在这里</td></tr>
+          <tr class="hi"><td class="wrap">他坐车时是大人抱着的</td><td class="wrap"><b>测得出来，而且是用死亡率测的</b></td></tr>
+        </table>
+      </div>
+      <p style="margin-top:12px;"><b>测不出来的事，不配占用你的注意力。</b>把省下来的注意力，全部投给测得出来的那几件。</p>
+
+      <h4>为什么「明确放弃」本身是一个正式决策</h4>
+      <p>这是整套体系最容易被跳过、但最重要的一步。</p>
+      <p>当你决定不做某件事时，<b>必须在心里明确地把它划掉</b>，而不是留成「我知道这个好，但我没做到」。</p>
+      <div class="vs">
+        <div class="vs-c bad">
+          <h5>❌ 悬而未决</h5>
+          <p>「早教班好像是有点用的，等有空再说吧。」<br><br>这条信息现在变成了一笔<b>心理负债</b>：它持续消耗你的注意力，制造愧疚，<b>而且不产生任何收益</b>——因为你并没有真的去做。</p>
+        </div>
+        <div class="vs-c good">
+          <h5>✅ 明确放弃</h5>
+          <p>「早教班落在『代价大 × 下行可逆』，<b>我们不做</b>。」<br><br>决定<b>不做</b>和决定<b>做</b>一样，是一个正式决策。做完之后这条信息<b>就结束了</b>，不再占用任何资源。</p>
+        </div>
+      </div>
+      <p style="margin-top:12px;"><b>这套体系的成功标准是：你的待办清单变短、焦虑下降，同时高价值的事项一件不漏。</b>如果哪天这些内容读起来像「又多了一堆任务」，说明它失败了，需要重新裁剪。</p>
     </div>
 
-    <div class="card flat">
+    <div class="ch">
+      <span class="ch-k">第 12 章 · 诚实声明</span>
       <h3>这套规则本身的局限</h3>
-      <ul style="color:var(--ink-2); font-size:13.5px;">
-        <li><b>证据阶梯有阶级偏向。</b>能做 RCT 的问题往往是医学化、可标准化的；养育中最重要的东西（关系、意义、爱）恰恰最难测量。<b>「没有证据」不等于「没有作用」，只等于「我们不知道」</b>——不要把这套规则变成只相信可测量之物的偏执。</li>
-        <li><b>绝大多数研究来自 WEIRD 样本</b>（西方、受教育、工业化、富裕、民主国家），迁移到中国语境时有效性下降，尤其涉及家庭结构、隔代抚养、教育竞争的部分。</li>
-        <li><b>本页会过时。</b>任何一条结论都应该可以被新证据推翻。</li>
-      </ul>
+      <div class="pt warn">
+        <div class="pt-n">1</div>
+        <div class="pt-b">
+          <div class="pt-t">证据阶梯有阶级偏向</div>
+          <div class="pt-s">能做 RCT 的问题，往往是医学化、可标准化的问题；而<b>养育中最重要的东西——关系、意义、爱——恰恰最难测量</b>。<br><br><b>「没有证据」不等于「没有作用」，只等于「我们不知道」。</b>不要把这套规则变成只相信可测量之物的偏执。</div>
+        </div>
+      </div>
+      <div class="pt warn">
+        <div class="pt-n">2</div>
+        <div class="pt-b">
+          <div class="pt-t">绝大多数研究来自 WEIRD 样本</div>
+          <div class="pt-s">西方、受教育、工业化、富裕、民主国家。迁移到中国语境时有效性下降，<b>尤其是涉及家庭结构、隔代抚养、教育竞争的部分</b>。</div>
+        </div>
+      </div>
+      <div class="pt warn">
+        <div class="pt-n">3</div>
+        <div class="pt-b">
+          <div class="pt-t">这些内容会过时</div>
+          <div class="pt-s">任何一条结论都应该<b>可以被新证据推翻</b>。推翻时请更新，并留下记录——记录改过什么，比假装一开始就对更有价值。</div>
+        </div>
+      </div>
     </div>
 
   </div>
 </section>
 
-<!-- ══════════════ 2 · 现在做什么 ══════════════ -->
+<!-- ══════════════ 2 · 该不该信 ══════════════ -->
+<section class="view" id="v-judge" role="tabpanel" aria-label="该不该信">
+  <div class="stack">
+
+    <div>
+      <p class="eyebrow">拿到任何一条育儿说法，用这一页</p>
+      <h2 class="sec">该不该信</h2>
+      <p class="sec-note">先用四象限定位（决定「这类事该按什么标准判断」），再用五个问题细查（决定「这一条具体该怎么办」）。原理见「原理」页第 10 章。</p>
+    </div>
+
+    <!-- ── 一、四象限 ── -->
+    <div class="part">
+      <div class="part-n">一</div>
+      <div>
+        <h3 class="part-t">不对称决策法则</h3>
+        <p class="part-s">先记这个。它能处理掉你遇到的大部分情况，而且不需要你懂任何统计。</p>
+      </div>
+    </div>
+
+    <div class="ch">
+      <h3>决策不取决于证据有多强，而取决于两件事的组合</h3>
+      <p><b>横轴：如果judgment错了，后果收得回来吗？</b>「白花两千块」和「孩子没了」不是同一类错误。<br>
+      <b>纵轴：做这件事要付出多少？</b>钱、时间、精力、亲子关系，<b>以及你自己的精神状态</b>——最后这项经常被漏掉，但它是真实成本。</p>
+
+      <div class="quad" role="img" aria-label="不对称决策法则四象限图：纵轴为代价大小，横轴为下行是否可逆">
+        <div class="q-y"><span>代价大</span><span>代价小</span></div>
+        <div class="q-cells">
+          <div class="q-cell warn">
+            <div class="q-v">⚠️ 认真评估</div>
+            <div class="q-why">代价大 × 不可逆。<b>唯一真正需要花力气想的一格</b>——值得专门找资料、和家人正式讨论。</div>
+            <div class="q-eg">
+              <div><b>要不要送托</b> — 影响大且难回头，而证据两边都有</div>
+              <div><b>要不要换城市</b> — 决定了他和谁一起长大</div>
+              <div><b>要不要辞职带娃</b> — 代价含家庭收入与你的长期职业</div>
+            </div>
+          </div>
+          <div class="q-cell no">
+            <div class="q-v">❌ 不做</div>
+            <div class="q-why">代价大 × 可逆。<b>「万一有用呢」在这一格里是陷阱</b>——万一没用，你已经付掉了钱和时间。</div>
+            <div class="q-eg">
+              <div><b>早教班</b> — 认知效应普遍消退</div>
+              <div><b>闪卡／右脑开发／全脑潜能</b> — 远迁移反复失败</div>
+              <div><b>各类「潜能」课程</b> — 代价是他本可自由玩耍的那几小时</div>
+            </div>
+          </div>
+          <div class="q-cell go">
+            <div class="q-v">✅ 直接做</div>
+            <div class="q-why">代价小 × 不可逆。<b>不必等强证据</b>——等待本身才是这一格里最大的风险。</div>
+            <div class="q-eg">
+              <div><b>安全座椅</b> — 装一次，防的是死亡</div>
+              <div><b>防溺水／纽扣电池收好</b> — 一次改造，长期有效</div>
+              <div><b>疫苗、含氟牙膏、补铁与维生素 D</b> — 代价接近零</div>
+            </div>
+          </div>
+          <div class="q-cell free">
+            <div class="q-v">🤷 随意</div>
+            <div class="q-why">代价小 × 可逆。<b>喜欢就做，别当任务</b>——把它写进待办清单本身就是一种损失。</div>
+            <div class="q-eg">
+              <div><b>婴儿手语</b> — 无害，可能减少沟通挫折</div>
+              <div><b>早期音乐</b> — 孩子喜欢就放</div>
+              <div><b>双语</b> — 家里本来就是双语环境，正常用即可</div>
+            </div>
+          </div>
+        </div>
+        <div class="q-x"><span>← 下行不可逆</span><span>下行可逆 →</span></div>
+      </div>
+
+      <h4>三个推论</h4>
+      <div class="pt go"><div class="pt-n">1</div><div class="pt-b"><div class="pt-t">左下角的事，不要因为「证据还不够强」而拖延</div><div class="pt-s">你不需要一个关于安全座椅的完美随机对照试验才去装它。<b>在这一格里，等待强证据本身就是最大的风险。</b></div></div></div>
+      <div class="pt no"><div class="pt-n">2</div><div class="pt-b"><div class="pt-t">右上角的事，不要因为「万一有用呢」而去做</div><div class="pt-s">「万一有用」听起来是零成本的乐观，实际的代价是你的时间、钱，<b>以及孩子本可以拿去自由玩耍的那几个小时</b>。</div></div></div>
+      <div class="pt warn"><div class="pt-n">3</div><div class="pt-b"><div class="pt-t">绝大多数让你焦虑的育儿信息，都落在右上角</div><div class="pt-s">这就是为什么这套体系的正确产出是<b>清单变短</b>——如果读完之后你的待办变长了，说明用错了。</div></div></div>
+    </div>
+
+    <!-- ── 二、需要先懂的三个词 ── -->
+    <div class="part">
+      <div class="part-n">二</div>
+      <div>
+        <h3 class="part-t">先说清三个词</h3>
+        <p class="part-s">下面五个问题里会用到。这三个词是育儿信息里最常被滥用的，搞清楚它们，一大半的话术会自己失效。</p>
+      </div>
+    </div>
+
+    <div class="stack" style="gap:11px;">
+      <div class="def">
+        <span class="def-k">概念一</span>
+        <h4>随机对照试验（RCT）</h4>
+        <p>把一群人<b>随机</b>分成两组，一组做某件事，另一组不做，然后比结果。</p>
+        <p><b>「随机」这两个字是全部价值所在</b>：因为是抛硬币决定谁进哪一组，两组人在其他方面（家庭条件、父母性格、孩子天生气质）平均下来就是一样的。所以最后如果结果不同，<b>就只可能是那件事造成的</b>。</p>
+        <div class="eg"><b>为什么育儿领域很难做：</b>你不能把孩子随机分配给不同的父母，也不能随机指定一半孩子不用安全座椅。<b>所以育儿领域大部分问题在原理上就做不了 RCT</b>——这不是研究者偷懒，是伦理和现实的硬限制。<br><br>结果是：<b>「证据不足」在育儿领域是常态。</b>而真空会被意见、传统和商业话术填满。</div>
+      </div>
+
+      <div class="def">
+        <span class="def-k">概念二</span>
+        <h4>效应量（多用 d 表示）</h4>
+        <p><b>「有没有效果」是个坏问题</b>——只要样本够大，几乎一切都能测出「有效果」。真正该问的是：<b>效果有多大？</b></p>
+        <p>效应量就是回答这个的数字。最常用的是 <b>Cohen's d</b>，可以这样直觉理解：<b>它把一个原本排在中间（第 50 名／100 人）的孩子，往前推了多少名。</b></p>
+        <div class="eg">
+          <b>d = 0.1</b> → 推到第 54 名。<b>肉眼完全看不出，属于噪音，可以忽略</b><br>
+          <b>d = 0.2</b> → 推到第 58 名。只有当这件事几乎不花钱不花时间时才值得做<br>
+          <b>d = 0.5</b> → 推到第 69 名。有经验的人能察觉，<b>值得认真对待</b><br>
+          <b>d = 0.8</b> → 推到第 79 名。明显，<b>但在育儿干预里非常罕见</b><br><br>
+          <b>用法：</b>看到「显著提升」四个字，先找这个数字。<b>找不到，就当没看见。</b>「显著」在统计里的意思是「不太可能是碰巧」，<b>完全不等于「效果大」</b>——这是被滥用最严重的一个词。
+        </div>
+      </div>
+
+      <div class="def">
+        <span class="def-k">概念三</span>
+        <h4>相关 ≠ 因果</h4>
+        <p>「两件事一起出现」不等于「一件事造成了另一件」。育儿领域有<b>三个</b>特别常见的原因，让相关看起来像因果：</p>
+        <div class="eg">
+          <b>① 基因在背后</b><br>
+          「爱读书的父母，孩子成绩好」——可能是读书有用，<b>也可能只是聪明的父母把基因传下去了</b>。<br><br>
+          <b>② 做这件事的家庭本来就不一样</b><br>
+          坚持亲子共读的家庭，通常也更富裕、更稳定。观察到的好处里，有多少是共读本身，<b>有多少是「会共读的那种家庭」</b>？<br><br>
+          <b>③ 因果可能是反的</b><br>
+          「严厉的父母，孩子问题行为多」——<b>也可能是难带的孩子把耐心的父母逼成了严厉的样子</b>。<br><br>
+          <b>一句话检验：</b>对任何育儿结论只问一句——<b>「它控制遗传混杂了吗？」</b>老实的答案，绝大多数是没有。
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 三、五个问题 ── -->
+    <div class="part">
+      <div class="part-n">三</div>
+      <div>
+        <h3 class="part-t">五个问题</h3>
+        <p class="part-s">四象限定了大方向，这五个问题用来处理具体的一条。<b>按顺序问完，不用记结论，最后一步会告诉你怎么组合。</b></p>
+      </div>
+    </div>
+
+    <div class="stack" style="gap:12px;">
+
+      <div class="qa">
+        <div class="qa-hd">
+          <div class="qa-n">1</div>
+          <div>
+            <h3 class="qa-q">这话是谁说的？谁能从我照做里赚到钱？</h3>
+            <p class="qa-w">放在第一位，因为它最省时间——很多说法在这一步就可以直接停止阅读。</p>
+          </div>
+        </div>
+        <div class="qa-b">
+          <div class="qa-o"><span class="qa-tag a">直接降级</span><p><b>卖课、卖货、卖检测、卖器械的。</b>不是说他们一定在骗人，而是他们<b>只会告诉你支持购买的那一半事实</b>。同一个人不会告诉你「其实这个不用买」。</p></div>
+          <div class="qa-o"><span class="qa-tag b">谨慎</span><p><b>无出处的「研究表明」「专家建议」。</b>「专家建议」＝一个人的意见，在证据阶梯上等级同「无」。<b>说不出是哪个研究的，通常就是没有研究。</b></p></div>
+          <div class="qa-o"><span class="qa-tag c">可以往下看</span><p><b>指名道姓的研究、官方指南、行业学会文件。</b>能被查证的东西才值得花时间。⚠️ 但注意：<b>机构名不是证据等级</b>——哈佛也产出垃圾研究。</p></div>
+        </div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-hd">
+          <div class="qa-n">2</div>
+          <div>
+            <h3 class="qa-q">这是相关，还是因果？它控制遗传混杂了吗？</h3>
+            <p class="qa-w">这是判断力的核心一问。绝大多数育儿说法死在这里。</p>
+          </div>
+        </div>
+        <div class="qa-b">
+          <div class="qa-o"><span class="qa-tag a">只能当「值得留意」</span><p><b>没做双生子／收养／兄弟姐妹设计的观察性研究。</b>它无法区分「这件事有用」和「会做这件事的父母本来就不一样」。<br><b>可以放在心里，但不能作为改变行为的理由。</b></p></div>
+          <div class="qa-o"><span class="qa-tag c">可以当因果</span><p><b>随机对照试验、自然实验（政策突变）、收养与双生子研究。</b>这三类能真正切断混杂。</p></div>
+          <div class="qa-o"><span class="qa-tag d">怎么快速看出来</span><p>文章里如果<b>完全没有提到「我们怎么排除其他解释」</b>，那基本就是没排除。严谨的研究者会主动讲局限，<b>营销文案不会</b>。</p></div>
+        </div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-hd">
+          <div class="qa-n">3</div>
+          <div>
+            <h3 class="qa-q">效果有多大？跟踪了多久？</h3>
+            <p class="qa-w">「有效」和「值得做」之间隔着这个问题。</p>
+          </div>
+        </div>
+        <div class="qa-b">
+          <div class="qa-o"><span class="qa-tag a">找不到数字</span><p><b>大概率是因为没有值得说的数字。</b>真有大效果的研究，作者一定会把数字放在最显眼的地方。</p></div>
+          <div class="qa-o"><span class="qa-tag b">d 小于 0.2</span><p><b>噪音级。</b>只有当代价接近于零时才值得顺手做，绝不值得为它安排时间或花钱。</p></div>
+          <div class="qa-o"><span class="qa-tag c">d 在 0.5 以上且有长期随访</span><p><b>值得认真对待。</b>但在育儿干预里这种情况很少见，遇到时先确认第 2 问过了没有。</p></div>
+          <div class="qa-o"><span class="qa-tag a">⚠️ 只报「干预刚结束时」的效果</span><p><b>要警惕消退效应。</b>教育与早教干预有个反复出现的规律：结束时显著，几年后归零。<b>没有长期随访的效果，不能当成长期收益。</b></p></div>
+        </div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-hd">
+          <div class="qa-n">4</div>
+          <div>
+            <h3 class="qa-q">我要付出什么？</h3>
+            <p class="qa-w">这一问对应四象限的纵轴。<b>最容易漏掉的是最后一项。</b></p>
+          </div>
+        </div>
+        <div class="qa-b">
+          <div class="qa-o"><span class="qa-tag d">要算进去的</span><p><b>钱</b>｜<b>时间</b>｜<b>孩子的自由玩耍时间</b>（这是真实的机会成本）｜<b>亲子关系</b>（每次强迫都在消耗它）｜<b>家庭关系</b>（每次和老人的冲突都在消耗它）</p></div>
+          <div class="qa-o"><span class="qa-tag a">最常被漏掉的</span><p><b>你自己的精神状态。</b>这不是自私——一个睡够觉、没有耗竭的父母，比一个严格执行全部攻略但濒临崩溃的父母，对孩子更有价值。<b>把自己耗尽是净负收益。</b></p></div>
+        </div>
+      </div>
+
+      <div class="qa">
+        <div class="qa-hd">
+          <div class="qa-n">5</div>
+          <div>
+            <h3 class="qa-q">如果我判断错了，后果收得回来吗？</h3>
+            <p class="qa-w">这一问对应四象限的横轴，<b>而且它的优先级高于第 3 问</b>。</p>
+          </div>
+        </div>
+        <div class="qa-b">
+          <div class="qa-o"><span class="qa-tag a">收不回来</span><p>死亡、残疾、永久损害。<b>一旦落到这一类，直接跳到「做」，不必再纠结效应量。</b>这就是「不对称」三个字的含义——两边的错误代价不对等，所以判断标准也不该对等。</p></div>
+          <div class="qa-o"><span class="qa-tag c">收得回来</span><p>无非是没效果、白花了钱。<b>那就正常按第 3、4 问的性价比来判断。</b></p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 四、组合 ── -->
+    <div class="part">
+      <div class="part-n">四</div>
+      <div>
+        <h3 class="part-t">怎么组合成一个结论</h3>
+        <p class="part-s">五个问题问完，按下面的顺序合并。<b>顺序很重要——不是打分求和，是有优先级的短路判断。</b></p>
+      </div>
+    </div>
+
+    <div class="ch">
+      <h3>三步短路法</h3>
+      <div class="pt no">
+        <div class="pt-n">1</div>
+        <div class="pt-b">
+          <div class="pt-t">先看第 5 问：下行可逆吗？</div>
+          <div class="pt-s"><b>不可逆</b> ＋ 第 4 问代价小 → <b>✅ 直接做，到此结束</b>，不用再看证据强度。<br>
+          <b>不可逆</b> ＋ 第 4 问代价大 → <b>⚠️ 认真评估</b>，这值得你专门花一个晚上，和家人正式讨论。</div>
+        </div>
+      </div>
+      <div class="pt warn">
+        <div class="pt-n">2</div>
+        <div class="pt-b">
+          <div class="pt-t">下行可逆的，再看第 4 问：代价大不大？</div>
+          <div class="pt-s"><b>代价大</b> → <b>❌ 不做。</b>不管第 1–3 问答得多漂亮。这一格里"证据不错"不足以翻盘，因为可逆意味着最好的结果也只是"有一点效果"。<br>
+          <b>代价小</b> → 继续第 3 步。</div>
+        </div>
+      </div>
+      <div class="pt go">
+        <div class="pt-n">3</div>
+        <div class="pt-b">
+          <div class="pt-t">代价小且可逆的，才轮到第 1–3 问</div>
+          <div class="pt-s">第 1、2 问都过 <b>且</b> 第 3 问 d ≥ 0.5 → <b>值得做</b>，排进清单。<br>
+          第 2 问没过（只是相关）<b>或</b> d &lt; 0.2 → <b>🤷 随意</b>，喜欢就做，<b>但绝不要写进待办清单</b>。</div>
+        </div>
+      </div>
+
+      <div class="thesis" style="margin-top:15px;">
+        <p>最后一步：把结论明确地说出来</p>
+        <p class="sub">
+          <b>做</b> —— 立刻排进「现在做什么」的清单。<br><br>
+          <b>忽略</b> —— <b>这是这套方法最重要的输出。</b>明确地决定不做，和决定做一样是一个正式决策。<b>不要让信息以「我知道但没做到」的形式留在心里</b>——那是纯粹的焦虑，没有任何收益。<br><br>
+          <b>存疑</b> —— 记下来，下次一起查。但别让「存疑」变成"永远悬着"的代名词。
+        </p>
+      </div>
+    </div>
+
+    <!-- ── 五、话术表 ── -->
+    <div class="part">
+      <div class="part-n">五</div>
+      <div>
+        <h3 class="part-t">话术翻译表</h3>
+        <p class="part-s">育儿内容有一套固定修辞。学会翻译，识别速度会快很多——很多时候不用跑完五问，看一眼句式就够了。</p>
+      </div>
+    </div>
+
+    <div class="ch">
+      <div class="tw">
+        <table class="dt">
+          <tr><th>你看到的</th><th>实际意思</th></tr>
+          <tr><td class="wrap">「研究表明……」<span style="color:var(--ink-3);">（无出处）</span></td><td class="wrap">通常无研究，或有一篇小样本相关性研究</td></tr>
+          <tr><td class="wrap">「专家建议」</td><td class="wrap">一个人的意见，证据等级同「无」</td></tr>
+          <tr><td class="wrap">「显著提高」</td><td class="wrap">统计显著，<b>不代表实际重要</b>。找 d 值</td></tr>
+          <tr class="hi"><td class="wrap">「关键期，错过就补不回来」</td><td class="wrap">除极端剥夺外，多数「窗口」是软的。<b>这是恐吓句式，见到就提高警惕</b></td></tr>
+          <tr><td class="wrap">「哈佛／斯坦福研究」</td><td class="wrap">机构名不是证据等级。同一个机构也产出垃圾研究</td></tr>
+          <tr><td class="wrap">「××国的妈妈都这样」</td><td class="wrap">文化差异不是因果证据</td></tr>
+          <tr class="hi"><td class="wrap">「不要让孩子输在起跑线上」</td><td class="wrap"><b>纯营销。</b>人生不是短跑，而且起跑线的位置主要由基因和家庭决定，不由你买的课决定</td></tr>
+          <tr class="hi"><td class="wrap">「99% 的家长都做错了」</td><td class="wrap"><b>分发话术。</b>目的是制造焦虑以提高点击</td></tr>
+          <tr><td class="wrap">「纯天然／无添加／古法」</td><td class="wrap">与安全性无关。<b>铅丹和朱砂也是纯天然的</b></td></tr>
+          <tr><td class="wrap">「永远」「最……的」「所有妈妈都该……」</td><td class="wrap">绝对化断言。真实的结论几乎总是带条件的</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ 3 · 现在做什么 ══════════════ -->
 <section class="view" id="v-do" role="tabpanel" aria-label="现在做什么">
   <div class="stack">
 
@@ -638,72 +1485,11 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
     </div>
 
     <div id="tiers"></div>
-
-    <details class="donebox" id="donebox" hidden>
-      <summary><span id="donelbl">已完成</span></summary>
-      <div id="donelist"></div>
-    </details>
-
-    <div class="vac">
-      <div class="vac-hd">
-        <h3>疫苗 · 12–24 月龄</h3>
-        <p>依据《国家免疫规划疫苗儿童免疫程序及说明（2026 年版）》，国家疾控局 2026-07-03 印发。</p>
-      </div>
-      <div class="vrow">
-        <div class="vrow-b">
-          <div class="vrow-t">13 价肺炎球菌结合疫苗</div>
-          <div class="vrow-s">国产（沃安欣、维民菲宝等）适用 6 周龄至 5 岁，12 月龄仍可接种，但程序随起始月龄变化，需到接种点确认补种方案。肺炎球菌是幼儿细菌性肺炎、脑膜炎、中耳炎的主因。<b>这是整份清单上最紧急的一项。</b></div>
-        </div>
-        <div class="vstat"><span class="tag t-crit">优先确认</span></div>
-      </div>
-      <div class="vrow">
-        <div class="vrow-b">
-          <div class="vrow-t">五价轮状病毒疫苗</div>
-          <div class="vrow-s">严格限 <span class="num">6–32</span> 周龄，第 3 剂不得晚于 32 周龄。小狮子已超龄，此门已关。</div>
-        </div>
-        <div class="vstat"><span class="tag t-mute">窗口已过</span></div>
-      </div>
-      <div class="vrow">
-        <div class="vrow-b">
-          <div class="vrow-t">国产轮状病毒疫苗（罗特威）</div>
-          <div class="vrow-s">适用 2 月龄–3 岁，每年口服 1 剂。保护力低于五价，但轮状病毒性腹泻在幼儿中可致严重脱水，仍值得打。</div>
-        </div>
-        <div class="vstat"><span class="tag t-calm">仍可接种</span></div>
-      </div>
-      <div class="vrow">
-        <div class="vrow-b">
-          <div class="vrow-t">Hib（b 型流感嗜血杆菌）</div>
-          <div class="vrow-s">预防细菌性脑膜炎、会厌炎。常含在五联苗里——如果打的是五联，则无需单独补。</div>
-        </div>
-        <div class="vstat"><span class="tag t-caut">待确认</span></div>
-      </div>
-      <div class="vrow">
-        <div class="vrow-b">
-          <div class="vrow-t">流感疫苗</div>
-          <div class="vrow-s">6 月龄以上即可。首年 2 剂（间隔 ≥4 周），此后每年 1 剂。<b>建议全家一起打</b>——婴幼儿的流感多由家人传入。</div>
-        </div>
-        <div class="vstat"><span class="tag t-calm">每年打</span></div>
-      </div>
-      <div class="vrow">
-        <div class="vrow-b">
-          <div class="vrow-t">水痘 · EV71（手足口）</div>
-          <div class="vrow-s">水痘 12 月龄可打第 1 剂，部分省市已纳入免疫规划，先问当地接种点。EV71 适用 6 月龄–5 岁，只防 EV71 型（重症手足口主因），不防其他肠道病毒。</div>
-        </div>
-        <div class="vstat"><span class="tag t-calm">可接种</span></div>
-      </div>
-      <div class="vrow">
-        <div class="vrow-b">
-          <div class="vrow-t">18 月龄那一次要打三种</div>
-          <div class="vrow-s">百白破第 4 剂、麻腮风第 2 剂、甲肝。2 周岁再打乙脑第 2 剂（及甲肝灭活第 2 剂，如用灭活苗）。提前排进日程。</div>
-        </div>
-        <div class="vstat"><span class="tag t-acc">排日程</span></div>
-      </div>
-      <div class="vrow" style="background:var(--accent-soft);">
-        <div class="vrow-b">
-          <div class="vrow-t">「一类 / 二类」区分的是谁付钱，不是重要性</div>
-          <div class="vrow-s">二类苗预防的疾病（肺炎球菌、Hib、轮状病毒、流感）在发病率和严重程度上并不比一类苗预防的疾病轻。把「二类」理解成「可打可不打」，是国内家长最普遍、代价最高的系统性误解。</div>
-        </div>
-      </div>
+    <div class="def">
+      <span class="def-k">疫苗 · 只留最重要的一句</span>
+      <h4>「一类／二类」区分的是谁付钱，不是重要性</h4>
+      <p>二类苗（自费）预防的疾病——<b>肺炎球菌、Hib、轮状病毒、流感</b>——在发病率和严重程度上<b>并不比一类苗预防的疾病轻</b>。把「二类」理解成「可打可不打」，是国内家长最普遍、代价最高的系统性误解。</p>
+      <div class="eg"><b>小狮子的情况：已按程序全部接种，无漏种</b>，接种记录见「他的数据」页。所以这一项对你们只剩一个动作：<b>每次带接种本去，让医生按当年程序逐项核对</b>——政策会变，程序也会调整，核对的成本几乎为零。</div>
     </div>
 
     <div class="alert">
@@ -720,13 +1506,165 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
     </div>
 
     <div class="callout">
-      <b>如果只能做五件事</b>，按这个顺序：① 把疫苗补齐（尤其 13 价肺炎、Hib）② 安全座椅每次都用，坚决不让人抱着孩子坐车 ③ 用一个周末做完家庭安全改造 ④ 保证铁、维生素 D、过敏原持续摄入 ⑤ 每天有一段专注的一来一回互动，不看手机。<br><br>剩下的时间，<b>去过你自己的生活</b>——父母的精神状态是一个真实变量，不是自私。
+      <b>如果只能做五件事</b>，按这个顺序：① 安全座椅每次都用，坚决不让人抱着孩子坐车 ② 用一个周末做完家庭安全改造（纽扣电池、家具上墙、窗户限位、热水器温度、药品上锁）③ 保证铁、维生素 D、过敏原持续摄入 ④ 每天有一段专注的一来一回互动，不看手机 ⑤ 疫苗按程序走，每次让医生核对一遍。<br><br>剩下的时间，<b>去过你自己的生活</b>——父母的精神状态是一个真实变量，不是自私。
     </div>
 
   </div>
 </section>
 
-<!-- ══════════════ 3 · 他的数据 ══════════════ -->
+<!-- ══════════════ 4 · 隔代抚养 ══════════════ -->
+<section class="view" id="v-family" role="tabpanel" aria-label="隔代抚养">
+  <div class="stack">
+
+    <div>
+      <p class="eyebrow">中国育儿的主流现实</p>
+      <h2 class="sec">隔代抚养</h2>
+      <p class="sec-note">这一页不讲「怎么说服老人」，讲的是<b>先决定哪些事值得说服</b>。因为真正的约束不是道理不够硬，是你能推动改变的次数有限。</p>
+    </div>
+
+    <div class="thesis">
+      <p>家庭政治资本是有限的。</p>
+      <p class="sub">你在家里能推动改变的次数是有限的。<b>每一次坚持都在消耗关系、消耗对方的配合意愿、也消耗你自己。</b>所以第一步不是「怎么沟通」，是<b>分诊</b>。</p>
+    </div>
+
+    <div class="ch">
+      <h3>分诊规则：把每个分歧扔进四象限</h3>
+      <p><b>落在「下行不可逆」的，寸步不让；落在「效应量低」的，主动让步。</b></p>
+      <p><b>主动让步不是妥协，是战略。</b>在穿多穿少上让步，换来在安全座椅上的话语权——这笔交易划算得离谱。</p>
+      <p>还有一个前提必须先说清楚，因为它决定了沟通的成败：</p>
+      <div class="def">
+        <span class="def-k">沟通的前提</span>
+        <p><b>老人做的每一件让你皱眉的事，动机都是爱。</b></p>
+        <p>他们用的是自己养大你那一代的方法，而那套方法的<b>验证标准是「孩子活下来了」</b>——按那个标准，它成功了。</p>
+        <p>所以有效的沟通不是证明他们错，<b>是给他们一个更好的方法去爱</b>。</p>
+      </div>
+    </div>
+
+    <!-- 第一类 -->
+    <div class="tri keep">
+      <div class="tri-hd">
+        <h3>第一类 · 必须坚持（不可逆伤害）</h3>
+        <p><b>这些不是讨论议题，是家规。</b>态度要明确、一致、不留商量余地——但语气可以柔和。</p>
+      </div>
+      <div class="trow">
+        <div class="trow-t">安全座椅</div>
+        <div class="trow-s"><span class="said">「我抱着更安全」「就这么点路」</span><br>碰撞时孩子体重被惯性放大数十倍，手臂不可能抱住；孩子还会成为成人身体的<b>缓冲垫</b>。🇨🇳 这是国内最致命的常见做法。</div>
+      </div>
+      <div class="trow">
+        <div class="trow-t">家里、车里禁烟</div>
+        <div class="trow-s"><span class="said">「我到阳台抽」「就抽一根」</span><br>三手烟残留在衣物和家具上。<b>抱孩子前需换外套、洗手。</b></div>
+      </div>
+      <div class="trow">
+        <div class="trow-t">窒息食物</div>
+        <div class="trow-s"><span class="said">整颗葡萄、坚果、果冻、嚼碎了喂</span><br>气道只有小指粗细。<b>「嚼碎了喂」同时还传播幽门螺杆菌和致龋菌</b>，且不解决窒息风险——正解是把食物切成安全性状。</div>
+      </div>
+      <div class="trow">
+        <div class="trow-t">1 岁前不喂蜂蜜</div>
+        <div class="trow-s"><span class="said">「蜂蜜水润肠」</span><br>婴儿肉毒中毒风险。</div>
+      </div>
+      <div class="trow">
+        <div class="trow-t">药品收好</div>
+        <div class="trow-s"><span class="said">降压药、降糖药放床头柜、茶几</span><br><b>成人的一片药可能是幼儿的致死剂量。</b></div>
+      </div>
+      <div class="trow">
+        <div class="trow-t">疫苗按时打</div>
+        <div class="trow-s"><span class="said">「打多了不好」「体质弱先别打」</span><br>真正的接种禁忌很窄，<b>「体质弱」不是禁忌</b>。</div>
+      </div>
+      <div class="trow">
+        <div class="trow-t">不自行喂中成药 · 不捂汗退烧</div>
+        <div class="trow-s"><span class="said">「发烧要捂出汗」「喝点小儿××颗粒」</span><br><b>捂热综合征可致高热惊厥甚至死亡。</b>儿童中成药普遍缺乏剂量与毒性数据；<b>成分表里有「朱砂」（汞）、「雄黄」（砷）、「铅丹」（铅）的一律不用</b>——含雄黄的儿科常见品种包括小儿惊风散、小儿至宝丸。</div>
+      </div>
+      <div class="trow">
+        <div class="trow-t">生病看医生，不用推拿代替治疗</div>
+        <div class="trow-s"><span class="said">「推拿几次就好了」</span><br>作为亲子接触可以；作为<b>治疗手段</b>没有可靠证据。<b>延误真实疾病的诊治是实际风险。</b></div>
+      </div>
+      <div class="trow">
+        <div class="trow-t">不用学步车</div>
+        <div class="trow-s"><span class="said">「用了走得早」</span><br>加拿大已立法禁止销售。与跌落伤害相关，且与运动里程碑<b>延迟</b>相关——它绕过了孩子自己练习平衡的过程。</div>
+      </div>
+    </div>
+
+    <div class="def">
+      <span class="def-k">一个很有用的操作</span>
+      <p>把第一类<b>打印出来贴在冰箱上</b>，或做成手机备忘录发到家庭群。</p>
+      <p><b>书面的、来自「医生和国家规定」的东西，比你口头说的更有分量。</b>这不是心理战术，是真的：<b>老人抗拒的往往不是内容，是「被儿女教育」这件事本身。</b>白纸黑字把说话人从你换成机构，这个障碍就消失了。</p>
+    </div>
+
+    <!-- 第二类 -->
+    <div class="tri yield">
+      <div class="tri-hd">
+        <h3>第二类 · 主动让步（效应量低）</h3>
+        <p><b>这些事，让。而且要让得明显、让得让对方感觉到。</b>放进焦虑过滤器：做 n=1000 的随机试验也测不出来——<b>它们不值得一次家庭冲突的代价。</b></p>
+      </div>
+      <div class="chips">
+        <span class="chip">穿多穿少</span>
+        <span class="chip">偶尔追着喂两口</span>
+        <span class="chip">抱睡、摇睡</span>
+        <span class="chip">洗澡在早上还是晚上</span>
+        <span class="chip">玩具多少、要不要买</span>
+        <span class="chip">抱得多不多</span>
+        <span class="chip">零食偶尔破例</span>
+        <span class="chip">谁哄睡、谁喂饭</span>
+        <span class="chip">自主进食还是勺喂</span>
+      </div>
+      <div class="trow">
+        <div class="trow-s">⚠️ 两个边界：穿多穿少<b>只要不是捂到出汗或明显冻着</b>；零食<b>守住「不加糖为常态」即可，不必追求零破例</b>。「1 岁孩子抱多了会惯坏」没有依据——需求就是需求，回应它不会造成依赖。</div>
+      </div>
+      <div class="trow">
+        <div class="trow-t">💬 明确地说出来，比默默让步有用得多</div>
+        <div class="trow-s">「妈，这些我都听您的，您比我有经验。<b>就是坐车和吃的东西这两样，医生说的，我得较真。</b>」<br><br><b>让步说出口，坚持才有分量。</b>如果你只是默默地让，对方感受不到你在退，也就不会觉得欠你一次。</div>
+      </div>
+    </div>
+
+    <!-- 第三类 -->
+    <div class="tri fix">
+      <div class="tri-hd">
+        <h3>第三类 · 要纠正，但挑时机和方式（常见迷思）</h3>
+        <p>既非致命、也非无所谓——<b>错误认知会持续产生错误行为，值得纠正，但不必急于一次说完</b>。</p>
+      </div>
+      <div class="trow"><div class="trow-t">枕秃 = 缺钙</div><div class="trow-s">❌ 枕秃是躺卧时头部摩擦所致，<b>与缺钙无关</b>。</div></div>
+      <div class="trow"><div class="trow-t">出汗多、夜醒、出牙晚 = 缺钙</div><div class="trow-s">❌ 都不是缺钙的可靠指征。<b>奶量充足的幼儿基本不缺钙。</b></div></div>
+      <div class="trow"><div class="trow-t">要查微量元素看缺什么</div><div class="trow-s">❌ 🇨🇳 国卫办医发〔2013〕29 号明令<b>不得</b>作为儿童体检普查项目；检测本身不可靠（头发、末梢血受污染影响大）。</div></div>
+      <div class="trow"><div class="trow-t">母乳 6 个月后没营养</div><div class="trow-s">❌ 1 岁后母乳仍有营养和免疫价值，<b>只是不再是主食</b>。</div></div>
+      <div class="trow"><div class="trow-t">剃胎发头发长得好</div><div class="trow-s">❌ 无关。有划伤和感染风险。</div></div>
+      <div class="trow"><div class="trow-t">挤新生儿乳头／挑马牙／绑腿</div><div class="trow-s">❌ 均无益，且有感染和损伤风险。<b>绑腿不能防罗圈腿。</b></div></div>
+      <div class="trow"><div class="trow-t">把屎把尿</div><div class="trow-s">❌ 这个月龄的括约肌控制尚未成熟，<b>把尿是训练大人不是训练孩子</b>。如厕训练一般在 18–24 月龄后按孩子的信号来。</div></div>
+      <div class="trow"><div class="trow-t">孩子胖 = 养得好</div><div class="trow-s">❌ 婴幼儿期超重与后续代谢风险相关。<b>看生长曲线趋势，不看绝对分量。</b></div></div>
+    </div>
+
+    <div class="ch">
+      <h3>方式：这部分比内容更决定成败</h3>
+      <p>道理讲对了但方式不对，结果通常是零条被接受，外加一场争吵。下面六条按重要性排。</p>
+      <div class="pt"><div class="pt-n">1</div><div class="pt-b"><div class="pt-t">一次只推一件事</div><div class="pt-s">同时纠正五条，结果是<b>零条被接受</b>，外加一场争吵。<b>按危害排序，一个月推动一件。</b></div></div></div>
+      <div class="pt"><div class="pt-n">2</div><div class="pt-b"><div class="pt-t">给替代方案，不给否定</div><div class="pt-s">不说「这个不对」，说「<b>医生说现在改成这样了</b>」。<br><b>把改变归因于「知识更新了」，而不是「你错了」</b>——这几乎是唯一能让人不设防的说法。</div></div></div>
+      <div class="pt"><div class="pt-n">3</div><div class="pt-b"><div class="pt-t">借权威，不借网络</div><div class="pt-s">「儿保医生说的」「国家卫健委有规定」远比「我在网上看到」有效。<br><b>带老人一起去儿保门诊，让医生当面说，效果胜过你说十次。</b></div></div></div>
+      <div class="pt"><div class="pt-n">4</div><div class="pt-b"><div class="pt-t">让配偶去说自己的父母</div><div class="pt-s"><b>这条实操价值极高，不要跨过去。</b>同样一句话，从亲生子女嘴里说出来和从儿媳／女婿嘴里说出来，接受度完全不同。</div></div></div>
+      <div class="pt"><div class="pt-n">5</div><div class="pt-b"><div class="pt-t">表扬做对的部分</div><div class="pt-s">老人在耐心、陪伴时长、做饭上的付出是<b>真实的且难以替代</b>，明确说出来。<b>人在被认可时才愿意改变。</b></div></div></div>
+      <div class="pt"><div class="pt-n">6</div><div class="pt-b"><div class="pt-t">接受不完美的执行率</div><div class="pt-s">老人 80% 时间做对，已经很好。<b>你要的是第一类事项 100%，其他都可以打折。</b></div></div></div>
+    </div>
+
+    <div class="ch">
+      <h3>一个必须承认的事实</h3>
+      <p>隔代抚养的<b>净效应，对绝大多数家庭是正的</b>：一个稳定的、有感情联结的、随时在场的照护者，<b>是很多国家的家庭花钱都买不到的资源</b>。</p>
+      <p>从四个杠杆看，老人贡献的是<b>杠杆 A</b>（有人时刻看着，防止意外）和<b>杠杆 B</b>（一段真实的亲密关系）——<b>这恰恰是两个最高价值的领域</b>。</p>
+      <p>而他们做得不够好的地方，大多落在<b>杠杆 D</b>（具体知识），<b>而杠杆 D 是你可以自己补上的</b>。</p>
+      <div class="thesis">
+        <p>正确的分工是：他们提供在场和爱，你提供知识和安全边界。</p>
+        <p class="sub"><b>不要试图把他们改造成你</b>，那既不可能，也没必要。</p>
+      </div>
+    </div>
+
+    <div class="ch">
+      <h3>真的要坚持之前，先问自己三个问题</h3>
+      <div class="pt warn"><div class="pt-n">1</div><div class="pt-b"><div class="pt-t">这件事落在哪个格子？</div><div class="pt-s">不可逆伤害 → 坚持。<b>其他 → 大概率不值得。</b></div></div></div>
+      <div class="pt warn"><div class="pt-n">2</div><div class="pt-b"><div class="pt-t">我是在争对错，还是在争控制权？</div><div class="pt-s">诚实回答。<b>育儿分歧里有相当一部分实际上是家庭权力问题伪装成科学问题</b>，而后者永远赢不了前者——因为你赢了道理，对方输的是尊严。</div></div></div>
+      <div class="pt warn"><div class="pt-n">3</div><div class="pt-b"><div class="pt-t">如果我赢了这一次，代价是什么？</div><div class="pt-s"><b>关系变差导致的照护质量下降，可能比这件事本身的收益大。</b></div></div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ 5 · 他的数据 ══════════════ -->
 <section class="view" id="v-lion" role="tabpanel" aria-label="他的数据">
   <div class="stack">
 
@@ -883,9 +1821,9 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
     </div>
 
     <!-- ── 修订记录 ── -->
-    <details class="donebox">
-      <summary>判断改过哪些（7 条）</summary>
-      <div style="padding:0 15px 14px;">
+    <div class="ch">
+      <h3>判断改过哪些（7 条）</h3>
+      <div>
         <p style="font-size:12.5px;color:var(--ink-3);line-height:1.7;margin:0 0 11px;">这一节故意保留。<b>判断改过就写下来，比假装一开始就对更有价值。</b></p>
         <div class="tw">
           <table class="dt">
@@ -900,73 +1838,102 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
           </table>
         </div>
       </div>
-    </details>
+    </div>
 
   </div>
 </section>
 
-<!-- ══════════════ 4 · 该不该信 ══════════════ -->
-<section class="view" id="v-judge" role="tabpanel" aria-label="该不该信">
+<!-- ══════════════ 6 · 争议区 ══════════════ -->
+<section class="view" id="v-open" role="tabpanel" aria-label="争议区">
   <div class="stack">
     <div>
-      <p class="eyebrow">60 秒决策协议</p>
-      <h2 class="sec">看到一条育儿信息，该不该信</h2>
-      <p class="sec-note">回答 5 个问题，落到不对称决策法则的某一格。结论不取决于证据有多强，而取决于「代价」和「下行是否可逆」的组合。</p>
+      <h2 class="sec">争议区</h2>
+      <p class="sec-note">这一节的作用是承认不知道。育儿内容最大的问题之一，是把未定论的东西讲成定论。</p>
     </div>
 
-    <div class="wiz" id="wiz"></div>
+    <div class="callout">
+      凡是在这里出现的问题，<b>任何人告诉你「科学已经证明」，都可以直接降低对他的信任。</b>这不意味着他们说的一定错，而是意味着<b>你有权自己做决定</b>——基于你家的具体情况和不对称决策法则，而不是基于谁的语气更肯定。
+    </div>
 
-    <div class="card flat">
-      <h3>不对称决策法则</h3>
-      <div class="mx" aria-label="不对称决策法则四格矩阵">
-        <div></div>
-        <div class="mx-lbl h">下行不可逆<br>死亡 / 残疾 / 永久损害</div>
-        <div class="mx-lbl h">下行可逆<br>无非是没效果</div>
+    <div class="stack" style="gap:9px;">
 
-        <div class="mx-lbl v">代价小</div>
-        <div class="mx-c go">
-          <div class="mk">直接做</div>
-          <div class="mv">不必等强证据。安全座椅、防溺水、纽扣电池、疫苗、含氟牙膏、铁与维生素 D</div>
-        </div>
-        <div class="mx-c fr">
-          <div class="mk">随意</div>
-          <div class="mv">别当任务。婴儿手语、早期音乐、双语</div>
-        </div>
-
-        <div class="mx-lbl v">代价大</div>
-        <div class="mx-c th">
-          <div class="mk">认真评估</div>
-          <div class="mv">真正需要花力气想的一格。要不要送托、要不要换城市、要不要辞职带娃</div>
-        </div>
-        <div class="mx-c no">
-          <div class="mk">不做</div>
-          <div class="mv">早教班、闪卡、右脑开发、各类「潜能」课程</div>
+      <div class="oq2">
+        <div class="oq2-hd"><h3>1 · 托育 / 日托对孩子是好是坏</h3></div>
+        <div class="oq2-b">
+          <div class="seg"><span class="lab">支持有益</span><p>针对弱势儿童的高质量干预项目普遍显示认知与语言获益。NICHD SECCYD（美国大型纵向研究，<span class="num">n ≈ 1364</span>）发现<b>照护质量</b>越高，词汇与认知结果越好。</p></div>
+          <div class="seg"><span class="lab">支持有害 · 设计更强，更值得重视</span><p>同一个 NICHD 研究发现，<b>非母亲照护的累计时长</b>越多，外化问题行为略多，且持续到小学六年级。<br><br><b>魁北克全民托育自然实验</b>（Baker, Gruber &amp; Milligan 2008；长期随访 2019, AEJ: Economic Policy）：1997 年起推行低价普惠托育，一次真实的大规模政策突变，<b>证据等级属「强」</b>。5–9 岁时的效应量：<span class="num">焦虑 +0.24 SD、攻击行为 +0.19、多动 +0.13</span>（对男孩和本就有行为问题的孩子影响更大）。长期随访：自评健康更差、生活满意度更低、犯罪率更高。</p></div>
+          <div class="seg"><span class="lab">为什么两边都对</span><p>真正的变量不是「托育 vs 不托育」，而是<b>「托育 vs 替代方案是什么」</b>。对家庭环境差的孩子是提升；对家庭环境好、有稳定看护的孩子，大规模低质量托育可能是下降。魁北克的结果很可能反映<b>质量被规模稀释</b>。</p></div>
+          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p>落在「代价大 × 认真评估」格子里，值得花时间想。关键提问不是「几岁送托」，而是：<b>「送托之后，他每天的实际经历，比现在在家好还是差？」</b>照护者稳定性、师生比、有没有人回应他，比机构装修和课程表重要一个数量级。<b>家里有稳定、健康、愿意投入的看护者时，推迟入托没有证据上的损失。</b></p></div>
         </div>
       </div>
-      <h4>三个推论</h4>
-      <ul>
-        <li>左上角的事，<b>不要因为「证据还不够强」而拖延</b>。你不需要一个关于安全座椅的完美 RCT 才去装它。</li>
-        <li>右下角的事，<b>不要因为「万一有用呢」而去做</b>。代价是你的时间、钱，以及孩子本可以拿去自由玩耍的那几个小时。</li>
-        <li>绝大多数让你焦虑的育儿信息，<b>都落在右下角</b>。</li>
-      </ul>
-    </div>
 
-    <div class="card flat">
-      <h3>焦虑过滤器</h3>
-      <p class="big">「这件事，如果做一个 n=1000 的随机对照试验，测得出来吗？」</p>
-      <ul>
-        <li>今天没给他读绘本 —— 测不出来</li>
-        <li>他今天多看了 20 分钟动画片 —— 测不出来</li>
-        <li>辅食今天做咸了一点 —— 测不出来</li>
-        <li>我今天对他发火了 —— 单次测不出来；<b>长期模式</b>测得出来。区别在这里</li>
-        <li>他坐车时是奶奶抱着的 —— <b>测得出来，而且是用死亡率测的</b></li>
-      </ul>
-      <p style="margin-top:12px;">测不出来的事，不配占用你的注意力。把省下来的注意力全部投给测得出来的那几件。</p>
+      <div class="oq2">
+        <div class="oq2-hd"><h3>2 · 屏幕时间到底有多大危害</h3></div>
+        <div class="oq2-b">
+          <div class="seg"><span class="lab">诚实的现状</span><p>证据比宣传弱得多。绝大多数「屏幕时间与××相关」的研究是横断面的、用家长回忆估计时长、且混杂严重——<b>多看屏幕的家庭在很多方面都不同</b>。反向因果也完全没有排除：难带的孩子更可能被塞一个 iPad。</p></div>
+          <div class="seg"><span class="lab">真正站得住的两点</span><p><b>① 视频缺陷效应</b>：2 岁前幼儿从屏幕学习（词汇、模仿）的效率显著低于从真人学习。这是实验室里可重复的现象，不是相关性。<br><b>② 机会成本</b>：屏幕挤占的是对话轮次和自由玩耍，而那两样是有证据的。</p></div>
+          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p>回避屏幕的代价接近于零，潜在收益有证据支持，<b>不对称决策直接给出结论：这个月龄不给屏幕</b>。理由是机会成本，不是「屏幕有毒」。<br><br>推论：<b>偶尔看了 20 分钟，不必自责。</b>真正要守的是「屏幕不成为默认的安抚手段」这条线。视频通话是例外——它是真人互动，有来回。</p></div>
+        </div>
+      </div>
+
+      <div class="oq2">
+        <div class="oq2-hd"><h3>3 · 打孩子到底有没有害</h3></div>
+        <div class="oq2-b">
+          <div class="seg"><span class="lab">主流证据</span><p>Gershoff &amp; Grogan-Kaylor 2016 的 meta 分析（<span class="num">75 项研究，n ≈ 160,927</span>）发现，打屁股与 <span class="num">17 项结局中的 13 项</span>负面相关，<b>零项正面</b>。</p></div>
+          <div class="seg"><span class="lab">批评意见（成立的部分）</span><p>Larzelere 等指出这些研究基本是相关性的，无法排除<b>反向因果</b>（更难管的孩子招来更多体罚）和<b>遗传混杂</b>（冲动的父母生出冲动的孩子）。把「打屁股」和更严重的暴力混在一起分析也会放大效应。</p></div>
+          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p>结论不变：<b>不要打</b>。但理由要说对——<b>不是因为因果已经证实，而是因为不对称决策</b>：体罚从未被证明有任何长期收益，却有相当可能造成伤害。<b>零收益 × 可能有害 ＝ 不做</b>，这个推理不需要因果确证。<br><br>对 1 岁的孩子更简单：<b>他的大脑没有能力把「被打」和「刚才做的事」联系起来。惩罚在这个年龄不是「不对」，是无效。</b></p></div>
+        </div>
+      </div>
+
+      <div class="oq2">
+        <div class="oq2-hd"><h3>4 · 母乳到底有多大长期收益</h3></div>
+        <div class="oq2-b">
+          <div class="seg"><span class="lab">扎实的部分</span><p>婴儿期胃肠道感染和中耳炎显著减少。这一条证据可靠。</p></div>
+          <div class="seg"><span class="lab">远弱于宣传的部分</span><p><b>PROBIT</b>（Kramer 等，白俄罗斯整群随机试验，<span class="num">n ≈ 17,000</span>）——迄今唯一的大规模母乳随机干预。6.5 岁时言语智商有提升，但<b>到 11.5 岁和 16 岁时认知效应大幅衰减</b>，且在肥胖、过敏、血压等多项结局上为零。<br><br><b>Colen &amp; Ramey 2014</b> 用兄弟姐妹比较设计（同一家庭内、喂养方式不一致的 <span class="num">1773 对同胞</span>）：<b>11 项长期结局中有 10 项，母乳的优势在家庭内比较后消失</b>。观察到的「母乳孩子更优秀」大部分是<b>家庭差异</b>，不是母乳。</p></div>
+          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p>12 月龄后这件事的实际重要性已经很低。<b>继续喂很好，断奶也完全没问题</b>，两者都不需要理由。真正的用处是<b>对抗家庭压力</b>：当有人用「母乳孩子更聪明」施压时，你可以知道这条在最强的证据下站不住。反向的迷思同样要杀掉：<b>「母乳 6 个月后没营养」是错的</b>。</p></div>
+        </div>
+      </div>
+
+      <div class="oq2">
+        <div class="oq2-hd"><h3>5 · 维生素 AD 还是单纯维生素 D 🇨🇳</h3></div>
+        <div class="oq2-b">
+          <div class="seg"><span class="lab">中外分歧</span><p><b>国际（AAP 等）</b>：只推荐维生素 D <span class="num">400 IU</span>，不常规补维生素 A。<br><b>国内</b>：《中国儿童维生素 A、维生素 D 临床应用专家共识（2024）》推荐 AD 同补，理由是中国以<b>维生素 A 边缘性缺乏</b>为流行病学特征。同时中华医学会儿科学分会儿童保健学组 2022 年实践指南的核心建议是维生素 D 至少 <span class="num">400 IU/天</span>。</p></div>
+          <div class="seg"><span class="lab">需要指出的两点</span><p><b>①「专家共识」在证据阶梯上属中低位</b>，不是 RCT。而中国维生素 A 边缘缺乏的流行病学数据，很多来自较早年代和农村样本，<b>是否仍适用于 2026 年的城市幼儿，缺乏直接证据</b>。<br><b>②</b> 国内 AD 制剂市场高度集中，相关宣传（包括通过行业协会渠道）非常密集。这不代表共识本身有问题，但意味着<b>你听到的信息里，支持 AD 的一侧被放大了</b>。</p></div>
+          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p><b>确定的部分是维生素 D 400 IU</b>，无论用哪种制剂都要保证。AD 制剂里的维生素 A 剂量（通常 <span class="num">1500–2000 IU/天</span>）远低于中毒阈值，风险很低，两种做法都可接受，不值得为此焦虑。<br><br><b>⚠ 一个容易被忽略的叠加问题</b>：如果按补铁建议每周吃动物肝脏，那已经摄入了<b>大量预制型维生素 A</b>（猪肝含量极高）。<b>肝脏 ＋ 每日 AD 制剂 ＋ 含维 A 的复合营养素，三者不要叠加，选一个主要来源即可。</b>这是维生素 A（脂溶性、会蓄积）与维生素 D 的重要区别。</p></div>
+        </div>
+      </div>
+
+      <div class="oq2">
+        <div class="oq2-hd"><h3>6 · 氟的神经毒性</h3></div>
+        <div class="oq2-b">
+          <div class="seg"><span class="lab">现状</span><p>美国国家毒理学项目 2024 年的专论以中等把握度认为，<b>较高的氟暴露（饮水氟 &gt; <span class="num">1.5 mg/L</span>）与儿童智商降低相关</b>；但该结论<b>明确未涵盖</b>常规饮水加氟浓度（约 <span class="num">0.7 mg/L</span>）。争议主要集中在低剂量段。</p></div>
+          <div class="seg"><span class="lab">🇨🇳 中国情况不同</span><p>中国<b>没有普遍的饮水加氟</b>，但<b>存在地方性氟中毒病区</b>（部分地区地下水天然氟含量高）。所以关键问题不是「加氟水」，而是<b>「你家的水源氟含量是多少」</b>。</p></div>
+          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p><b>牙膏是完全不同的暴露途径和剂量。</b>按 1–2 岁米粒大小的用量，即使全部吞下摄入量也远低于争议剂量。<b>含氟牙膏的防龋收益明确，继续用。</b><br><br>如果你在已知高氟地区或长期饮用未处理的地下水，值得查一下当地水质报告——属于「查一次就完事」的低成本动作。城市自来水地区：不构成问题。</p></div>
+        </div>
+      </div>
+
+      <div class="oq2">
+        <div class="oq2-hd"><h3>7 · 自主进食（BLW）还是勺喂</h3></div>
+        <div class="oq2-b">
+          <div class="seg"><span class="lab">现状</span><p>新西兰 BLISS 随机对照试验等研究显示，两种方式在<b>生长、BMI 上没有差异</b>；BLW 组早期作呕更多但<b>真正的窒息事件没有增加</b>；一个真实的注意点是 <b>BLW 组的铁摄入可能偏低</b>。</p></div>
+          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p>这是<b>低效应量的偏好问题</b>，不值得作为家庭矛盾的战场（属于「可以主动让步」那一类）。但有两条硬约束不可让步：<b>① 铁要够；② 食物性状要安全</b>（整颗葡萄切四瓣、坚果磨碎、吃饭时坐着有人看着）。混合着来完全可以。</p></div>
+        </div>
+      </div>
+
+      <div class="oq2">
+        <div class="oq2-hd"><h3>8 · 同睡（bed-sharing）</h3></div>
+        <div class="oq2-b">
+          <div class="seg"><span class="lab">争议</span><p>同床睡增加婴儿猝死风险 vs 便于母乳喂养。国际指南本身就有分歧（美国 AAP 反对同床、建议同室不同床；英国 UNICEF 等采取风险分层立场）。</p></div>
+          <div class="seg"><span class="lab">对小狮子的实际相关性</span><p><b>已大幅降低。</b>婴儿猝死综合征的风险高峰在 <span class="num">2–4 月龄</span>，绝大多数发生在 6 月龄前。<b>1 岁的孩子已经过了主要风险窗口。</b></p></div>
+          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p>现阶段同睡与否主要是<b>睡眠质量和家庭偏好问题</b>，不是安全问题。仍需保证的基本项：床垫不过软、没有可能捂住口鼻的厚被和毛绒玩具堆、不与吸烟者或服用镇静类药物者同床、防止从床上跌落。</p></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ══════════════ 5 · 速查 ══════════════ -->
+<!-- ══════════════ 7 · 速查 ══════════════ -->
 <section class="view" id="v-lookup" role="tabpanel" aria-label="速查">
   <div class="stack">
     <div>
@@ -1097,96 +2064,6 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
   </div>
 </section>
 
-<!-- ══════════════ 6 · 争议区 ══════════════ -->
-<section class="view" id="v-open" role="tabpanel" aria-label="争议区">
-  <div class="stack">
-    <div>
-      <h2 class="sec">争议区</h2>
-      <p class="sec-note">这一节的作用是承认不知道。育儿内容最大的问题之一，是把未定论的东西讲成定论。</p>
-    </div>
-
-    <div class="callout">
-      凡是在这里出现的问题，<b>任何人告诉你「科学已经证明」，都可以直接降低对他的信任。</b>这不意味着他们说的一定错，而是意味着<b>你有权自己做决定</b>——基于你家的具体情况和不对称决策法则，而不是基于谁的语气更肯定。
-    </div>
-
-    <div class="stack" style="gap:9px;">
-
-      <details class="oq">
-        <summary><div class="oq-t">1 · 托育 / 日托对孩子是好是坏</div></summary>
-        <div class="oq-b">
-          <div class="seg"><span class="lab">支持有益</span><p>针对弱势儿童的高质量干预项目普遍显示认知与语言获益。NICHD SECCYD（美国大型纵向研究，<span class="num">n ≈ 1364</span>）发现<b>照护质量</b>越高，词汇与认知结果越好。</p></div>
-          <div class="seg"><span class="lab">支持有害 · 设计更强，更值得重视</span><p>同一个 NICHD 研究发现，<b>非母亲照护的累计时长</b>越多，外化问题行为略多，且持续到小学六年级。<br><br><b>魁北克全民托育自然实验</b>（Baker, Gruber &amp; Milligan 2008；长期随访 2019, AEJ: Economic Policy）：1997 年起推行低价普惠托育，一次真实的大规模政策突变，<b>证据等级属「强」</b>。5–9 岁时的效应量：<span class="num">焦虑 +0.24 SD、攻击行为 +0.19、多动 +0.13</span>（对男孩和本就有行为问题的孩子影响更大）。长期随访：自评健康更差、生活满意度更低、犯罪率更高。</p></div>
-          <div class="seg"><span class="lab">为什么两边都对</span><p>真正的变量不是「托育 vs 不托育」，而是<b>「托育 vs 替代方案是什么」</b>。对家庭环境差的孩子是提升；对家庭环境好、有稳定看护的孩子，大规模低质量托育可能是下降。魁北克的结果很可能反映<b>质量被规模稀释</b>。</p></div>
-          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p>落在「代价大 × 认真评估」格子里，值得花时间想。关键提问不是「几岁送托」，而是：<b>「送托之后，他每天的实际经历，比现在在家好还是差？」</b>照护者稳定性、师生比、有没有人回应他，比机构装修和课程表重要一个数量级。<b>家里有稳定、健康、愿意投入的看护者时，推迟入托没有证据上的损失。</b></p></div>
-        </div>
-      </details>
-
-      <details class="oq">
-        <summary><div class="oq-t">2 · 屏幕时间到底有多大危害</div></summary>
-        <div class="oq-b">
-          <div class="seg"><span class="lab">诚实的现状</span><p>证据比宣传弱得多。绝大多数「屏幕时间与××相关」的研究是横断面的、用家长回忆估计时长、且混杂严重——<b>多看屏幕的家庭在很多方面都不同</b>。反向因果也完全没有排除：难带的孩子更可能被塞一个 iPad。</p></div>
-          <div class="seg"><span class="lab">真正站得住的两点</span><p><b>① 视频缺陷效应</b>：2 岁前幼儿从屏幕学习（词汇、模仿）的效率显著低于从真人学习。这是实验室里可重复的现象，不是相关性。<br><b>② 机会成本</b>：屏幕挤占的是对话轮次和自由玩耍，而那两样是有证据的。</p></div>
-          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p>回避屏幕的代价接近于零，潜在收益有证据支持，<b>不对称决策直接给出结论：这个月龄不给屏幕</b>。理由是机会成本，不是「屏幕有毒」。<br><br>推论：<b>偶尔看了 20 分钟，不必自责。</b>真正要守的是「屏幕不成为默认的安抚手段」这条线。视频通话是例外——它是真人互动，有来回。</p></div>
-        </div>
-      </details>
-
-      <details class="oq">
-        <summary><div class="oq-t">3 · 打孩子到底有没有害</div></summary>
-        <div class="oq-b">
-          <div class="seg"><span class="lab">主流证据</span><p>Gershoff &amp; Grogan-Kaylor 2016 的 meta 分析（<span class="num">75 项研究，n ≈ 160,927</span>）发现，打屁股与 <span class="num">17 项结局中的 13 项</span>负面相关，<b>零项正面</b>。</p></div>
-          <div class="seg"><span class="lab">批评意见（成立的部分）</span><p>Larzelere 等指出这些研究基本是相关性的，无法排除<b>反向因果</b>（更难管的孩子招来更多体罚）和<b>遗传混杂</b>（冲动的父母生出冲动的孩子）。把「打屁股」和更严重的暴力混在一起分析也会放大效应。</p></div>
-          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p>结论不变：<b>不要打</b>。但理由要说对——<b>不是因为因果已经证实，而是因为不对称决策</b>：体罚从未被证明有任何长期收益，却有相当可能造成伤害。<b>零收益 × 可能有害 ＝ 不做</b>，这个推理不需要因果确证。<br><br>对 1 岁的孩子更简单：<b>他的大脑没有能力把「被打」和「刚才做的事」联系起来。惩罚在这个年龄不是「不对」，是无效。</b></p></div>
-        </div>
-      </details>
-
-      <details class="oq">
-        <summary><div class="oq-t">4 · 母乳到底有多大长期收益</div></summary>
-        <div class="oq-b">
-          <div class="seg"><span class="lab">扎实的部分</span><p>婴儿期胃肠道感染和中耳炎显著减少。这一条证据可靠。</p></div>
-          <div class="seg"><span class="lab">远弱于宣传的部分</span><p><b>PROBIT</b>（Kramer 等，白俄罗斯整群随机试验，<span class="num">n ≈ 17,000</span>）——迄今唯一的大规模母乳随机干预。6.5 岁时言语智商有提升，但<b>到 11.5 岁和 16 岁时认知效应大幅衰减</b>，且在肥胖、过敏、血压等多项结局上为零。<br><br><b>Colen &amp; Ramey 2014</b> 用兄弟姐妹比较设计（同一家庭内、喂养方式不一致的 <span class="num">1773 对同胞</span>）：<b>11 项长期结局中有 10 项，母乳的优势在家庭内比较后消失</b>。观察到的「母乳孩子更优秀」大部分是<b>家庭差异</b>，不是母乳。</p></div>
-          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p>12 月龄后这件事的实际重要性已经很低。<b>继续喂很好，断奶也完全没问题</b>，两者都不需要理由。真正的用处是<b>对抗家庭压力</b>：当有人用「母乳孩子更聪明」施压时，你可以知道这条在最强的证据下站不住。反向的迷思同样要杀掉：<b>「母乳 6 个月后没营养」是错的</b>。</p></div>
-        </div>
-      </details>
-
-      <details class="oq">
-        <summary><div class="oq-t">5 · 维生素 AD 还是单纯维生素 D 🇨🇳</div></summary>
-        <div class="oq-b">
-          <div class="seg"><span class="lab">中外分歧</span><p><b>国际（AAP 等）</b>：只推荐维生素 D <span class="num">400 IU</span>，不常规补维生素 A。<br><b>国内</b>：《中国儿童维生素 A、维生素 D 临床应用专家共识（2024）》推荐 AD 同补，理由是中国以<b>维生素 A 边缘性缺乏</b>为流行病学特征。同时中华医学会儿科学分会儿童保健学组 2022 年实践指南的核心建议是维生素 D 至少 <span class="num">400 IU/天</span>。</p></div>
-          <div class="seg"><span class="lab">需要指出的两点</span><p><b>①「专家共识」在证据阶梯上属中低位</b>，不是 RCT。而中国维生素 A 边缘缺乏的流行病学数据，很多来自较早年代和农村样本，<b>是否仍适用于 2026 年的城市幼儿，缺乏直接证据</b>。<br><b>②</b> 国内 AD 制剂市场高度集中，相关宣传（包括通过行业协会渠道）非常密集。这不代表共识本身有问题，但意味着<b>你听到的信息里，支持 AD 的一侧被放大了</b>。</p></div>
-          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p><b>确定的部分是维生素 D 400 IU</b>，无论用哪种制剂都要保证。AD 制剂里的维生素 A 剂量（通常 <span class="num">1500–2000 IU/天</span>）远低于中毒阈值，风险很低，两种做法都可接受，不值得为此焦虑。<br><br><b>⚠ 一个容易被忽略的叠加问题</b>：如果按补铁建议每周吃动物肝脏，那已经摄入了<b>大量预制型维生素 A</b>（猪肝含量极高）。<b>肝脏 ＋ 每日 AD 制剂 ＋ 含维 A 的复合营养素，三者不要叠加，选一个主要来源即可。</b>这是维生素 A（脂溶性、会蓄积）与维生素 D 的重要区别。</p></div>
-        </div>
-      </details>
-
-      <details class="oq">
-        <summary><div class="oq-t">6 · 氟的神经毒性</div></summary>
-        <div class="oq-b">
-          <div class="seg"><span class="lab">现状</span><p>美国国家毒理学项目 2024 年的专论以中等把握度认为，<b>较高的氟暴露（饮水氟 &gt; <span class="num">1.5 mg/L</span>）与儿童智商降低相关</b>；但该结论<b>明确未涵盖</b>常规饮水加氟浓度（约 <span class="num">0.7 mg/L</span>）。争议主要集中在低剂量段。</p></div>
-          <div class="seg"><span class="lab">🇨🇳 中国情况不同</span><p>中国<b>没有普遍的饮水加氟</b>，但<b>存在地方性氟中毒病区</b>（部分地区地下水天然氟含量高）。所以关键问题不是「加氟水」，而是<b>「你家的水源氟含量是多少」</b>。</p></div>
-          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p><b>牙膏是完全不同的暴露途径和剂量。</b>按 1–2 岁米粒大小的用量，即使全部吞下摄入量也远低于争议剂量。<b>含氟牙膏的防龋收益明确，继续用。</b><br><br>如果你在已知高氟地区或长期饮用未处理的地下水，值得查一下当地水质报告——属于「查一次就完事」的低成本动作。城市自来水地区：不构成问题。</p></div>
-        </div>
-      </details>
-
-      <details class="oq">
-        <summary><div class="oq-t">7 · 自主进食（BLW）还是勺喂</div></summary>
-        <div class="oq-b">
-          <div class="seg"><span class="lab">现状</span><p>新西兰 BLISS 随机对照试验等研究显示，两种方式在<b>生长、BMI 上没有差异</b>；BLW 组早期作呕更多但<b>真正的窒息事件没有增加</b>；一个真实的注意点是 <b>BLW 组的铁摄入可能偏低</b>。</p></div>
-          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p>这是<b>低效应量的偏好问题</b>，不值得作为家庭矛盾的战场（属于「可以主动让步」那一类）。但有两条硬约束不可让步：<b>① 铁要够；② 食物性状要安全</b>（整颗葡萄切四瓣、坚果磨碎、吃饭时坐着有人看着）。混合着来完全可以。</p></div>
-        </div>
-      </details>
-
-      <details class="oq">
-        <summary><div class="oq-t">8 · 同睡（bed-sharing）</div></summary>
-        <div class="oq-b">
-          <div class="seg"><span class="lab">争议</span><p>同床睡增加婴儿猝死风险 vs 便于母乳喂养。国际指南本身就有分歧（美国 AAP 反对同床、建议同室不同床；英国 UNICEF 等采取风险分层立场）。</p></div>
-          <div class="seg"><span class="lab">对小狮子的实际相关性</span><p><b>已大幅降低。</b>婴儿猝死综合征的风险高峰在 <span class="num">2–4 月龄</span>，绝大多数发生在 6 月龄前。<b>1 岁的孩子已经过了主要风险窗口。</b></p></div>
-          <div class="seg dec"><span class="lab">不确定下怎么决策</span><p>现阶段同睡与否主要是<b>睡眠质量和家庭偏好问题</b>，不是安全问题。仍需保证的基本项：床垫不过软、没有可能捂住口鼻的厚被和毛绒玩具堆、不与吸烟者或服用镇静类药物者同床、防止从床上跌落。</p></div>
-        </div>
-      </details>
-
-    </div>
-  </div>
-</section>
-
 </main>
 
 <footer class="ft">
@@ -1295,8 +2172,7 @@ function itemHTML(tier,it){
       + '<label class="item-t" for="cb-'+it.id+'">'+it.t+badge+'</label>'
       + (it.s?'<div class="item-s">'+it.s+'</div>':'')
     + '</div>'
-    + '<button class="info" type="button" aria-expanded="false" aria-label="查看依据" data-ev="'+it.id+'">i</button>'
-    + '<div class="ev" id="ev-'+it.id+'">'+it.ev+'</div>'
+    + '<div class="ev on" id="ev-'+it.id+'">'+it.ev+'</div>'
   + '</div>';
 }
 
@@ -1304,42 +2180,15 @@ function render(){
   var wrap=document.getElementById("tiers");
   var html='<div class="stack">';
   TIERS.forEach(function(t){
-    var pend=t.items.filter(function(i){ return !state[i.id]; });
     html+='<div class="tier '+t.cls+'">'
       + '<div class="tier-hd"><span class="tag '+t.tag+'">'+t.tagText+'</span><h3>'+t.title+'</h3>'
       + '<p class="why">'+t.why+'</p></div>';
-    if(t.collapsed){
-      html+='<details class="donebox" style="border:0;border-radius:0;"><summary>展开 '+t.items.length+' 项（'+pend.length+' 项未勾）</summary><div>';
-      t.items.forEach(function(i){ html+=itemHTML(t,i); });
-      html+='</div></details>';
-    } else {
-      if(pend.length===0){
-        html+='<div class="item"><div></div><div class="item-body"><div class="item-s" style="color:var(--calm);font-weight:600;">这一档全部完成 ✓</div></div><div></div></div>';
-      }
-      pend.forEach(function(i){ html+=itemHTML(t,i); });
-    }
+    t.items.forEach(function(i){ html+=itemHTML(t,i); });
     html+='</div>';
   });
   html+='</div>';
   wrap.innerHTML=html;
 
-  // done drawer (tiers 1 & 2 only; tier 3 stays in its own collapsed block)
-  var doneList=[];
-  TIERS.forEach(function(t){
-    if(t.collapsed) return;
-    t.items.forEach(function(i){ if(state[i.id]) doneList.push({t:t,i:i}); });
-  });
-  var box=document.getElementById("donebox");
-  var dl=document.getElementById("donelist");
-  if(doneList.length){
-    box.hidden=false;
-    document.getElementById("donelbl").textContent="已完成 "+doneList.length+" 项";
-    dl.innerHTML=doneList.map(function(d){ return itemHTML(d.t,d.i); }).join("");
-  } else {
-    box.hidden=true; dl.innerHTML="";
-  }
-
-  // progress across tier 1 + 2 (tier 3 is optional, excluded from the count)
   var counted=allItems.filter(function(a){ return !a.tier.collapsed; });
   var doneN=counted.filter(function(a){ return state[a.item.id]; }).length;
   var total=counted.length;
@@ -1357,20 +2206,6 @@ document.addEventListener("change",function(e){
   save(); render();
 });
 
-document.addEventListener("click",function(e){
-  var b=e.target.closest(".info");
-  if(b){
-    var ev=document.getElementById("ev-"+b.getAttribute("data-ev"));
-    if(ev){
-      var on=ev.classList.toggle("on");
-      b.setAttribute("aria-expanded",on?"true":"false");
-    }
-    return;
-  }
-  if(e.target.id==="reset"){
-    if(confirm("清空所有勾选状态？")){ state={}; save(); render(); }
-  }
-});
 
 /* ═══════════ tabs ═══════════ */
 var tabs=[].slice.call(document.querySelectorAll(".tab"));
@@ -1403,154 +2238,6 @@ q.addEventListener("input",function(){
   document.getElementById("nores").hidden=shown>0;
 });
 
-/* ═══════════ decision wizard ═══════════ */
-var QS=[
-  {k:"src", q:"这条信息的出处是谁？谁从我照做里获益？",
-   hint:"卖课、卖货、卖检测的，先降一级信任。",
-   opts:[
-     {v:"official", l:"官方文件、专业学会指南、系统综述"},
-     {v:"doctor",   l:"医生或专业人士的个人意见", s:"等级同「专家意见」，不是证据"},
-     {v:"seller",   l:"博主、广告、带货、机构宣传"},
-     {v:"folk",     l:"长辈、朋友的个人经验"}
-   ]},
-  {k:"causal", q:"这是相关还是因果？控制遗传混杂了吗？",
-   hint:"父母同时给了孩子基因和环境。没控制遗传混杂的，只能当「值得留意」。",
-   opts:[
-     {v:"rct",  l:"有 RCT、自然实验、或双生子／收养设计"},
-     {v:"corr", l:"只有相关性（横断面、家长自评）"},
-     {v:"none", l:"不知道 / 对方没说", s:"多数情况下的真实答案"}
-   ]},
-  {k:"size", q:"效应量多大？随访多久？",
-   hint:"d ≈ 0.1 是噪音级。找不到数字，通常意味着没有值得说的数字。",
-   opts:[
-     {v:"big",  l:"明确给出了效应量，而且不小"},
-     {v:"small",l:"很小，或者根本没提"},
-     {v:"nk",   l:"不知道"}
-   ]},
-  {k:"cost", q:"我的代价有多大？",
-   hint:"代价里一定要算上「我的精神状态」——它对孩子的影响比多数干预都大。",
-   opts:[
-     {v:"zero", l:"几乎为零", s:"顺手就能做"},
-     {v:"mid",  l:"要花点钱或时间，但可承受"},
-     {v:"high", l:"很大", s:"大量金钱、时间、亲子关系，或我的精神健康"}
-   ]},
-  {k:"rev", q:"如果这件事没做，最坏会怎样？",
-   hint:"这一问决定了前面三问还算不算数。",
-   opts:[
-     {v:"irrev", l:"不可逆", s:"死亡、残疾、永久损害"},
-     {v:"rev",   l:"可逆", s:"无非是没效果、白花了点钱"}
-   ]}
-];
-
-var wi=0, ans={};
-var wiz=document.getElementById("wiz");
-
-function decide(a){
-  var costHigh = a.cost==="high";
-  var costLow  = a.cost==="zero";
-  var irrev    = a.rev==="irrev";
-  var weak     = (a.causal!=="rct") || (a.size!=="big");
-  var seller   = a.src==="seller";
-
-  if(irrev && !costHigh){
-    return {k:"do", cls:"do", h:"做",
-      why:"下行不可逆，而代价你承受得起。<b>这一格不需要等强证据</b>——你不需要一个关于安全座椅的完美 RCT 才去装它。",
-      cell:"落在<b>「代价小 × 下行不可逆」</b>格：直接做。"};
-  }
-  if(irrev && costHigh){
-    return {k:"think", cls:"think", h:"认真评估",
-      why:"下行不可逆，但代价很大——这是四格里<b>唯一真正需要花力气想的一格</b>。不要凭感觉决定，也不要拖着不决定。值得单独找时间想清楚，或者写进问题队列一起查。",
-      cell:"落在<b>「代价大 × 下行不可逆」</b>格：认真评估。要不要送托、要不要换城市、要不要辞职带娃都在这里。"};
-  }
-  if(costHigh){
-    return {k:"skip", cls:"skip", h:"不做",
-      why:(weak?"证据本身就不硬（"+(a.causal!=="rct"?"只是相关性":"效应量不明或很小")+"），":"")+"而代价很大、下行又可逆。<b>「万一有用呢」不是理由</b>——代价是你的时间、钱，以及孩子本可以拿去自由玩耍的那几个小时。"+(seller?"<br><br>另外：出处是卖东西的一方，这一点本身就该让你把信任再降一级。":""),
-      cell:"落在<b>「代价大 × 下行可逆」</b>格：不做。早教班、闪卡、右脑开发都在这里。"};
-  }
-  if(costLow && weak){
-    return {k:"free", cls:"free", h:"随意，别当任务",
-      why:"代价接近零，下行可逆，但证据也没强到值得你认真对待。<b>做了没坏处，不做也没损失。</b>关键是别把它变成一项新的待办、新的愧疚源。"+(seller?"<br><br>另外：出处是卖东西的一方——如果它要花钱，那就归到「不做」。":""),
-      cell:"落在<b>「代价小 × 下行可逆」</b>格：随意。婴儿手语、早期音乐都在这里。"};
-  }
-  if(costLow && !weak){
-    return {k:"do", cls:"do", h:"做",
-      why:"代价接近零，而且证据设计过硬、效应量明确。<b>这种组合很少见，遇到了就照做。</b>",
-      cell:"落在<b>「代价小 × 下行可逆」</b>格，但证据强度把它抬进了值得做的一类。"};
-  }
-  if(weak){
-    return {k:"skip", cls:"skip", h:"忽略",
-      why:"要花一定成本，证据却不硬，下行也可逆。<b>忽略它。</b>"+(seller?"出处是卖东西的一方，更没有理由。":""),
-      cell:"介于「代价小」与「代价大」之间、下行可逆：默认忽略。"};
-  }
-  return {k:"do", cls:"do", h:"可以做",
-    why:"证据设计过硬、效应量明确，代价可承受，下行可逆。属于值得做但不必焦虑的一类——做到七八成就拿到了绝大部分收益。",
-    cell:"下行可逆，所以做不到满分也没关系。"};
-}
-
-var VERDICT_TAIL = {
-  skip:"<b>「忽略」是一个正式决策，和「做」一样正式。</b>不要让它以「我知道但没做到」的形式留在心里——那是纯粹的焦虑，没有任何收益。明确地放弃它。",
-  free:"如果它开始让你有压力，那就说明它该被划到「忽略」去。",
-  think:"这一格值得占用你的注意力——因为大多数事情不值得。",
-  do:"排进行动清单，然后就别再想它了。"
-};
-
-function renderWiz(){
-  if(wi>=QS.length){
-    var d=decide(ans);
-    var labels={src:"出处",causal:"因果性",size:"效应量",cost:"我的代价",rev:"下行"};
-    var trace=QS.map(function(Q){
-      var chosen=Q.opts.filter(function(o){ return o.v===ans[Q.k]; })[0];
-      return '<div><b>'+labels[Q.k]+'</b> · '+(chosen?chosen.l:"—")+'</div>';
-    }).join("");
-    var copyTxt = "【"+d.h+"】"+d.why.replace(/<[^>]+>/g,"")+" ｜ "+QS.map(function(Q){
-      var c=Q.opts.filter(function(o){return o.v===ans[Q.k];})[0];
-      return labels[Q.k]+"："+(c?c.l:"—");
-    }).join("；");
-    wiz.innerHTML=
-      '<div class="verdict '+d.cls+'">'
-      + '<div class="vk">结论</div>'
-      + '<h3>'+d.h+'</h3>'
-      + '<p class="vwhy">'+d.why+'</p>'
-      + '<div class="vcell">'+d.cell+'<br><br>'+VERDICT_TAIL[d.k]+'</div>'
-      + '<div class="trace">'+trace+'</div>'
-      + '</div>'
-      + '<div class="wiz-nav">'
-      + '<button class="linkbtn" id="again">重新来一次</button>'
-      + '<button class="linkbtn" id="copy" data-t="'+esc(copyTxt).replace(/"/g,"&quot;")+'">复制结论</button>'
-      + '</div>';
-    document.getElementById("again").onclick=function(){ wi=0; ans={}; renderWiz(); };
-    document.getElementById("copy").onclick=function(){
-      var btn=this;
-      var t=btn.getAttribute("data-t");
-      function done(){ btn.textContent="已复制"; setTimeout(function(){ btn.textContent="复制结论"; },1600); }
-      if(navigator.clipboard&&navigator.clipboard.writeText){
-        navigator.clipboard.writeText(t).then(done,function(){ fallback(t,done); });
-      } else fallback(t,done);
-    };
-    return;
-  }
-  var Q=QS[wi];
-  wiz.innerHTML=
-    '<div class="wiz-hd">'
-    + '<div class="wiz-step">第 '+(wi+1)+' 问 / 共 '+QS.length+'</div>'
-    + '<h3 class="wiz-q">'+Q.q+'</h3>'
-    + '<p class="wiz-hint">'+Q.hint+'</p>'
-    + '</div>'
-    + '<div class="wiz-opts">'
-    + Q.opts.map(function(o,ix){
-        return '<button class="opt" data-v="'+o.v+'" data-ix="'+ix+'">'+o.l
-             + (o.s?'<span class="osub">'+o.s+'</span>':'')+'</button>';
-      }).join("")
-    + '</div>'
-    + (wi>0?'<div class="wiz-nav"><button class="linkbtn" id="back">← 上一问</button><button class="linkbtn" id="restart">从头开始</button></div>':'');
-  [].slice.call(wiz.querySelectorAll(".opt")).forEach(function(b){
-    b.onclick=function(){ ans[Q.k]=b.getAttribute("data-v"); wi++; renderWiz(); };
-  });
-  var bk=document.getElementById("back");
-  if(bk) bk.onclick=function(){ wi=Math.max(0,wi-1); renderWiz(); };
-  var rs=document.getElementById("restart");
-  if(rs) rs.onclick=function(){ wi=0; ans={}; renderWiz(); };
-}
 
 function fallback(t,cb){
   var ta=document.createElement("textarea");
@@ -1573,7 +2260,13 @@ function fallback(t,cb){
   });
 });
 
+document.getElementById("reset").onclick=function(){
+  state={}; save(); render();
+  [].slice.call(document.querySelectorAll(".ckx")).forEach(function(cb){
+    cb.checked=false; cb.closest(".item").classList.remove("done");
+  });
+};
+
 render();
-renderWiz();
 })();
 </script>
