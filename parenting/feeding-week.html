@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>小狮子的一周辅食</title>
+
+<style>
+:root{
+  --paper:#F4F6F3;
+  --surface:#FFFFFF;
+  --surface-2:#E9EFEA;
+  --ink:#16211C;
+  --ink-2:#43544B;
+  --ink-3:#7A8B81;
+  --rule:#D4DED7;
+  --rule-soft:#E4EBE6;
+
+  --accent:#1F6B54;
+  --accent-soft:#E2EFE9;
+  --accent-text:#175344;
+
+  --crit:#A8332B;
+  --crit-soft:#FBEAE8;
+  --warn:#8E6212;
+  --warn-soft:#F9F0DC;
+  --ok:#2F6B52;
+  --ok-soft:#E3F0E9;
+
+  --radius:9px;
+  --shadow:0 1px 2px rgba(22,33,28,.05), 0 8px 22px -14px rgba(22,33,28,.22);
+
+  --sans:system-ui,-apple-system,"Segoe UI","PingFang SC","HarmonyOS Sans SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC",sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,"PingFang SC",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1613;
+    --surface:#16211D;
+    --surface-2:#1E2C27;
+    --ink:#E6EDE9;
+    --ink-2:#B0C1B8;
+    --ink-3:#7D9189;
+    --rule:#2A3A34;
+    --rule-soft:#1F2E28;
+    --accent:#5DBB9B;
+    --accent-soft:#14312A;
+    --accent-text:#84D2B6;
+    --crit:#E88379;
+    --crit-soft:#331A18;
+    --warn:#D3A34F;
+    --warn-soft:#2C2413;
+    --ok:#6FC09A;
+    --ok-soft:#14291F;
+    --shadow:0 1px 2px rgba(0,0,0,.35), 0 10px 26px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1613; --surface:#16211D; --surface-2:#1E2C27;
+  --ink:#E6EDE9; --ink-2:#B0C1B8; --ink-3:#7D9189;
+  --rule:#2A3A34; --rule-soft:#1F2E28;
+  --accent:#5DBB9B; --accent-soft:#14312A; --accent-text:#84D2B6;
+  --crit:#E88379; --crit-soft:#331A18;
+  --warn:#D3A34F; --warn-soft:#2C2413;
+  --ok:#6FC09A; --ok-soft:#14291F;
+  --shadow:0 1px 2px rgba(0,0,0,.35), 0 10px 26px -16px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:15.5px; line-height:1.72;
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:1000px; margin:0 auto; padding:26px 16px 60px;}
+.stack{display:flex; flex-direction:column; gap:20px;}
+
+/* ── header ── */
+.hd{display:flex; flex-direction:column; gap:6px; padding-bottom:16px; border-bottom:2px solid var(--ink);}
+.hd h1{margin:0; font-size:25px; font-weight:800; letter-spacing:-.03em; line-height:1.2;}
+.hd .meta{
+  font-family:var(--mono); font-size:11px; letter-spacing:.07em; text-transform:uppercase;
+  color:var(--ink-3);
+}
+.hd .lede{margin:4px 0 0; font-size:14px; color:var(--ink-2); line-height:1.7; max-width:62ch;}
+
+/* ── 固定量 strip ── */
+.fixed{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(128px,1fr)); gap:1px;
+  background:var(--rule); border:1px solid var(--rule); border-radius:var(--radius); overflow:hidden;
+}
+.fx{background:var(--surface); padding:11px 13px;}
+.fx dt{
+  font-family:var(--mono); font-size:10px; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--ink-3); margin-bottom:3px;
+}
+.fx dd{margin:0; font-size:16px; font-weight:750; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.fx dd small{display:block; font-size:11.5px; font-weight:400; color:var(--ink-2); letter-spacing:0; margin-top:1px; line-height:1.5;}
+
+/* ── section ── */
+h2.sec{
+  margin:0 0 3px; font-size:18px; font-weight:800; letter-spacing:-.02em;
+  display:flex; align-items:baseline; gap:9px;
+}
+h2.sec .n{font-family:var(--mono); font-size:12px; font-weight:700; color:var(--accent); letter-spacing:.04em;}
+.sec-note{margin:0 0 12px; font-size:13px; color:var(--ink-3); line-height:1.65; max-width:62ch;}
+
+/* ── 日卡 ── */
+.days{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px;}
+.day{
+  background:var(--surface); border:1px solid var(--rule); border-radius:var(--radius);
+  overflow:hidden; box-shadow:var(--shadow); break-inside:avoid;
+}
+.day-hd{
+  display:flex; align-items:center; justify-content:space-between; gap:8px;
+  padding:9px 13px; background:var(--surface-2); border-bottom:1px solid var(--rule);
+}
+.day-hd h3{margin:0; font-size:15px; font-weight:800; letter-spacing:.02em;}
+.fe{
+  font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:.05em;
+  padding:3px 8px; border-radius:99px; white-space:nowrap;
+}
+.fe.mifen{background:var(--accent-soft); color:var(--accent-text);}
+.fe.blood{background:var(--crit-soft); color:var(--crit);}
+.row{display:grid; grid-template-columns:52px 1fr; gap:9px; padding:8px 13px; border-top:1px solid var(--rule-soft); align-items:baseline;}
+.row:first-of-type{border-top:0;}
+.row .t{font-family:var(--mono); font-size:11px; color:var(--ink-3); font-variant-numeric:tabular-nums; letter-spacing:.02em;}
+.row .c{font-size:13.5px; line-height:1.6;}
+.row .c b{font-weight:700;}
+.row .c .g{font-family:var(--mono); font-size:12.5px; font-variant-numeric:tabular-nums;}
+.row.meal{background:transparent;}
+.row.meal .c{font-weight:500;}
+.row.milk .c{color:var(--ink-2);}
+.tagm{
+  font-family:var(--mono); font-size:9.5px; font-weight:700; letter-spacing:.05em;
+  color:var(--ink-3); border:1px solid var(--rule); border-radius:3px; padding:1px 4px;
+  margin-right:5px; vertical-align:1px;
+}
+
+
+/* ── 公式 ── */
+.formula{
+  display:flex; flex-wrap:wrap; align-items:center; gap:8px;
+  padding:14px 15px; background:var(--accent-soft); border:1px solid var(--accent);
+  border-radius:var(--radius); font-size:15px; font-weight:750; color:var(--accent-text);
+}
+.formula .op{font-weight:400; color:var(--ink-3); font-size:14px;}
+.formula .fx-i{background:var(--surface); padding:4px 11px; border-radius:6px; border:1px solid var(--rule);}
+
+/* ── 食材库 ── */
+.lib{background:var(--surface); border:1px solid var(--rule); border-radius:var(--radius); overflow:hidden;}
+.lib-row{padding:11px 14px; border-top:1px solid var(--rule-soft);}
+.lib-row:first-child{border-top:0;}
+.lib-row h4{
+  margin:0 0 5px; font-size:12px; font-weight:800; letter-spacing:.02em; color:var(--accent-text);
+  display:flex; align-items:baseline; gap:7px;
+}
+.lib-row h4 em{font-style:normal; font-family:var(--mono); font-size:10px; font-weight:600; color:var(--ink-3); letter-spacing:.04em;}
+.pills{display:flex; flex-wrap:wrap; gap:5px;}
+.pill{
+  font-size:12.5px; padding:3px 9px; border-radius:99px;
+  background:var(--surface-2); color:var(--ink); border:1px solid var(--rule-soft); white-space:nowrap;
+}
+.pill.star{background:var(--crit-soft); color:var(--crit); border-color:var(--crit); font-weight:700;}
+.pill.no{background:transparent; color:var(--ink-3); text-decoration:line-through; text-decoration-color:var(--crit);}
+.lib-row .hint{margin:6px 0 0; font-size:12px; color:var(--ink-2); line-height:1.6;}
+
+/* ── 硬指标 ── */
+.hard{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:9px;}
+.hd-i{
+  display:grid; grid-template-columns:auto 1fr; gap:10px; align-items:start;
+  background:var(--surface); border:1px solid var(--rule); border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0; padding:11px 13px;
+}
+.hd-i .ck{
+  font-family:var(--mono); font-size:11px; font-weight:800; color:var(--surface); background:var(--accent);
+  width:20px; height:20px; border-radius:4px; display:grid; place-content:center; margin-top:2px;
+}
+.hd-i .b{font-size:13px; line-height:1.6;}
+.hd-i .b b{font-weight:750; display:block; font-size:13.5px;}
+.hd-i .b span{color:var(--ink-2); font-size:12.5px;}
+
+/* ── 规则块 ── */
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px;}
+.card{
+  background:var(--surface); border:1px solid var(--rule); border-radius:var(--radius);
+  padding:14px 15px; break-inside:avoid;
+}
+.card.crit{border-color:var(--crit); background:var(--crit-soft);}
+.card.crit h3{color:var(--crit);}
+.card.warn{border-color:var(--warn); background:var(--warn-soft);}
+.card.warn h3{color:var(--warn);}
+.card.ok{border-color:var(--ok); background:var(--ok-soft);}
+.card.ok h3{color:var(--ok);}
+.card h3{margin:0 0 8px; font-size:15px; font-weight:800; letter-spacing:-.015em; line-height:1.4;}
+.card p{margin:0 0 .65em; font-size:13.5px; line-height:1.72;}
+.card p:last-child{margin-bottom:0;}
+.card ul{margin:0; padding-left:1.15em; font-size:13.5px; line-height:1.72;}
+.card li{margin-bottom:.32em;}
+.card li:last-child{margin-bottom:0;}
+.card .num{font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:12.5px;}
+
+/* ── 表 ── */
+.tw{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse; width:100%; font-size:13px;}
+th,td{padding:7px 10px; text-align:left; border-bottom:1px solid var(--rule-soft); line-height:1.55;}
+th{font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); white-space:nowrap;}
+td.n{font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap;}
+tr:last-child td{border-bottom:0;}
+tfoot td{border-top:2px solid var(--rule); font-weight:750;}
+
+/* ── 排期 ── */
+.seq{display:flex; flex-direction:column; gap:0;}
+.step{display:grid; grid-template-columns:26px 1fr; gap:11px; padding:10px 0; border-top:1px solid var(--rule-soft); align-items:start;}
+.step:first-child{border-top:0; padding-top:0;}
+.step .k{
+  font-family:var(--mono); font-size:11px; font-weight:800; color:var(--surface);
+  background:var(--accent); width:22px; height:22px; border-radius:50%;
+  display:grid; place-content:center; margin-top:1px;
+}
+.step .b{font-size:13.5px; line-height:1.65;}
+.step .b b{font-weight:750;}
+.step .b span{display:block; color:var(--ink-2); font-size:12.5px; margin-top:2px;}
+
+.foot{margin-top:8px; padding-top:16px; border-top:1px solid var(--rule); font-size:11.5px; color:var(--ink-3); line-height:1.7;}
+.foot code{font-family:var(--mono); font-size:11px;}
+
+@media (max-width:480px){
+  body{font-size:15px;}
+  .wrap{padding:20px 12px 48px;}
+  .hd h1{font-size:21px;}
+  .days{grid-template-columns:1fr;}
+}
+@media print{
+  :root{--paper:#fff; --surface:#fff; --surface-2:#f2f2f2; --ink:#000; --ink-2:#333; --ink-3:#666; --rule:#bbb; --rule-soft:#ddd; --shadow:none;}
+  body{font-size:10.5px; line-height:1.5;}
+  .wrap{max-width:none; padding:0;}
+  .days{grid-template-columns:1fr 1fr 1fr; gap:6px;}
+  .cards{grid-template-columns:1fr 1fr;}
+  .day,.card{box-shadow:none;}
+  .hd h1{font-size:17px;}
+  .noprint{display:none;}
+}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important; transition-duration:.01ms !important;}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<div class="stack">
+
+  <header class="hd">
+    <span class="meta">1 岁 0 月 · 9.48 kg · 76.0 cm · 2026-08 儿保后修订</span>
+    <h1>小狮子的一周辅食</h1>
+    <p class="lede">依据 2026-08-15 儿保医嘱（奶 600 ml、3 正餐 2 加餐）与 08-15/17 化验结果制定。热食每天只做午、晚两顿，早餐不开火。</p>
+  </header>
+
+  <!-- 每天不变 -->
+  <section>
+    <h2 class="sec"><span class="n">A</span>每天不变的六件事</h2>
+    <p class="sec-note">先把这六个数字守住，具体做什么菜是次要的。</p>
+    <dl class="fixed">
+      <div class="fx"><dt>配方奶</dt><dd>10 平勺<small>= 86 g 粉 ≈ 590 ml<br>3+3+4 勺，见 B 区</small></dd></div>
+      <div class="fx"><dt>食用油</dt><dd>10 g<small>午餐 5 g + 晚餐 5 g</small></dd></div>
+      <div class="fx"><dt>肉 / 血</dt><dd>60–70 g<small>生重，午晚各 30–35 g</small></dd></div>
+      <div class="fx"><dt>谷物</dt><dd>70 g<small>生重，含强化铁米粉</small></dd></div>
+      <div class="fx"><dt>蔬菜</dt><dd>100–150 g<small>深色叶菜为主</small></dd></div>
+      <div class="fx"><dt>水果</dt><dd>50–100 g<small>放两次加餐</small></dd></div>
+    </dl>
+  </section>
+
+  <!-- B 冲调 -->
+  <section>
+    <h2 class="sec"><span class="n">B</span>奶怎么冲</h2>
+    <p class="sec-note">按<b>平勺</b>配，不要按毫升配——营养摄入取决于奶粉的克数，不是奶液的毫升数。厂家标注：<b>一平勺 = 8.6 g</b>，每 100 ml 奶液含 14.6 g 粉。</p>
+    <div class="card">
+      <div class="tw">
+        <table>
+          <thead><tr><th>时间</th><th>平勺</th><th>水</th><th>约得奶液</th></tr></thead>
+          <tbody>
+            <tr><td>07:30 早餐</td><td class="n"><b>3 勺</b></td><td class="n">158 ml</td><td class="n">约 177 ml</td></tr>
+            <tr><td>15:30 加餐</td><td class="n"><b>3 勺</b></td><td class="n">158 ml</td><td class="n">约 177 ml</td></tr>
+            <tr><td>20:00 睡前</td><td class="n"><b>4 勺</b></td><td class="n">210 ml</td><td class="n">约 236 ml</td></tr>
+          </tbody>
+          <tfoot><tr><td>全天</td><td class="n">10 勺 = 86 g 粉</td><td class="n">—</td><td class="n">约 590 ml</td></tr></tfoot>
+        </table>
+      </div>
+      <p style="margin-top:11px; font-size:13px; color:var(--ink-2);">睡前那次给 4 勺（最多），因为夜里是全天最长的一段不进食时间。<b>158 ml 不好量就用 160 ml</b>，误差 1.6%，无所谓。</p>
+      <p style="font-size:13px; color:var(--crit);"><b>⚠️ 绝不能为了凑整而多加半勺——那是改浓度。</b>太浓会加重肾脏负担、引起便秘和脱水；太稀会营养不足。说明书原话：「未经医生建议请勿改变冲调浓度」。</p>
+    </div>
+  </section>
+
+  <!-- C 公式 + 食材库 -->
+  <section>
+    <h2 class="sec"><span class="n">C</span>一餐怎么配</h2>
+    <p class="sec-note">午餐和晚餐都套这个公式。<b>食材从下面的库里挑，有什么买什么</b>——只要满足 D 区的每周硬指标，具体吃哪样并不重要。</p>
+    <div class="formula">
+      <span class="fx-i">主食</span><span class="op">＋</span>
+      <span class="fx-i">蛋白 30–35 g</span><span class="op">＋</span>
+      <span class="fx-i">蔬菜 35–50 g</span><span class="op">＋</span>
+      <span class="fx-i">油 5 g</span>
+    </div>
+    <div class="lib" style="margin-top:11px;">
+      <div class="lib-row">
+        <h4>主食 <em>选 1</em></h4>
+        <div class="pills">
+          <span class="pill">软饭（大米 20 g）</span><span class="pill">面条（挂面 20 g）</span>
+          <span class="pill">稠粥（大米 15 g ＋米粉 15 g）</span><span class="pill">软面片</span><span class="pill">小馄饨</span>
+        </div>
+        <p class="hint">⚠️ <b>南瓜、山药、土豆、红薯是淀粉类，算主食不算蔬菜</b>。用它们时主食减半。</p>
+      </div>
+      <div class="lib-row">
+        <h4>蛋白 <em>选 1 · 30–35 g</em></h4>
+        <div class="pills">
+          <span class="pill star">牛肉</span><span class="pill star">鸭血 30 g</span>
+          <span class="pill">猪瘦肉</span><span class="pill">鸡腿肉</span><span class="pill">鸭肉</span><span class="pill">北豆腐 50 g</span>
+        </div>
+        <p class="hint"><span style="color:var(--crit);font-weight:700;">红色＝铁最好的两个</span>。鸡腿肉比鸡胸肉嫩、铁也略高。</p>
+      </div>
+      <div class="lib-row">
+        <h4>蔬菜 <em>选 1–2 · 35–50 g</em></h4>
+        <div class="pills">
+          <span class="pill">小白菜</span><span class="pill">油菜</span><span class="pill">菜心</span>
+          <span class="pill">菠菜（焯水）</span><span class="pill">西兰花</span><span class="pill">彩椒</span>
+          <span class="pill">胡萝卜</span><span class="pill">西葫芦</span><span class="pill">蘑菇（切碎）</span>
+        </div>
+        <p class="hint"><b>深色叶菜优先。</b>西兰花和彩椒维生素 C 高，<b>能显著提高铁吸收</b>，配肉吃最划算。</p>
+      </div>
+      <div class="lib-row">
+        <h4>加餐 <em>选 1–2</em></h4>
+        <div class="pills">
+          <span class="pill">香蕉 半根</span><span class="pill">蓝莓 10–15 颗（切半）</span>
+          <span class="pill">蒸南瓜条</span><span class="pill">蒸红薯条</span>
+          <span class="pill">无糖全脂酸奶 100 g</span><span class="pill">婴儿奶酪 10 g</span><span class="pill">牛油果 ¼</span>
+        </div>
+        <p class="hint">⚠️ <b>现在先不给</b>：<span class="pill no">草莓</span> <span class="pill no">柑橘</span> <span class="pill no">番茄</span> <span class="pill no">猕猴桃</span>（酸性，刺激破损的口周皮肤）｜<span class="pill no">苹果</span> <span class="pill no">梨</span> <span class="pill no">西梅</span>（含山梨醇，腹泻刚好先缓两周）</p>
+        <p class="hint"><b>牛油果不吃就换掉</b>——它的作用是高能量＋健康脂肪，用<b>奶酪</b>替代，或者干脆<b>把正餐的油提到 11–12 g</b>。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- D 硬指标 -->
+  <section>
+    <h2 class="sec"><span class="n">D</span>每周硬指标</h2>
+    <p class="sec-note"><b>真正要守的是这六条，不是具体菜单。</b>菜可以天天换，这六条不能破。</p>
+    <div class="hard">
+      <div class="hd-i"><span class="ck">1</span><span class="b"><b>强化铁米粉 5 次／周</b><span>15 g，拌进晚餐主食，同时增稠</span></span></div>
+      <div class="hd-i"><span class="ck">2</span><span class="b"><b>鸭血 2 次／周</b><span>30 g。买不到就用猪血 50 g</span></span></div>
+      <div class="hd-i"><span class="ck">3</span><span class="b"><b>红肉 ≥ 5 次／周</b><span>其中牛肉 ≥ 3 次</span></span></div>
+      <div class="hd-i"><span class="ck">4</span><span class="b"><b>深色叶菜 每天 ≥ 1 次</b><span>小白菜／油菜／菜心／菠菜</span></span></div>
+      <div class="hd-i"><span class="ck">5</span><span class="b"><b>油 10 g／天</b><span>午晚各 5 g</span></span></div>
+      <div class="hd-i"><span class="ck">6</span><span class="b"><b>每餐 1–2 样手指食物</b><span>练自主进食，医嘱要求</span></span></div>
+    </div>
+  </section>
+
+  <!-- E 分量速查 -->
+  <section>
+    <h2 class="sec"><span class="n">E</span>分量速查</h2>
+    <p class="sec-note">米水比那两行直接决定稠度——之前的问题就出在这里。</p>
+    <div class="card">
+      <div class="tw">
+        <table>
+          <thead><tr><th>项目</th><th>干／生重</th><th>熟重约</th><th>关键</th></tr></thead>
+          <tbody>
+            <tr><td><b>软饭</b></td><td class="n">大米 20 g</td><td class="n">约 55 g</td><td>米:水 = <b>1 : 2.5~3</b></td></tr>
+            <tr><td><b>稠粥</b></td><td class="n">大米 15 g ＋米粉 15 g</td><td class="n">约 110 g</td><td>米:水 = <b>1 : 4~5</b>　⚠️ <b>不是 1:10</b></td></tr>
+            <tr><td><b>面条</b></td><td class="n">挂面 20 g</td><td class="n">约 55 g</td><td>剪成 1–2 cm</td></tr>
+            <tr><td>全麦面包</td><td class="n">成品 20 g</td><td class="n">—</td><td>约 ⅔ 片，切条</td></tr>
+            <tr><td>肉（牛／猪／鸡／鸭）</td><td class="n">30–35 g</td><td class="n">—</td><td>剁碎成小块，不打成泥</td></tr>
+            <tr><td>鸭血</td><td class="n">30 g</td><td class="n">—</td><td>煮透，切 0.5 cm 小块</td></tr>
+            <tr><td>北豆腐</td><td class="n">50 g</td><td class="n">—</td><td>切小块</td></tr>
+            <tr><td>蔬菜</td><td class="n">35–50 g／餐</td><td class="n">—</td><td>切 0.5 cm 碎丁</td></tr>
+            <tr><td><b>蓝莓</b></td><td class="n"><b>10–15 颗</b></td><td class="n">—</td><td>🔴 <b>每颗纵向切半</b>（叉子压更快）</td></tr>
+            <tr><td>香蕉</td><td class="n">半根 ≈ 50 g</td><td class="n">—</td><td>切段</td></tr>
+            <tr><td>蒸南瓜／红薯条</td><td class="n">40–50 g</td><td class="n">—</td><td>蒸软，切条</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:11px; font-size:13px; color:var(--ink-2);">⚠️ <b>钠的额外来源</b>：全麦面包和婴儿奶酪是这份计划里主要的外源钠，加上鸭血 30 g 的 66 mg，全天约 400–440 mg（1–3 岁上限约 700 mg）。<b>在范围内，但选购面包和奶酪时看一眼钠含量，并且别再额外加盐。</b></p>
+    </div>
+  </section>
+
+  <!-- 七天 -->
+  <section>
+    <h2 class="sec"><span class="n">F</span>示例周</h2>
+    <p class="sec-note"><b>这只是一个满足 D 区硬指标的示例，不是必须照做</b>——按 C 区的食材库自由替换。每天的铁来源标在右上角：<b>米粉</b>＝强化铁米粉 15 g 拌进晚餐主食（同时增稠）；<b>鸭血</b>＝午餐 30 g。两者覆盖全部七天，没有空档。</p>
+    <div class="days">
+
+      <article class="day">
+        <div class="day-hd"><h3>周一</h3><span class="fe mifen">铁 · 米粉</span></div>
+        <div class="row milk"><span class="t">07:30</span><span class="c"><span class="tagm">早餐</span>配方奶 <span class="g">3 勺</span> · 全麦面包条 <span class="g">20g</span> · 香蕉半根</span></div>
+        <div class="row"><span class="t">10:00</span><span class="c"><span class="tagm">加餐</span>蓝莓（<b>切半</b>）</span></div>
+        <div class="row meal"><span class="t">11:45</span><span class="c"><span class="tagm">午餐</span><b>软饭</b> ＋ 牛肉末 <span class="g">35g</span> ＋ 西兰花 ＋ 油 <span class="g">5g</span></span></div>
+        <div class="row milk"><span class="t">15:30</span><span class="c"><span class="tagm">加餐</span>牛油果 ¼ · 配方奶 <span class="g">3 勺</span></span></div>
+        <div class="row meal"><span class="t">17:30</span><span class="c"><span class="tagm">晚餐</span><b>稠粥＋米粉 <span class="g">15g</span></b> ＋ 猪肉末 <span class="g">30g</span> ＋ 小白菜 ＋ 油 <span class="g">5g</span></span></div>
+        <div class="row milk"><span class="t">20:00</span><span class="c"><span class="tagm">睡前</span>配方奶 <span class="g">4 勺</span></span></div>
+      </article>
+
+      <article class="day">
+        <div class="day-hd"><h3>周二</h3><span class="fe mifen">铁 · 米粉</span></div>
+        <div class="row milk"><span class="t">07:30</span><span class="c"><span class="tagm">早餐</span>配方奶 <span class="g">3 勺</span> · 蒸南瓜条 · 面包条 <span class="g">20g</span></span></div>
+        <div class="row"><span class="t">10:00</span><span class="c"><span class="tagm">加餐</span>无糖全脂酸奶 <span class="g">100g</span></span></div>
+        <div class="row meal"><span class="t">11:45</span><span class="c"><span class="tagm">午餐</span><b>软饭</b> ＋ 猪肉末 <span class="g">35g</span> ＋ 菠菜（<b>焯水</b>）＋ 油 <span class="g">5g</span></span></div>
+        <div class="row milk"><span class="t">15:30</span><span class="c"><span class="tagm">加餐</span>香蕉半根 · 配方奶 <span class="g">3 勺</span></span></div>
+        <div class="row meal"><span class="t">17:30</span><span class="c"><span class="tagm">晚餐</span><b>面条＋米粉 <span class="g">15g</span></b> ＋ 鸡腿肉末 <span class="g">30g</span> ＋ 胡萝卜 ＋ 油 <span class="g">5g</span></span></div>
+        <div class="row milk"><span class="t">20:00</span><span class="c"><span class="tagm">睡前</span>配方奶 <span class="g">4 勺</span></span></div>
+      </article>
+
+      <article class="day">
+        <div class="day-hd"><h3>周三</h3><span class="fe blood">铁 · 鸭血</span></div>
+        <div class="row milk"><span class="t">07:30</span><span class="c"><span class="tagm">早餐</span>配方奶 <span class="g">3 勺</span> · 面包条 <span class="g">20g</span> · 牛油果 ¼</span></div>
+        <div class="row"><span class="t">10:00</span><span class="c"><span class="tagm">加餐</span>蓝莓（<b>切半</b>）</span></div>
+        <div class="row meal"><span class="t">11:45</span><span class="c"><span class="tagm">午餐</span><b>软饭</b> ＋ <b>鸭血 <span class="g">30g</span></b>（煮透切碎）＋ 西葫芦 ＋ 油 <span class="g">5g</span></span></div>
+        <div class="row milk"><span class="t">15:30</span><span class="c"><span class="tagm">加餐</span>蒸红薯条 · 配方奶 <span class="g">3 勺</span></span></div>
+        <div class="row meal"><span class="t">17:30</span><span class="c"><span class="tagm">晚餐</span><b>稠粥</b> ＋ 鸭肉末 <span class="g">30g</span> ＋ 油菜 ＋ 油 <span class="g">5g</span></span></div>
+        <div class="row milk"><span class="t">20:00</span><span class="c"><span class="tagm">睡前</span>配方奶 <span class="g">4 勺</span></span></div>
+      </article>
+
+      <article class="day">
+        <div class="day-hd"><h3>周四</h3><span class="fe mifen">铁 · 米粉</span></div>
+        <div class="row milk"><span class="t">07:30</span><span class="c"><span class="tagm">早餐</span>配方奶 <span class="g">3 勺</span> · 香蕉半根 · 面包条 <span class="g">20g</span></span></div>
+        <div class="row"><span class="t">10:00</span><span class="c"><span class="tagm">加餐</span>婴儿奶酪 <span class="g">10g</span> · 蓝莓（<b>切半</b>）</span></div>
+        <div class="row meal"><span class="t">11:45</span><span class="c"><span class="tagm">午餐</span><b>面条</b> ＋ 牛肉末 <span class="g">35g</span> ＋ 彩椒 ＋ 油 <span class="g">5g</span></span></div>
+        <div class="row milk"><span class="t">15:30</span><span class="c"><span class="tagm">加餐</span>蒸南瓜条 · 配方奶 <span class="g">3 勺</span></span></div>
+        <div class="row meal"><span class="t">17:30</span><span class="c"><span class="tagm">晚餐</span><b>稠粥＋米粉 <span class="g">15g</span></b> ＋ 北豆腐 ＋ 猪肉末 <span class="g">25g</span> ＋ 蘑菇碎 ＋ 油 <span class="g">5g</span></span></div>
+        <div class="row milk"><span class="t">20:00</span><span class="c"><span class="tagm">睡前</span>配方奶 <span class="g">4 勺</span></span></div>
+      </article>
+
+      <article class="day">
+        <div class="day-hd"><h3>周五</h3><span class="fe mifen">铁 · 米粉</span></div>
+        <div class="row milk"><span class="t">07:30</span><span class="c"><span class="tagm">早餐</span>配方奶 <span class="g">3 勺</span> · 蒸红薯条 · 面包条 <span class="g">20g</span></span></div>
+        <div class="row"><span class="t">10:00</span><span class="c"><span class="tagm">加餐</span>香蕉半根</span></div>
+        <div class="row meal"><span class="t">11:45</span><span class="c"><span class="tagm">午餐</span><b>软饭</b> ＋ 鸡腿肉 <span class="g">35g</span> ＋ 胡萝卜 ＋ 菜心 ＋ 油 <span class="g">5g</span></span></div>
+        <div class="row milk"><span class="t">15:30</span><span class="c"><span class="tagm">加餐</span>牛油果 ¼ · 配方奶 <span class="g">3 勺</span></span></div>
+        <div class="row meal"><span class="t">17:30</span><span class="c"><span class="tagm">晚餐</span><b>稠粥＋米粉 <span class="g">15g</span></b> ＋ 牛肉末 <span class="g">30g</span> ＋ 西兰花 ＋ 油 <span class="g">5g</span></span></div>
+        <div class="row milk"><span class="t">20:00</span><span class="c"><span class="tagm">睡前</span>配方奶 <span class="g">4 勺</span></span></div>
+      </article>
+
+      <article class="day">
+        <div class="day-hd"><h3>周六</h3><span class="fe blood">铁 · 鸭血</span></div>
+        <div class="row milk"><span class="t">07:30</span><span class="c"><span class="tagm">早餐</span>配方奶 <span class="g">3 勺</span> · 面包条 <span class="g">20g</span> · 香蕉半根</span></div>
+        <div class="row"><span class="t">10:00</span><span class="c"><span class="tagm">加餐</span>无糖全脂酸奶 <span class="g">100g</span></span></div>
+        <div class="row meal"><span class="t">11:45</span><span class="c"><span class="tagm">午餐</span><b>软饭</b> ＋ <b>鸭血 <span class="g">30g</span></b>（煮透切碎）＋ 小白菜 ＋ 油 <span class="g">5g</span></span></div>
+        <div class="row milk"><span class="t">15:30</span><span class="c"><span class="tagm">加餐</span>蓝莓（<b>切半</b>）· 配方奶 <span class="g">3 勺</span></span></div>
+        <div class="row meal"><span class="t">17:30</span><span class="c"><span class="tagm">晚餐</span><b>面条</b> ＋ 鸭肉末 <span class="g">30g</span> ＋ 山药 ＋ 油菜 ＋ 油 <span class="g">5g</span></span></div>
+        <div class="row milk"><span class="t">20:00</span><span class="c"><span class="tagm">睡前</span>配方奶 <span class="g">4 勺</span></span></div>
+      </article>
+
+      <article class="day">
+        <div class="day-hd"><h3>周日</h3><span class="fe mifen">铁 · 米粉</span></div>
+        <div class="row milk"><span class="t">07:30</span><span class="c"><span class="tagm">早餐</span>配方奶 <span class="g">3 勺</span> · 牛油果 ¼ · 蒸南瓜条</span></div>
+        <div class="row"><span class="t">10:00</span><span class="c"><span class="tagm">加餐</span>婴儿奶酪 <span class="g">10g</span> · 香蕉半根</span></div>
+        <div class="row meal"><span class="t">11:45</span><span class="c"><span class="tagm">午餐</span><b>软饭</b> ＋ 牛肉末 <span class="g">35g</span> ＋ 南瓜 ＋ 菜心 ＋ 油 <span class="g">5g</span></span></div>
+        <div class="row milk"><span class="t">15:30</span><span class="c"><span class="tagm">加餐</span>蓝莓（<b>切半</b>）· 配方奶 <span class="g">3 勺</span></span></div>
+        <div class="row meal"><span class="t">17:30</span><span class="c"><span class="tagm">晚餐</span><b>稠粥＋米粉 <span class="g">15g</span></b> ＋ 猪肉末 <span class="g">30g</span> ＋ 胡萝卜 ＋ 西兰花 ＋ 油 <span class="g">5g</span></span></div>
+        <div class="row milk"><span class="t">20:00</span><span class="c"><span class="tagm">睡前</span>配方奶 <span class="g">4 勺</span></span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 三条红线 -->
+  <section>
+    <h2 class="sec"><span class="n">G</span>三条不能破的线</h2>
+    <p class="sec-note">菜谱可以随便换，这三条不行。</p>
+    <div class="cards">
+
+      <div class="card crit">
+        <h3>① 窒息</h3>
+        <ul>
+          <li><b>蓝莓、圣女果、葡萄必须切半或切四瓣</b>——整颗的大小形状正好卡住气道</li>
+          <li><b>整颗坚果绝对不给</b>（花生酱要稀释调进辅食）</li>
+          <li>果冻不给、硬糖不给</li>
+          <li>鸭血、豆腐、肉都要<b>切成小碎块</b></li>
+          <li><b>吃东西必须坐着、有人看着、不逗笑、不追喂</b></li>
+        </ul>
+      </div>
+
+      <div class="card warn">
+        <h3>② 稠度：勺子测试</h3>
+        <p>舀起来<b>会滴水</b> → ❌ 太稀，约 <span class="num">0.35–0.5</span> kcal/g</p>
+        <p>舀起来<b>能立住、慢慢往下坠</b> → ✅ 合格，约 <span class="num">0.9–1.1</span> kcal/g</p>
+        <p style="margin-top:9px;">同一个碗、同样的量，<b>稠度翻倍，热量翻倍</b>。9 kg 的孩子一餐胃容量只有 <span class="num">250–270</span> ml，装不下更多体积——只能靠密度。</p>
+      </div>
+
+      <div class="card ok">
+        <h3>③ 奶的三条</h3>
+        <ul>
+          <li><b>同一次不要既给酸奶／奶酪、又给配方奶。</b>所以酸奶和奶酪固定放 10:00——那一次本来就没有配方奶</li>
+          <li><b>配方奶固定 10 平勺／天（3＋3＋4），每天不变</b>（它是最稳定的铁来源，动它就动了铁）</li>
+          <li><b>强化铁米粉用温水冲</b>，不要用配方奶冲</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 铁账 -->
+  <section>
+    <h2 class="sec"><span class="n">H</span>铁账</h2>
+    <p class="sec-note">这份计划里最需要盯的一项。奶从 720 减到 600 ml 后，光靠奶已经不够，必须靠米粉和鸭血补上。</p>
+    <div class="card">
+      <div class="tw">
+        <table>
+          <thead><tr><th>来源</th><th>用量</th><th>铁</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>配方奶</td><td class="n">10 勺 ≈ 590 ml</td><td class="n">5.16 mg</td><td>每天固定</td></tr>
+            <tr><td>肉类</td><td class="n">60–70 g</td><td class="n">约 2.0 mg</td><td>血红素铁，吸收率高</td></tr>
+            <tr><td>谷物 + 蔬菜 + 面包</td><td class="n">—</td><td class="n">约 1.2 mg</td><td>非血红素铁</td></tr>
+            <tr><td><b>强化铁米粉</b></td><td class="n">15 g</td><td class="n">约 1.6 mg</td><td>每周 5 天</td></tr>
+            <tr><td><b>鸭血</b></td><td class="n">30 g</td><td class="n">约 4.5 mg</td><td>每周 2 天（按 15 mg/100g 计）</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td>每周平均</td><td class="n">—</td><td class="n">约 10.5 mg</td><td>需求约 10 mg ✓</td></tr>
+          </tfoot>
+        </table>
+      </div>
+      <p style="margin-top:11px; font-size:13px; color:var(--ink-2);"><b>促进吸收</b>：每餐配西兰花、彩椒等富含维生素 C 的蔬菜。<b>避免抑制</b>：钙会抑制铁吸收，所以奶和正餐要隔开——时间表已经排好了。</p>
+      <p style="font-size:13px; color:var(--ink-2);"><b>已确认可用的产品</b>：象大厨嫩鸭血（山东泰安）。配料表<b>只有鲜鸭血≥50%、饮用水、食用盐、柠檬酸钠、氯化钙</b>——无淀粉、无防腐剂、无色素，标注<b>铁 14.9 mg/100g</b>。「鲜鸭血≥50%」正好解释了它为什么只有食物成分表（30.5）的一半：另一半是水。<br>⚠️ <b>钠 219 mg/100g</b> → 30 g 带来 <span class="num">66 mg</span> 钠（每日上限约 700），可接受，<b>但那天别再额外加盐</b>。<br>🔴 <b>开封后必须冷藏、3 天内用完，且包装写明「防止冻结」不能冷冻。</b>一盒 300 g 用不完就分给大人吃（血旺炒或煮汤），别指望一盒撑两周。</p>
+      <p style="font-size:13px; color:var(--ink-2);"><b>换别的牌子看配料表</b>：只有「鸭血 + 水 + 少量盐或凝固剂」的才要；淀粉排在前面、添加剂多的是火锅用血旺，不要。冷藏盒装、正规品牌、<b>必须彻底煮透</b>。买不到就用猪血（铁约 <span class="num">8.7</span> mg/100g，用量加到 <span class="num">50 g</span>）。</p>
+    </div>
+  </section>
+
+  <!-- 暂不引入 -->
+  <section>
+    <h2 class="sec"><span class="n">I</span>现在不给，以及之后怎么加</h2>
+    <p class="sec-note">湿疹急性期不引入任何新的高致敏食物。两个理由：经皮致敏是通过发炎的皮肤发生的；而且现在正在出疹，加了新东西无法归因。</p>
+    <div class="cards">
+      <div class="card crit">
+        <h3>🔴 皮肤稳定前不给</h3>
+        <p><b>鸡蛋 · 花生 · 鱼 · 虾蟹 · 坚果</b></p>
+        <p style="margin-top:8px;"><b>启动条件</b>：皮肤基本平静、回到每周 2 次维持治疗、并且稳定 1–2 周。</p>
+      </div>
+      <div class="card">
+        <h3>引入排期</h3>
+        <div class="seq">
+          <div class="step"><span class="k">1</span><span class="b"><b>鱼</b>（鳕鱼／三文鱼）<span>sIgE 0.03 阴性。⚠️ 排第一位是因为减奶后 DHA 掉到 82 mg、碘掉到 77 μg，都低于推荐量，而这两项主要靠鱼补。观察 3 天</span></span></div>
+          <div class="step"><span class="k">2</span><span class="b"><b>蛋黄</b><span>先问医生。此前吃过 ¼ 蛋黄无反应，sIgE 已从 1.01 降到 0.35。观察 3–5 天</span></span></div>
+          <div class="step"><span class="k">3</span><span class="b"><b>全蛋（充分煮熟）</b><span>必须在医生指导下。蛋黄耐受 ≠ 蛋清耐受。观察 5 天</span></span></div>
+          <div class="step"><span class="k">4</span><span class="b"><b>花生酱</b>（稀释调进辅食）<span>sIgE 0.03 阴性，LEAP 证据强。⚠️ 绝不给整颗花生。观察 3 天</span></span></div>
+          <div class="step"><span class="k">5</span><span class="b"><b>虾 · 蟹</b><span>均阴性。观察 3 天</span></span></div>
+        </div>
+        <p style="margin-top:11px; font-size:13px;"><b>铁律：一次只加一样，隔 3 天以上。</b>否则出问题无法归因——这正是当初鸡蛋和海鲜一起停掉、后来搞不清楚的教训。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 湿疹期 -->
+  <section>
+    <h2 class="sec"><span class="n">J</span>湿疹期的额外三条</h2>
+    <p class="sec-note">先说清楚：<b>没有证据支持特应性皮炎需要常规忌口</b>。下面三条都不是忌口，是别的道理。</p>
+    <div class="cards">
+      <div class="card">
+        <h3>暂避强酸性水果<b>接触口周</b></h3>
+        <p>草莓、柑橘、番茄、猕猴桃——<b>这是化学刺激，不是过敏</b>。口周皮肤破损时碰上去会疼、会加重。</p>
+        <p>表里已用香蕉、蓝莓、牛油果替代，口周好了再换回来。</p>
+      </div>
+      <div class="card">
+        <h3>吃完立刻护理口周</h3>
+        <p>温水轻拍（<b>不要用湿巾反复擦</b>）→ 拍干 → <b>厚涂润肤霜做隔离层</b>。</p>
+        <p>吃饭<b>前</b>先涂一层当屏障，效果更好。</p>
+      </div>
+      <div class="card">
+        <h3>⚠️ 艾洛松用满疗程，别提前停</h3>
+        <p>一天见效说明<b>诊断对、强度够</b>。但<b>「看着好了」不等于炎症消失了</b>——皮肤外观正常时镜下仍有亚临床炎症。</p>
+        <p><b>上次复发就是从每周两次维持直接跳到停激素，次日就起。</b>这次医嘱是连用 3 天，就用满 3 天，然后问医生怎么<b>逐级降</b>（每天 1 次 → 隔天 1 次 → 每周 2 次维持），不要再一步到位。</p>
+      </div>
+      <div class="card">
+        <h3>不加盐、不加糖</h3>
+        <p>1–3 岁钠上限约 <span class="num">700</span> mg/天，而奶和天然食物已贡献不少。</p>
+        <p><b>酸奶只选配料表是「生牛乳 + 菌种」的</b>——市面上多数儿童酸奶含糖量很高。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 调整 -->
+  <section>
+    <h2 class="sec"><span class="n">K</span>什么时候改这份计划</h2>
+    <div class="card">
+      <div class="tw">
+        <table>
+          <thead><tr><th>情况</th><th>怎么改</th></tr></thead>
+          <tbody>
+            <tr><td>2–4 周后增速 <span class="n">&lt; 0.2 kg/月</span></td><td><b>先加油和稠度，别先加量</b>——胃容量是硬约束</td></tr>
+            <tr><td>持续 <span class="n">&gt; 0.5 kg/月</span></td><td>减加餐，<b>不减正餐</b></td></tr>
+            <tr><td>查了铁蛋白偏低</td><td>鸭血加到每周 3 次，并问医生要不要补铁剂</td></tr>
+            <tr><td>皮肤稳定 1–2 周</td><td>启动 I 区的引入排期</td></tr>
+            <tr><td>腹泻复发</td><td>先撤水果和高脂，<b>主食、肉、奶不动</b></td></tr>
+            <tr><td>考虑换纯牛奶</td><td>⚠️ <b>先查铁蛋白再决定</b>——纯牛奶几乎不含铁且抑制铁吸收，那 <span class="n">5.16 mg</span> 会瞬间消失</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p style="margin:0 0 6px;"><b>还没解决的两件事</b>：① <b>血清铁蛋白仍未查</b>——血常规正常不等于铁储备够，铁蛋白会在血红蛋白下降之前先掉，可放到下次儿保（3 个月后）一起查。② <b>维生素 A 仍超上限</b>——配方奶 <span class="num">387</span> ＋ AD 制剂约 <span class="num">600</span> ≈ <span class="num">987</span> μg RAE，而 1–3 岁 UL 约 <span class="num">700</span>。所以<b>不用肝脏补铁</b>，且下次门诊要问 AD 制剂是否还需要。</p>
+    <p style="margin:0;">全天供给约 <span class="num">950–1000</span> kcal；孩子通常吃到供给的 <span class="num">80–90%</span>，即 <span class="num">800–900</span> kcal，正好落在需求区间。<b>按医嘱：每餐 20–30 分钟，到点收餐，不追喂、不劝食。</b>　数值口径：中国食物成分表第 6 版 · 中国居民膳食营养素参考摄入量 · 2026-08-15 儿保医嘱。</p>
+  </footer>
+
+</div>
+</div>
+</body>
+</html>
