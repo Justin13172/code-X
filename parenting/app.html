@@ -660,6 +660,33 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
   .part-t{font-size:18.5px;}
 }
 
+
+/* ── 问答页 ── */
+.ask-idx{border:1px solid var(--rule); border-radius:var(--radius); background:var(--surface); overflow:hidden;}
+.ask-idx a{display:grid; grid-template-columns:88px 1fr; gap:10px; padding:9px 14px; border-top:1px solid var(--rule-soft); color:var(--ink); text-decoration:none; font-size:13.5px; line-height:1.5;}
+.ask-idx a:first-child{border-top:0;}
+.ask-idx a:hover{background:var(--surface-2);}
+.ask-idx .d{font-family:var(--font-mono); font-size:11.5px; color:var(--ink-3); padding-top:2px; font-variant-numeric:tabular-nums;}
+.ask{border:1px solid var(--rule); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); overflow:hidden; scroll-margin-top:110px;}
+.ask-hd{display:flex; align-items:center; gap:8px; flex-wrap:wrap; padding:10px 16px; background:var(--surface-2); border-bottom:1px solid var(--rule);}
+.ask-hd time{font-family:var(--font-mono); font-size:12px; color:var(--ink-2); font-variant-numeric:tabular-nums; font-weight:650;}
+.ask-hd .new{font-size:11px; font-weight:700; color:var(--surface); background:var(--accent); padding:1px 7px; border-radius:99px;}
+.ask-b{padding:14px 16px 16px;}
+.ask-q{margin:0 0 12px; font-size:15px; font-weight:700; line-height:1.6;}
+.ask-q::before{content:"问"; display:inline-block; font-size:11.5px; font-weight:800; color:var(--surface); background:var(--ink-2); border-radius:4px; padding:0 5px; margin-right:7px; vertical-align:2px;}
+.ask-a{background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:0 8px 8px 0; padding:10px 13px; font-size:14.5px; line-height:1.7;}
+.ask-a .conf{display:inline-block; font-size:11.5px; color:var(--accent-text); border:1px solid var(--accent); border-radius:99px; padding:0 7px; margin-left:4px; vertical-align:1px; white-space:nowrap;}
+.ask-s{margin-top:13px;}
+.ask-s h4{margin:0 0 5px; font-size:12.5px; font-weight:800; letter-spacing:.03em; color:var(--ink-2);}
+.ask-s ul{margin:0; padding-left:1.15em; font-size:13.8px; line-height:1.72;}
+.ask-s li{margin-bottom:.28em;}
+.ask-s.do h4{color:var(--calm);}
+.ask-s.warn{background:var(--critical-soft); border-radius:8px; padding:10px 13px;}
+.ask-s.warn h4{color:var(--critical);}
+.ask-s.note{background:var(--surface-2); border-radius:8px; padding:10px 13px;}
+.ask-upd{margin-top:13px; font-size:13px; line-height:1.65; color:var(--ink-2); border-top:1px dashed var(--rule); padding-top:10px;}
+.ask-upd b{color:var(--caution);}
+@media (max-width:480px){ .ask-idx a{grid-template-columns:1fr; gap:0;} }
 </style>
 
 <header class="hd">
@@ -669,7 +696,8 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
       <span class="sub">12–24 月龄</span>
     </div>
     <nav class="tabs" role="tablist" aria-label="视图">
-      <button class="tab" role="tab" aria-selected="true" data-view="why">原理</button>
+      <button class="tab" role="tab" aria-selected="true" data-view="qa">问答</button>
+      <button class="tab" role="tab" aria-selected="false" data-view="why">原理</button>
       <button class="tab" role="tab" aria-selected="false" data-view="judge">该不该信</button>
       <button class="tab" role="tab" aria-selected="false" data-view="do">现在做什么</button>
       <button class="tab" role="tab" aria-selected="false" data-view="family">隔代抚养</button>
@@ -682,8 +710,151 @@ hr.rule{border:0; border-top:1px solid var(--rule); margin:4px 0;}
 
 <main>
 
+<!-- ══════════════ 0 · 问答 ══════════════ -->
+<section class="view on" id="v-qa" role="tabpanel" aria-label="问答">
+  <div class="stack">
+
+    <div>
+      <h2 class="sec">问答记录</h2>
+      <p class="sec-note">每次单独问的问题和结论都记在这里，<b>最新的在最上面</b>，时间为北京时间。共 16 条。结论如果后来改过，会在那条下面写明「后续更新」。</p>
+    </div>
+
+    <div class="ask-idx"><a href="#qa-20261011-feed"><span class="d">2026-10-11</span><span>小狮子每顿基本靠大人喂，只有饼、香蕉这类能自己吃，要不要有意识培养自…</span></a><a href="#qa-20261011-formula"><span class="d">2026-10-11</span><span>从飞鹤星飞帆卓睿 2 段换成爱他美澳洲白金 3 段</span></a><a href="#qa-20261011-lang"><span class="d">2026-10-11</span><span>14 个月走得稳，但还不会有意识地叫人、说话，只会指着东西「啊」「哦」</span></a><a href="#qa-20261011-steril"><span class="d">2026-10-11</span><span>平常的餐具、奶瓶需要每次都消毒吗</span></a><a href="#qa-20260831-tooth"><span class="d">2026-08-31</span><span>现在用的这款牙膏（KODOMO，含氟 0.05%），他不会漱口和吐水…</span></a><a href="#qa-20260828-milk"><span class="d">2026-08-28</span><span>1 岁以后继续喝配方奶还是换纯牛奶</span></a><a href="#qa-20260824-toys"><span class="d">2026-08-24</span><span>这个阶段有什么值得买的玩具吗</span></a><a href="#qa-20260823-pillow"><span class="d">2026-08-23</span><span>这个年龄的宝宝需要用枕头吗</span></a><a href="#qa-20260817-plan"><span class="d">2026-08-17</span><span>基于现在所有的情况，重新安排一周的辅食计划（后续追问了作息、冲调、鸭…</span></a><a href="#qa-20260817-eczema"><span class="d">2026-08-17</span><span>湿疹治疗进入第三阶段，上周三起只擦克立硼罗，周四嘴唇周围开始泛红起疹…</span></a><a href="#qa-20260817-labs"><span class="d">2026-08-17</span><span>最近几次检查结果（过敏原复查、血常规、儿保报告），识别记录一下</span></a><a href="#qa-20260815-diarrhea"><span class="d">2026-08-15</span><span>今天拉了 5 次，前面是水样便和稀便，第 5 次有馊臭味，什么原因</span></a><a href="#qa-20260815-checkup"><span class="d">2026-08-15</span><span>今天 1 岁儿保检查的结果，解读一下</span></a><a href="#qa-20260804-congee"><span class="d">2026-08-04</span><span>社交媒体上说「粥永远都是最差的辅食」，用最严谨的方法判断一下这个观点</span></a><a href="#qa-20260803-meds"><span class="d">2026-08-03</span><span>皮肤科的分阶段治疗（伐昔洛韦、复方甘草酸苷、卤米松、莫匹罗星、克立硼…</span></a><a href="#qa-20260803-start"><span class="d">2026-08-03</span><span>1 岁辅食应该怎么配</span></a></div>
+
+    <article class="ask" id="qa-20261011-feed">
+      <div class="ask-hd"><time>2026-10-11 22:23</time><span class="tag t-mute">日常</span><span class="new">最新</span></div>
+      <div class="ask-b">
+        <p class="ask-q">小狮子每顿基本靠大人喂，只有饼、香蕉这类能自己吃，要不要有意识培养自主进食？</p>
+        <div class="ask-a"><b>结论：</b>要，但慢慢来：<b>大人喂和他自己吃同时进行</b>，看体重再调整比例。 <span class="conf">置信度 中</span></div>
+        <div class="ask-s why"><h4>为什么</h4><ul><li>8/15 儿保医嘱写了「每餐 1–2 样手指食物」</li><li>12–18 个月开始学用勺，18–24 个月大多能自己吃——<b>他现在在正常范围里</b></li><li>自己吃 = 自己决定吃多少，和「不追喂、不劝食」是同一个道理</li><li>新西兰 BLISS 随机对照试验（206 个家庭）：以孩子自己抓着吃为主，<b>没有增加噎食，体重也没变差</b>；「长大不挑食」这类长期好处证据还弱</li><li>他之前有过体重下滑，所以<b>不能一下子全放手</b></li></ul></div><div class="ask-s do"><h4>怎么做</h4><ul><li><b>每餐先放 1–2 样手指食物</b>，让他先自己吃 5–10 分钟：蒸软的胡萝卜条、西兰花、红薯条、小肉丸、豆腐块、小饭团、软意面</li><li><b>两把勺子</b>：他拿一把，你拿一把；把饭舀好放进他手里让他送进嘴，你同时也喂</li><li>饭做稠一点，能粘在勺子上他才舀得起来</li><li>接受弄脏：椅子下铺垫子、戴带兜围兜。<b>别吃一口擦一次嘴</b>——饭前口周先涂润肤霜，吃完温水轻拍</li><li>和大人同桌、吃一样的饭菜；每餐 20–30 分钟，不看屏幕，不追喂</li><li>顺带练用杯子喝水（敞口杯或吸管杯）</li></ul></div><div class="ask-s warn"><h4>安全不能松</h4><ul><li>必须<b>坐着吃、有人看着</b></li><li>手指食物要<b>软到两根手指能捏烂</b>；整颗坚果、整颗葡萄/蓝莓、生胡萝卜都不行</li><li>咳一下、干呕一下是正常保护反应，<b>不要伸手去抠</b>；<b>发不出声、脸发紫</b>才是真噎住，立即急救</li></ul></div><div class="ask-s note"><h4>怎么判断吃够了</h4><ul><li><b>看体重，不看一顿吃多少。</b>每月同一台秤称一次</li><li>增速 ≥ 0.2 kg/月 → 继续；&lt; 0.2 kg/月 → 提高大人喂的比例</li></ul></div>
+      </div>
+    </article>
+    <article class="ask" id="qa-20261011-formula">
+      <div class="ask-hd"><time>2026-10-11 22:23</time><span class="tag t-acc">喂养</span><span class="new">最新</span></div>
+      <div class="ask-b">
+        <p class="ask-q">从飞鹤星飞帆卓睿 2 段换成爱他美澳洲白金 3 段。第一天只换了早上一顿，当天拉了 3 次，后两次稍稀，和新奶粉有关吗？换完营养会变吗？辅食要改吗？</p>
+        <div class="ask-a"><b>结论：</b><b>可能有关，但便便是正常的，不算腹泻</b>——不用停，按顿慢慢换。换完总能量几乎不变，<b>铁、DHA、碘变多，脂肪少约 5 g</b>，辅食做三处小调整。 <span class="conf">置信度 中</span></div>
+        <div class="ask-s why"><h4>为什么</h4><ul><li>照片里是黄绿色糊状软便，深绿碎片是没消化完的菜叶；没有水样、黏液、血</li><li>新奶粉的<b>益生元每天约 7.5 g</b>（旧的约 2.6 g），还有益生菌——常让大便变软、次数变多，<b>一般 1–2 周稳定</b></li><li>过敏可能很低：都是牛奶蛋白，他喝了一年配方奶没问题；奶粉里的大豆卵磷脂、精炼鱼油蛋白极少</li></ul></div><div class="ask-s note"><h4>每天从奶里得到的（10 平勺）</h4><ul><li>能量 406 → <b>400 kcal</b>（不变）｜ 铁 5.2 → <b>8.5 mg</b> ｜ DHA 82 → <b>170 mg</b> ｜ 碘 77 → <b>100 μg</b></li><li>钙 387 → 635 mg ｜ 蛋白质 9.9 → 14.0 g ｜ <b>脂肪 18.5 → 13.0 g</b> ｜ 维 D 413 → 300 IU ｜ 维 A 不变（仍超上限）</li></ul></div><div class="ask-s do"><h4>怎么做</h4><ul><li><b>冲法：3 + 3 + 4 平勺，水 150 / 150 / 200 ml</b>，40 °C 左右温开水；用新罐的勺（一平勺 9.2 g 配 50 ml 水）</li><li><b>按顿换，不在一个奶瓶里混两种粉</b>：第 1–3 天换早上 → 第 4–6 天加下午 → 第 7 天起全换；偏稀就在当前一步多停几天</li><li><b>油 10 g → 12 g</b>（午、晚各 6 g），补回奶里少的脂肪</li><li><b>强化铁米粉、鸭血改为可选</b>——奶 + 肉 + 谷蔬已约 11.7 mg 铁</li><li>鱼不用再为补 DHA 而加，但皮肤稳定后仍排第一个引入；<b>奶粉里的鱼油不算「已引入鱼」</b></li><li>维生素 A 超量问题不变，11 月儿保照样问 AD 制剂</li></ul></div><div class="ask-s warn"><h4>出现这些就停下来</h4><ul><li>一天水样便 ≥ 3 次，或稀便超过 1–2 周</li><li>便里有血或黏液；呕吐、发烧、精神差、尿明显少</li><li>喝完 2 小时内起荨麻疹、嘴唇肿，或湿疹明显加重</li><li>真拉稀时奶<b>照常浓度冲，不要冲稀</b></li></ul></div>
+      </div>
+    </article>
+    <article class="ask" id="qa-20261011-lang">
+      <div class="ask-hd"><time>2026-10-11 21:43</time><span class="tag t-crit">发育</span><span class="new">最新</span></div>
+      <div class="ask-b">
+        <p class="ask-q">14 个月走得稳，但还不会有意识地叫人、说话，只会指着东西「啊」「哦」。10 个月时常模糊叫妈妈爸爸，现在少了；只在伤心或要不到东西时叫「妈妈」，而且对奶奶、爸爸也叫「妈妈」。</p>
+        <div class="ask-a"><b>结论：</b><b>只是开口晚，不是倒退。</b>当晚在家核对社交沟通 10 条，<b>全部都有</b>——不用提前挂号，11 月儿保告诉医生即可。 <span class="conf">置信度 中高</span></div>
+        <div class="ask-s why"><h4>为什么</h4><ul><li>10 个月的「妈妈爸爸」是叠音式牙牙学语（mamama），本身不是词</li><li>现在难过时叫「妈妈」是<b>带着目的</b>在用；对谁都叫「妈妈」在第一批词里很常见</li><li>10 条全有 = <b>看得懂人、会用眼神手势交流、听得懂、没有丢掉本事</b>——这类孩子最容易追上</li><li>CDC 里程碑（至少 75% 的孩子做到）：15 个月说 1–2 个词，18 个月 ≥ 3 个词</li></ul></div><div class="ask-s do"><h4>每天怎么做</h4><ul><li><b>他指，你说，再等 3–5 秒</b>：他指球「啊」→「球！」→ 停下来等他回应</li><li><b>只比他多说一两个字</b>：「球」「狗狗」「抱抱」「还要」，不要一长串</li><li><b>边做边说</b>：洗澡、穿衣时用短句，同样的事每天用同样的话</li><li><b>制造开口机会</b>：喜欢的东西放在看得见够不着的地方；他指、出声、看你都算数，<b>不逼他说对了才给</b></li><li>儿歌留空等他接（「一闪一闪亮——」）；硬纸板绘本指着图说名字</li><li>他说不准，<b>你把对的说一遍，不纠正</b></li></ul></div><div class="ask-s warn"><h4>不需要 / 要避免</h4><ul><li>会说话的电子玩具、点读笔（Sosa 2016：家长说话会变少）；「语言开发」课程</li><li>开着当背景的电视；逼他叫人；追问考他「这是什么？说！」；跟别人家孩子比</li><li>普通话、四川话混着说<b>没有问题</b></li></ul></div><div class="ask-s note"><h4>记词 + 检查点</h4><ul><li><b>同一个音 + 每次同一个意思 + 带目的说 = 一个词</b>，发音不准也算。记「日期 + 音 + 意思」</li><li><b>12 月 13 日（16 个月）还一个词都没有</b> → 语言评估 + 听力检查</li><li><b>2 月 13 日（18 个月）</b>至少 3 个词，儿保做孤独症筛查</li><li><b>任何时候</b>会的本事不会了 → 立刻就医</li><li>发给家人的图片：images/language-guide.png</li></ul></div>
+      </div>
+    </article>
+    <article class="ask" id="qa-20261011-steril">
+      <div class="ask-hd"><time>2026-10-11 21:43</time><span class="tag t-mute">日常</span><span class="new">最新</span></div>
+      <div class="ask-b">
+        <p class="ask-q">平常的餐具、奶瓶需要每次都消毒吗？尤其是紫外线消毒？</p>
+        <div class="ask-a"><b>结论：</b><b>不需要每次消毒，紫外线也不是必需的。</b>每次用完及时洗干净、完全晾干就够了。 <span class="conf">置信度 中高</span></div>
+        <div class="ask-s why"><h4>为什么</h4><ul><li>CDC：消毒主要针对 2 个月以下、早产或免疫力低的婴儿；<b>较大的健康孩子每次认真清洗，消毒可能没必要</b></li><li>紫外线只对照得到的表面有效，<b>奶嘴内腔、螺纹照不到</b>，也去不掉奶垢；长期照射可能让塑料硅胶老化</li><li>已经买了紫外线柜的话，当<b>烘干收纳</b>用很好</li></ul></div><div class="ask-s do"><h4>怎么洗</h4><ul><li>用完马上冲一下 → <b>奶瓶、奶嘴、螺圈、阀门全部拆开</b></li><li>热水 + 洗洁精，用奶瓶刷、奶嘴刷，<b>重点刷奶嘴孔和螺纹</b></li><li>冲净 → <b>自然晾干</b>，不用抹布擦 → 干了再收</li></ul></div><div class="ask-s warn"><h4>这些时候仍要消毒</h4><ul><li>生病、腹泻期间和刚好之后；新买的第一次用；水不可靠时</li><li>方法：煮沸 5 分钟 / 蒸汽 / 洗碗机高温档</li></ul></div><div class="ask-s note"><h4>比消毒更值得花精力的</h4><ul><li>冲好的奶 2 小时内喝完，<b>喝剩的倒掉</b></li><li>生肉和熟食的砧板、刀分开；剩饭及时冷藏</li><li>12–18 个月从奶瓶过渡到杯子（医嘱也写了练用杯子）</li></ul></div>
+      </div>
+    </article>
+    <article class="ask" id="qa-20260831-tooth">
+      <div class="ask-hd"><time>2026-08-31 21:15</time><span class="tag t-mute">日常</span></div>
+      <div class="ask-b">
+        <p class="ask-q">现在用的这款牙膏（KODOMO，含氟 0.05%），他不会漱口和吐水，有影响吗？</p>
+        <div class="ask-a"><b>结论：</b><b>不会吐完全没问题</b>；真正的问题是<b>浓度偏低</b>——建议换 1000–1100 ppm 含氟牙膏，米粒大小。 <span class="conf">置信度 中高</span></div>
+        <div class="ask-s why"><h4>为什么</h4><ul><li>米粒大小约 0.1 g，一天 2 次全吞下，换成 1000 ppm 也只有氟斑牙风险线的 30–43%；<b>米粒量本来就是按会吞下设计的</b></li><li>不漱口反而让氟留在牙面上，对牙更好</li><li>Cochrane 综述：<b>低于 1000 ppm 的防蛀效果和无氟牙膏没有显著差别</b>；0.05% = 500 ppm</li></ul></div><div class="ask-s do"><h4>怎么做</h4><ul><li>选标签写<b>「氟 0.10–0.11%」或「氟化钠 0.22%」</b>的，最好无香/低香（口周湿疹不受刺激）</li><li><b>顺序：喝完睡前奶 → 刷牙 → 睡觉</b>，刷完只给白水</li><li>大人刷：让他躺在腿上、从上往下看；重点是<b>上门牙外侧和牙龈交界</b></li><li>每天 2 次，睡前那次最重要；哭闹很正常，<b>别因此跳过</b></li></ul></div>
+      </div>
+    </article>
+    <article class="ask" id="qa-20260828-milk">
+      <div class="ask-hd"><time>2026-08-28 22:16</time><span class="tag t-acc">喂养</span></div>
+      <div class="ask-b">
+        <p class="ask-q">1 岁以后继续喝配方奶还是换纯牛奶？换纯牛奶的话，辅食和补剂要怎么调？</p>
+        <div class="ask-a"><b>结论：</b><b>暂时继续配方奶。</b>三个条件都满足后，可以换全脂纯牛奶（每天 ≤ 500 ml）。 <span class="conf">置信度 中高</span></div>
+        <div class="ask-s why"><h4>为什么</h4><ul><li>欧洲儿科营养学会（2018）：1–3 岁不是必须喝幼儿配方奶，它是「铁 + 维 D + DHA」的打包工具</li><li>这三样正好是他的薄弱项；<b>国内纯牛奶多不强化维 D，几乎不含铁，还抑制铁吸收</b></li></ul></div><div class="ask-s do"><h4>三个前提</h4><ul><li>① 查过<b>血清铁蛋白</b>且正常 ② 鱼已经规律吃上 ③ 湿疹稳定</li></ul></div><div class="ask-s note"><h4>真要换的话</h4><ul><li>选全脂、配料只有「生牛乳」；<b>不要调制乳、含乳饮料、儿童成长奶</b></li><li>一顿一顿换；每天不超过 500 ml</li><li>AD 制剂从「可能多余」变成<b>必需</b>；铁靠红肉、强化米粉、鸭血，并问医生要不要补铁剂</li></ul></div><div class="ask-upd"><b>后续更新：</b>10 月已换成爱他美澳洲白金 3 段（幼儿配方），铁和 DHA 都比原来高，这条结论不变。</div>
+      </div>
+    </article>
+    <article class="ask" id="qa-20260824-toys">
+      <div class="ask-hd"><time>2026-08-24 02:49</time><span class="tag t-mute">用品</span></div>
+      <div class="ask-b">
+        <p class="ask-q">这个阶段有什么值得买的玩具吗？</p>
+        <div class="ask-a"><b>结论：</b><b>玩具不会让他更聪明</b>，买它的理由就是好玩、能一起玩。唯一有实证的一条：<b>别买电子发声玩具</b>。 <span class="conf">置信度 中</span></div>
+        <div class="ask-s do"><h4>如果只买三样</h4><ul><li><b>套杯</b>（精细动作）｜<b>几本厚纸板书</b>（语言）｜<b>带阻尼的推行玩具</b>（大运动，孩子站在后面推）</li><li>毛绒玩具少而精，选能整只机洗的（他有湿疹，尘螨多藏在里面）</li><li>剩下的钱和时间花在陪他玩上</li></ul></div><div class="ask-s warn"><h4>坚决避免</h4><ul><li><b>学步车</b>（坐进去、带轮子）——和摔伤、运动发育延迟相关；医嘱也写了不用</li><li><b>磁力珠 / 巴克球</b>，任何年龄都不要</li><li>电池仓徒手能打开的玩具（纽扣电池）；能穿过卫生纸筒芯（约 4 cm）的小件</li><li>早教机、闪卡、成套「开发」玩具</li></ul></div>
+      </div>
+    </article>
+    <article class="ask" id="qa-20260823-pillow">
+      <div class="ask-hd"><time>2026-08-23 16:46</time><span class="tag t-mute">用品</span></div>
+      <div class="ask-b">
+        <p class="ask-q">这个年龄的宝宝需要用枕头吗？需要的话用什么枕头？</p>
+        <div class="ask-a"><b>结论：</b><b>1 岁不需要枕头，不给就是最好的。</b>真要给，等到 2 岁前后。 <span class="conf">置信度 高</span></div>
+        <div class="ask-s why"><h4>为什么</h4><ul><li>小孩头大肩窄，<b>平躺时平面就是最舒服的位置</b>；垫枕头反而让脖子往前弯</li><li>「不用枕头影响颈椎发育」——<b>方向是反的</b></li><li>美国 FDA 2022 年警告：<b>婴儿定型枕没有任何好处，有窒息风险</b></li></ul></div><div class="ask-s do"><h4>怎么做</h4><ul><li>怕出汗：床单上<b>平铺</b>一条纯棉薄毛巾（不团起来垫头），脏了就换</li><li>将来给枕头：薄、平、偏硬</li></ul></div>
+      </div>
+    </article>
+    <article class="ask" id="qa-20260817-plan">
+      <div class="ask-hd"><time>2026-08-17 23:05</time><span class="tag t-acc">喂养</span></div>
+      <div class="ask-b">
+        <p class="ask-q">基于现在所有的情况，重新安排一周的辅食计划（后续追问了作息、冲调、鸭血产品、蓝莓量、干重、牛油果替换）。</p>
+        <div class="ask-a"><b>结论：</b><b>不钉死菜单，守住每周几条硬指标</b>，具体吃什么按能买到的换。完整版见辅食页（feeding-week.html）。 <span class="conf">置信度 中高</span></div>
+        <div class="ask-s do"><h4>每天的时间表</h4><ul><li>07:30 奶 + 冷食早餐 ｜ 10:00 加餐（水果/酸奶/奶酪）｜ 11:45 午餐</li><li>15:30 奶 + 少量水果 ｜ 17:30 晚餐 ｜ 20:00 睡前奶 → 刷牙</li><li>每顿正餐：<b>主食 + 肉 30–35 g + 菜 35–50 g + 油 6 g</b></li></ul></div><div class="ask-s note"><h4>硬指标</h4><ul><li>红肉每周 ≥ 5 次（牛肉 ≥ 3）｜ 深色叶菜每天 ｜ 油 12 g/天 ｜ 每餐 1–2 样手指食物</li><li><b>稠度：勺子舀起来能立住</b>；粥的米水比 1:4~5，<b>不是 1:10</b></li><li>酸奶、奶酪放在 10:00 那顿，<b>不和配方奶同一顿</b></li><li>鸭血（象大厨）可用：开封后冷藏、3 天内用完、不能冷冻</li></ul></div><div class="ask-s warn"><h4>安全</h4><ul><li><b>蓝莓、葡萄必须切半</b>；整颗坚果不给；吃东西坐着、有人看</li></ul></div><div class="ask-upd"><b>后续更新：</b>10 月换爱他美后：冲法改为 150/150/200 ml，油 10 → 12 g，强化铁米粉和鸭血改为可选。</div>
+      </div>
+    </article>
+    <article class="ask" id="qa-20260817-eczema">
+      <div class="ask-hd"><time>2026-08-17 22:36</time><span class="tag t-caut">皮肤</span></div>
+      <div class="ask-b">
+        <p class="ask-q">湿疹治疗进入第三阶段，上周三起只擦克立硼罗，周四嘴唇周围开始泛红起疹，这两天扩展到脸和脖子，眼睛肿，是复发吗？（饮食没变化，没水疱，没明显发热）</p>
+        <div class="ask-a"><b>结论：</b>饮食没变、没加新东西 → <b>是停激素后的复发</b>。医生开的艾洛松方向是对的。 <span class="conf">置信度 中高</span></div>
+        <div class="ask-s do"><h4>怎么做</h4><ul><li><b>艾洛松每天 1 次，用满医嘱的 3 天</b>，量要够（1 岁脸 + 脖子约 1.5 个指尖单位）</li><li>之后<b>一级一级降</b>：每天 → 隔天 → 每周 2 次，每一步听医生的；「看着好了」不等于炎症没了</li><li>摸着热不准，<b>量腋温，≥ 37.3 °C 算发烧</b></li><li><b>皮肤稳定 1–2 周前不加任何新食物</b>（鱼、蛋、花生、虾蟹）</li><li>饭前口周涂润肤霜做隔离，饭后温水轻拍；暂避草莓、柑橘、番茄、猕猴桃碰到口周</li></ul></div><div class="ask-s warn"><h4>立即就医</h4><ul><li><b>成簇的小水疱、打孔样破溃</b>（疱疹性湿疹，他 5 月可能得过）</li><li>发烧 + 皮疹变化；大片渗液、蜜黄色结痂</li><li>嘴唇或舌头肿、呼吸费力</li></ul></div><div class="ask-upd"><b>后续更新：</b>8/18 用了 1 天就控制住。教训：以后减药不能一步跳到停激素。</div>
+      </div>
+    </article>
+    <article class="ask" id="qa-20260817-labs">
+      <div class="ask-hd"><time>2026-08-17 22:20</time><span class="tag t-calm">检查</span></div>
+      <div class="ask-b">
+        <p class="ask-q">最近几次检查结果（过敏原复查、血常规、儿保报告），识别记录一下。</p>
+        <div class="ask-a"><b>结论：</b><b>三个好转</b>：鸡蛋过敏指标 1.01 → 0.35（降 65%，卡在阴性线上）；血常规全部正常（血红蛋白 117 → 127，嗜酸 1.20 → 0.36）；生长回到「中等」。<b>新发现的轻度 O 型腿、前囟已闭都不用处理。</b> <span class="conf">置信度 高</span></div>
+        <div class="ask-s do"><h4>怎么做</h4><ul><li>O 型腿去小儿骨科看一次即可：<b>不补钙、不绑腿、不用矫正鞋垫</b></li><li>前囟早闭看头围：两个月长了 1 cm，正常</li><li>鸡蛋怎么恢复，请医生定（蛋黄耐受 ≠ 蛋清耐受）</li><li><b>血清铁蛋白仍未查</b>，放到 11 月儿保</li></ul></div><div class="ask-s warn"><h4>O 型腿要警惕</h4><ul><li>两条腿不对称、越来越重、走路疼或跛、2 岁后仍明显</li></ul></div>
+      </div>
+    </article>
+    <article class="ask" id="qa-20260815-diarrhea">
+      <div class="ask-hd"><time>2026-08-15 21:23</time><span class="tag t-mute">日常</span></div>
+      <div class="ask-b">
+        <p class="ask-q">今天拉了 5 次，前面是水样便和稀便，第 5 次有馊臭味，什么原因？（没吐、没发烧、精神好）</p>
+        <div class="ask-a"><b>结论：</b><b>可以在家处理的急性腹泻</b>，最可能是病毒性或饮食性（水果多、加量太快）。 <span class="conf">置信度 中</span></div>
+        <div class="ask-s do"><h4>怎么做</h4><ul><li><b>口服补液盐 III</b>（不是白开水），严格按说明冲；每拉一次稀便补 50–100 ml，少量多次</li><li><b>继续喂，不禁食</b>；配方奶照常浓度，<b>不要冲稀</b></li><li>补锌：元素锌每天 20 mg，连续 10–14 天</li><li>暂停 48 小时：水果（尤其苹果、梨、西梅）、果汁；油减半</li><li>护臀：温水冲、拍干、厚涂氧化锌护臀膏</li></ul></div><div class="ask-s warn"><h4>立即就医</h4><ul><li>6–8 小时没尿；精神差、嗜睡；血便；呕吐喝不进；发烧 &gt; 38.5 °C；超过 7 天</li></ul></div><div class="ask-upd"><b>后续更新：</b>8/17 前已经好了，没有复发。</div>
+      </div>
+    </article>
+    <article class="ask" id="qa-20260815-checkup">
+      <div class="ask-hd"><time>2026-08-15 15:42</time><span class="tag t-calm">检查</span></div>
+      <div class="ask-b">
+        <p class="ask-q">今天 1 岁儿保检查的结果，解读一下。</p>
+        <div class="ask-a"><b>结论：</b><b>体重问题解决了</b>：9.48 kg，回到 P25–P50「中等」。发育筛查 DQ 99 正常；骨密度 Z −0.9 正常。 <span class="conf">置信度 高</span></div>
+        <div class="ask-s do"><h4>怎么做</h4><ul><li><b>不补钙</b>：维 D 充足、骨强度正常、奶里的钙够</li><li>「运动落后 1 个月」在测量误差内，<b>不加训练课</b></li><li>报告里的训练指导是通用模板，正常玩就行</li><li>超声骨密度对健康幼儿意义不大，下次套餐里可以不做</li></ul></div><div class="ask-upd"><b>后续更新：</b>当时我按 WHO 估体重约 P45，医院按卫健委图表是 P25–P50（z −0.51），我估高了，以医院为准。</div>
+      </div>
+    </article>
+    <article class="ask" id="qa-20260804-congee">
+      <div class="ask-hd"><time>2026-08-04 00:26</time><span class="tag t-acc">喂养</span></div>
+      <div class="ask-b">
+        <p class="ask-q">社交媒体上说「粥永远都是最差的辅食」，用最严谨的方法判断一下这个观点。</p>
+        <div class="ask-a"><b>结论：</b><b>内核对，说法夸大。</b>问题不在「粥」，在「稀」——而当时小狮子吃的正是稀到滴水的粥，所以对他成立。 <span class="conf">置信度 中高</span></div>
+        <div class="ask-s why"><h4>为什么</h4><ul><li>一岁孩子一顿胃容量约 250 ml；<b>稀粥约 0.45 kcal/g，稠粥软饭约 0.9</b>——同一碗，热量差一倍</li><li>「永远」「最差」是传播用语：稠粥加肉加油，完全可以是好辅食</li></ul></div><div class="ask-s do"><h4>怎么做</h4><ul><li><b>勺子测试</b>：舀起来能立住、慢慢往下坠 = 合格；会滴水 = 太稀</li><li>米水比 1:4~5；每顿加肉、菜、油</li></ul></div>
+      </div>
+    </article>
+    <article class="ask" id="qa-20260803-meds">
+      <div class="ask-hd"><time>2026-08-03 23:11</time><span class="tag t-caut">皮肤</span></div>
+      <div class="ask-b">
+        <p class="ask-q">皮肤科的分阶段治疗（伐昔洛韦、复方甘草酸苷、卤米松、莫匹罗星、克立硼罗）会不会影响营养吸收和体重增长？</p>
+        <div class="ask-a"><b>结论：</b><b>不会。</b>口服药和强效激素都只用了 2 周。体重掉的触发是 5 月湿疹加重本身，追不回来是因为辅食太稀太少。 <span class="conf">置信度 中高</span></div>
+        <div class="ask-s do"><h4>怎么做</h4><ul><li><b>不要因此自行减药</b>——把湿疹规范控制住，本身就是在帮生长</li></ul></div>
+      </div>
+    </article>
+    <article class="ask" id="qa-20260803-start">
+      <div class="ask-hd"><time>2026-08-03 18:35</time><span class="tag t-acc">喂养</span></div>
+      <div class="ask-b">
+        <p class="ask-q">1 岁辅食应该怎么配？现在主食是粥、软饭、面条加菜和肉。另外因为湿疹，过敏原只查出鸡蛋一点，就没吃鸡蛋，海鲜也保险起见没吃。</p>
+        <div class="ask-a"><b>结论：</b>当时的问题是<b>辅食太稀、顿数太少、油太少</b>。海鲜三项检测都是阴性，<b>「对什么过敏」不会遗传</b>（爷爷海鲜过敏不等于他也会）；鸡蛋怎么恢复问医生。 <span class="conf">置信度 中高</span></div>
+        <div class="ask-s do"><h4>怎么做</h4><ul><li>粥改稠或换软饭；增加到 3 正餐 + 加餐；油加到每天 10 g（现在是 12 g）</li><li>猪肝不用（维生素 A 已超量），改用牛肉补铁</li></ul></div><div class="ask-upd"><b>后续更新：</b>8 月湿疹复发后改为：所有新过敏原等皮肤稳定 1–2 周后，按 鱼 → 蛋黄 → 全蛋（医生指导）→ 花生酱 → 虾蟹 一样一样加，间隔 ≥ 3 天。</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
 <!-- ══════════════ 1 · 原理 ══════════════ -->
-<section class="view on" id="v-why" role="tabpanel" aria-label="原理">
+<section class="view" id="v-why" role="tabpanel" aria-label="原理">
   <div class="stack">
 
     <div>
